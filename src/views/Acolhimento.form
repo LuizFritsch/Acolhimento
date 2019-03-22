@@ -27,39 +27,49 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="panelOrigemEncaminhamento" max="32767" attributes="0"/>
+                  <Component id="panelInformacoesPaciente" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="panelOrigemEncaminhamento" max="32767" attributes="0"/>
-                          <Component id="panelInformacoesPaciente" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="panelInformacoesProfissionaisPaciente" max="32767" attributes="0"/>
-                          <Component id="panelInformacoesAgravo" pref="357" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="botaoLimparTudo" min="-2" pref="101" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botaoVoltar" min="-2" pref="89" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="70" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="panelInformacoesAgravo" max="32767" attributes="0"/>
+                  <Component id="panelInformacoesProfissionaisPaciente" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="panelInformacoesPaciente" max="32767" attributes="0"/>
                   <Component id="panelInformacoesProfissionaisPaciente" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="panelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
-                  <Component id="panelInformacoesAgravo" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="panelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="botaoLimparTudo" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="botaoVoltar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,39 +141,45 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelSUS" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoSUS" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="campoSUS" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelNomePaciente" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoNomePaciente" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="campoNomePaciente" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="labelSexo" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoSexo" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="campoSexo" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoDataNascimento" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="campoDataNascimento" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelNaturalidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoNaturalidade" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      <Component id="campoNaturalidade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelNomeMae" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoNomeMae" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="labelNomeMae" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="campoNomeMae" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoEndereco" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="labelCelular" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="campoCelular" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -413,7 +429,7 @@
                   <Component id="campoMunicipioUnidadeOUOutro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="botaoLimparOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="19" max="32767" attributes="0"/>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -517,7 +533,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <Component id="labelTituloInformacoesProfissionaisPaciente" min="-2" pref="274" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="71" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -559,9 +575,9 @@
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="campoCBO" alignment="1" max="32767" attributes="0"/>
                                       <Component id="campoEmpresa" max="32767" attributes="0"/>
-                                      <Component id="campoProfissao" pref="223" max="32767" attributes="0"/>
-                                      <Component id="campoCBO" max="32767" attributes="0"/>
+                                      <Component id="campoProfissao" pref="193" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -582,22 +598,22 @@
                       <Component id="labelProfisssao" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelCBO" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campoCBO" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelCBO" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoCBO" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelEmpresa" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoEmpresa" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoRelacaoTrabalho" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelRelacaoTrabalho" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="labelRelacaoTrabalho" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoRelacaoTrabalho" min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="campoMercadoInformal" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoMercadoInformal" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="campoSituacaoTrabalho" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -809,45 +825,37 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                  <Component id="botaoLimparInformacoesRelacionadasAgravo" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="labelFisioterapiaAnteriormente" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="campoFisioterapiaAnteriormente" min="-2" pref="145" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelLaudoAposentadoriaDesdeQuando" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="campoLaudoAposentadoriaDesdeQuando" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="campoBeneficiosPrevidenciarios" alignment="1" min="-2" pref="142" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="labelTituloInformacoesAgravo" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                                          <Component id="campoEmissaoCAT" min="-2" pref="142" max="-2" attributes="0"/>
+                              <Component id="campoFisioterapiaAnteriormente" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelLaudoAposentadoriaDesdeQuando" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="campoLaudoAposentadoriaDesdeQuando" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="campoBeneficiosPrevidenciarios" alignment="1" min="-2" pref="142" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelTituloInformacoesAgravo" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
+                                              <Component id="campoEmissaoCAT" min="-2" pref="142" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
+                              <Component id="botaoLimparInformacoesRelacionadasAgravo" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="labelFisioterapiaAnteriormente" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -878,9 +886,9 @@
                       <Component id="labelFisioterapiaAnteriormente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="campoFisioterapiaAnteriormente" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="botaoLimparInformacoesRelacionadasAgravo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -980,25 +988,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="botaoLimparTudo" min="-2" pref="101" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="botaoVoltar" min="-2" pref="95" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="botaoSalvar" min="-2" pref="269" max="-2" attributes="0"/>
-              </Group>
+              <Component id="botaoSalvar" alignment="0" pref="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
-                  <Component id="botaoLimparTudo" max="32767" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <Component id="botaoSalvar" pref="40" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="botaoVoltar" alignment="0" max="32767" attributes="0"/>
-              <Component id="botaoSalvar" alignment="0" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>
@@ -1008,17 +1006,17 @@
             <Property name="text" type="java.lang.String" value="Salvar e Realizar Avalia&#xe7;&#xe3;o de Enfermagem"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="botaoVoltar">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Voltar"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="botaoLimparTudo">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Limpar Tudo"/>
-          </Properties>
-        </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="botaoLimparTudo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Tudo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="botaoVoltar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Voltar"/>
+      </Properties>
+    </Component>
   </SubComponents>
 </Form>
