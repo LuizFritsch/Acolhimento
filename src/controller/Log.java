@@ -16,13 +16,15 @@ public class Log {
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
+            /**
+             * Escreve no log a data e o erro que aconteceu
+             */
             Date data = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
             System.out.println(formatter.format(data));
             fw = new FileWriter(FILENAME,true); //O parametro true, faz com q de append ao inves de criar um novo arquivo toda vez
             bw = new BufferedWriter(fw);
             bw.append(data + "  -  " + erro + "\n");
-            System.out.println("Done");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
