@@ -1,0 +1,41 @@
+package controller;
+
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+public class Log {
+
+    private static final String PATH = "" + System.getProperty("user.dir");
+    private static final String FILENAME = "" + PATH + "\\Log.txt";
+
+    public void EscreveNoLog(String erro) {
+        BufferedWriter bw = null;
+        FileWriter fw = null;
+        try {
+            Date data = new Date();
+            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+            System.out.println(formatter.format(data));
+            fw = new FileWriter(FILENAME,true); //O parametro true, faz com q de append ao inves de criar um novo arquivo toda vez
+            bw = new BufferedWriter(fw);
+            bw.append(data + "  -  " + erro + "\n");
+            System.out.println("Done");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bw != null) {
+                    bw.close();
+                }
+                if (fw != null) {
+                    fw.close();
+                }
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+}

@@ -5,17 +5,22 @@
  */
 package views;
 
+import controller.Log;
+
 /**
  *
  * @author MarcoAntonio
  */
-public class Principal extends javax.swing.JFrame {
+public class FramePrincipal extends javax.swing.JFrame {
+
+    Log log;
 
     /**
      * Creates new form Principal
      */
-    public Principal() {
+    public FramePrincipal() {
         initComponents();
+        log = new Log();
     }
 
     /**
@@ -56,6 +61,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         botaoExcluirAcolhimentos.setText("Excluir");
+        botaoExcluirAcolhimentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirAcolhimentosActionPerformed(evt);
+            }
+        });
 
         campoPesquisarAcolhimentos.setText("Digite o nome do paciente...");
         campoPesquisarAcolhimentos.setToolTipText("Digite o nome do paciente...");
@@ -108,7 +118,7 @@ public class Principal extends javax.swing.JFrame {
                             .addComponent(botaoPesquisarAcolhimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botaoEditarAcolhimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(botaoExcluirAcolhimentos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoRealizarAcolhimento, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                            .addComponent(botaoRealizarAcolhimento, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(botaoSair)))))
@@ -154,17 +164,34 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEditarAcolhimentosActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
-        // TODO add your handling code here:
+        try {
+            /**
+             * Sair do sistema
+             */
+            System.exit(0);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+        }
     }//GEN-LAST:event_botaoSairActionPerformed
 
     private void campoPesquisarAcolhimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisarAcolhimentosActionPerformed
-    
+
     }//GEN-LAST:event_campoPesquisarAcolhimentosActionPerformed
 
     private void campoPesquisarAcolhimentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_campoPesquisarAcolhimentosMouseClicked
+        /**
+         * Se o campo de pesquisa de acolhimentos estiver com o texto padrao, ao
+         * clickar no campo, ele limpa tudo e o campo fica vazio
+         */
         if (campoPesquisarAcolhimentos.getText().toString().equals("Digite o nome do paciente...")) {
-            campoPesquisarAcolhimentos.setText("");
+            try {
+                campoPesquisarAcolhimentos.setText("");
+            } catch (Exception erro) {
+                log.EscreveNoLog(erro.getMessage());
+            }
         }
+
+
     }//GEN-LAST:event_campoPesquisarAcolhimentosMouseClicked
 
     private void campoPesquisarAcolhimentosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_campoPesquisarAcolhimentosFocusGained
@@ -176,45 +203,26 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_campoPesquisarAcolhimentosFocusLost
 
     private void botaoRealizarAcolhimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRealizarAcolhimentoActionPerformed
-        Acolhimento dialog = new Acolhimento(this, rootPaneCheckingEnabled);
-        dialog.setLocationRelativeTo(null);
-        dialog.setVisible(true);
+        try {
+            /**
+             * Abre o JFrame de acolhimento
+             */
+            Acolhimento dialog = new Acolhimento(this, rootPaneCheckingEnabled);
+            dialog.setLocationRelativeTo(null);
+            dialog.setVisible(true);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+        }
     }//GEN-LAST:event_botaoRealizarAcolhimentoActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void botaoExcluirAcolhimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirAcolhimentosActionPerformed
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
         }
-        //</editor-fold>
+    }//GEN-LAST:event_botaoExcluirAcolhimentosActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditarAcolhimentos;

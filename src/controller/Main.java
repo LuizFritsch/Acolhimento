@@ -5,17 +5,12 @@
  */
 package controller;
 
-import views.FramePrincipal;
-
 /**
  *
  * @author MarcoAntonio
  */
-public class AcolhimentoController {
-    
-    public AcolhimentoController(){
-        FramePrincipal fp = new FramePrincipal();
-        fp.setVisible(true);
+public class Main {
+    public static void main(String[] args) {
+        AcolhimentoController ac = new AcolhimentoController();
     }
-    
 }

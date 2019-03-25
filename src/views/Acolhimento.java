@@ -5,11 +5,15 @@
  */
 package views;
 
+import controller.Log;
+
 /**
  *
  * @author MarcoAntonio
  */
 public class Acolhimento extends javax.swing.JDialog {
+
+    Log log;
 
     /**
      * Creates new form Acolhimento
@@ -17,6 +21,7 @@ public class Acolhimento extends javax.swing.JDialog {
     public Acolhimento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        log = new Log();
     }
 
     /**
@@ -598,6 +603,11 @@ public class Acolhimento extends javax.swing.JDialog {
         botaoLimparTudo.setText("Limpar Tudo");
 
         botaoVoltar.setText("Voltar");
+        botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoVoltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -676,48 +686,22 @@ public class Acolhimento extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoOutroObjetivoConsultaActionPerformed
 
+    private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        try {
+            /**
+             * Voltar para a tela principal apenas escondendo a tela do acolhimento
+             */
+            this.setLocationRelativeTo(null);
+            this.setVisible(false);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+        }
+
+    }//GEN-LAST:event_botaoVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Acolhimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Acolhimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Acolhimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Acolhimento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Acolhimento dialog = new Acolhimento(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoLimparInformacoesPaciente;
@@ -789,17 +773,5 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JPanel panelInformacoesProfissionaisPaciente;
     private javax.swing.JPanel panelOrigemEncaminhamento;
     // End of variables declaration//GEN-END:variables
-    
-    
-    /**
-     * 
-     */
-    private void initCSexo() {
-        try {
-            campoSexo.addItem("Masculino");
-            campoSexo.addItem("Feminino");
-        } catch (Exception e) {
-        
-        }
-    }
+
 }
