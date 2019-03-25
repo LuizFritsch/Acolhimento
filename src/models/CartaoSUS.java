@@ -26,10 +26,12 @@ public class CartaoSUS {
     public CartaoSUS(String nmrCartaoSUS, String CGS) {
         log = new Log();
         try {
-            if (contemCharacter(nmrCartaoSUS)) {
+            if (!contemCharacter(nmrCartaoSUS)) {
                 throw new Exception("O cartão contem caracteres não númericos");
+            } else {
+                this.numeroCartaoSUS = nmrCartaoSUS;
+                this.setNumeroCartaoSUS(nmrCartaoSUS);
             }
-            this.numeroCartaoSUS = nmrCartaoSUS;
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, "Erro:" + erro.getMessage());

@@ -66,8 +66,8 @@ public class CartaoSUSTest {
 
     @Test
     public void testSetNumeroCartaoSUSComParametroIncorreto() {
-        exception.expect(Exception.class);
         CartaoSUS instance = new CartaoSUS("ABCVC", "AS");
+        assertNull(instance.getNumeroCartaoSUS());
     }
 
     /**
