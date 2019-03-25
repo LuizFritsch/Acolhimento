@@ -222,7 +222,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             log.EscreveNoLog(erro.getMessage());
         }
     }//GEN-LAST:event_botaoExcluirAcolhimentosActionPerformed
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditarAcolhimentos;

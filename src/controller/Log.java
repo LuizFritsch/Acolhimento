@@ -21,7 +21,6 @@ public class Log {
              */
             Date data = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-            System.out.println(formatter.format(data));
             fw = new FileWriter(FILENAME,true); //O parametro true, faz com q dê append ao inves de criar um novo arquivo toda vez
             bw = new BufferedWriter(fw);
             bw.append(data + "  -  " + erro + "\n");
