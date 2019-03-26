@@ -26,10 +26,10 @@ public class CartaoSUS {
 
     }
 
-    public CartaoSUS(String nmrCartaoSUS, String CGS) throws CartaoSUSExceptions{
+    public CartaoSUS(String nmrCartaoSUS, String CGS) throws CartaoSUSExceptions {
         log = new Log();
         utilidades = new Utils();
-        
+
         if (utilidades.naoContemCharacter(nmrCartaoSUS)) {
             this.numeroCartaoSUS = nmrCartaoSUS;
             if (utilidades.naoContemCharacter(CGS)) {
@@ -67,6 +67,7 @@ public class CartaoSUS {
 
     @Override
     public String toString() {
-        return "CartaoSUS{" + "numeroCartaoSUS=" + numeroCartaoSUS + ", consultaGeralSaudeCGS=" + consultaGeralSaudeCGS + '}';
+        return "CartaoSUS{" + "numeroCartaoSUS=" + numeroCartaoSUS + ", consultaGeralSaudeCGS=" + consultaGeralSaudeCGS + ", log=" + log + ", utilidades=" + utilidades + ", cs=" + cs + '}';
     }
+
 }
