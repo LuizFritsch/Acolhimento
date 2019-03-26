@@ -15,7 +15,7 @@ public class Utils {
 
     }
 
-    public final boolean naoContemCharacter(String nmrCartao) {
+    public final boolean naoContemCaracterNaoNumerico(String nmrCartao) {
         boolean contemDigito = false;
 
         if (nmrCartao != null && !nmrCartao.isEmpty()) {

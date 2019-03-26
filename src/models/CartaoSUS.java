@@ -30,9 +30,9 @@ public class CartaoSUS {
         log = new Log();
         utilidades = new Utils();
 
-        if (utilidades.naoContemCharacter(nmrCartaoSUS)) {
+        if (utilidades.naoContemCaracterNaoNumerico(nmrCartaoSUS)) {
             this.numeroCartaoSUS = nmrCartaoSUS;
-            if (utilidades.naoContemCharacter(CGS)) {
+            if (utilidades.naoContemCaracterNaoNumerico(CGS)) {
                 this.consultaGeralSaudeCGS = CGS;
             } else {
                 cs = new CartaoSUSExceptions("O CGS está incorreto: contém caracteres não númericos");

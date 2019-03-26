@@ -5,20 +5,24 @@
  */
 package models;
 
+import controller.Utils;
+
 /**
  *
  * @author luizfritsch
  */
 public class Residencia {
+
     private String rua;
     private String numero;
     private String bairro;
     private String cidade;
+    private Utils utilidades;
 
-    public Residencia(){
-        
+    public Residencia() {
+
     }
-    
+
     public Residencia(String rua, String numero, String bairro, String cidade) {
         this.rua = rua;
         this.numero = numero;
@@ -62,7 +66,5 @@ public class Residencia {
     public String toString() {
         return "Residencia{" + "rua=" + rua + ", numero=" + numero + ", bairro=" + bairro + ", cidade=" + cidade + '}';
     }
-    
-    
-    
+
 }
