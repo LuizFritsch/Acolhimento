@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class CartaoSUS {
 

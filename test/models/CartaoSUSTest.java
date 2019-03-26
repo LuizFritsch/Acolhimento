@@ -17,7 +17,7 @@ import org.junit.rules.ExpectedException;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class CartaoSUSTest {
 

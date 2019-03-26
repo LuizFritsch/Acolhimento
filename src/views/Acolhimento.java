@@ -9,7 +9,7 @@ import controller.Log;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class Acolhimento extends javax.swing.JDialog {
 

@@ -9,7 +9,7 @@ import views.FramePrincipal;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class AcolhimentoController {
     

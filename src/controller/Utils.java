@@ -7,7 +7,7 @@ package controller;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class Utils {
 

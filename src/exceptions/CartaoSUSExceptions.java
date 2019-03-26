@@ -7,7 +7,7 @@ package exceptions;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class CartaoSUSExceptions extends Exception {
 

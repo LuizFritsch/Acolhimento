@@ -9,7 +9,7 @@ import controller.Log;
 
 /**
  *
- * @author MarcoAntonio
+ * @author LuizFritsch
  */
 public class FramePrincipal extends javax.swing.JFrame {
 
