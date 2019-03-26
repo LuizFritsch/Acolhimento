@@ -5,11 +5,9 @@
  */
 package models;
 
-import controller.AcolhimentoController;
 import controller.Log;
 import controller.Utils;
 import exceptions.CartaoSUSExceptions;
-import java.math.BigInteger;
 import javax.swing.JOptionPane;
 
 /**
