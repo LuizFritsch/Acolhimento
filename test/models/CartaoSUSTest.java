@@ -5,6 +5,7 @@
  */
 package models;
 
+import exceptions.CartaoSUSExceptions;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -20,30 +21,20 @@ import org.junit.rules.ExpectedException;
  */
 public class CartaoSUSTest {
 
+    public CartaoSUSExceptions csNmr;
+    public CartaoSUSExceptions csCGS;
+
     public CartaoSUSTest() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
-
-    @Before
-    public void setUp() {
-    }
-
-    @After
-    public void tearDown() {
+        csNmr = new CartaoSUSExceptions("O cartão SUS está incorreto: contém caracteres não númericos");
+        csCGS = new CartaoSUSExceptions("O CGS está incorreto: contém caracteres não númericos");
     }
 
     /**
-     * Test of getNumeroCartaoSUS method, of class CartaoSUS.
+     * Test of getNumeroCartaoSUS method, of class CartaoSUS. utilizando valor
+     * real de cartao sus
      */
     @Test
-    public void testGetNumeroCartaoSUS() {
+    public void test1GetNumeroCartaoSUS() {
         String numeroCartaoSUS = "898000085774482";
         CartaoSUS instance = new CartaoSUS();
         instance.setNumeroCartaoSUS(numeroCartaoSUS);
@@ -51,47 +42,54 @@ public class CartaoSUSTest {
     }
 
     /**
-     * Test of setNumeroCartaoSUS method, of class CartaoSUS.
+     * Test of setNumeroCartaoSUS method, of class CartaoSUS. Utilizando valor
+     * real de cartao sus
      */
     @Test
-    public void testSetNumeroCartaoSUS() {
+    public void test2SetNumeroCartaoSUSComValorValidoReal() {
         String numeroCartaoSUS = "898000085774482";
         CartaoSUS instance = new CartaoSUS();
         instance.setNumeroCartaoSUS(numeroCartaoSUS);
         assertTrue(instance.getNumeroCartaoSUS().equals("898000085774482"));
     }
 
-    @Rule
-    public final ExpectedException exception = ExpectedException.none();
-
+    /**
+     * Test of construtor usando parametros nmr cartao sus e cgs incorreto.
+     * Utilizando caracter nao numerico
+     */
     @Test
-    public void testSetNumeroCartaoSUSComParametroIncorreto() {
-        CartaoSUS instance = new CartaoSUS("ABCVC", "AS");
-        assertNull(instance.getNumeroCartaoSUS());
+    public void test3() {
+        try {
+            CartaoSUS instance = new CartaoSUS("ABCVC", "AS");
+        } catch (Exception e) {
+            assertEquals(csNmr.getMessage(), e.getMessage());
+        }
     }
 
     /**
-     * Test of getConsultaGeralSaudeCGS method, of class CartaoSUS.
+     * Test of construtor usando parametro CGS incorreto. Utilizando caracter
+     * nao numerico
      */
     @Test
-    public void testGetConsultaGeralSaudeCGS() {
-
+    public void test4() {
+        try {
+            CartaoSUS instance = new CartaoSUS("123", "AS");
+        } catch (Exception e) {
+            assertEquals(csCGS.getMessage(), e.getMessage());
+        }
     }
 
     /**
-     * Test of setConsultaGeralSaudeCGS method, of class CartaoSUS.
+     * Test of construtor usando parametro nmr cartao sus incorreto. Utilizando
+     * caracter nao numerico
      */
     @Test
-    public void testSetConsultaGeralSaudeCGS() {
-
-    }
-
-    /**
-     * Test of toString method, of class CartaoSUS.
-     */
-    @Test
-    public void testToString() {
-
+    public void test5() {
+        try {
+            CartaoSUS instance = new CartaoSUS("AS", "123");
+        } catch (Exception e) {
+            assertEquals(csNmr.getMessage(), e.getMessage());
+        }
     }
 
 }

@@ -5,7 +5,10 @@
  */
 package models;
 
+import controller.AcolhimentoController;
 import controller.Log;
+import controller.Utils;
+import exceptions.CartaoSUSExceptions;
 import java.math.BigInteger;
 import javax.swing.JOptionPane;
 
@@ -18,30 +21,34 @@ public class CartaoSUS {
     private String numeroCartaoSUS;
     private String consultaGeralSaudeCGS;
     private Log log;
+    private Utils utilidades;
+    private CartaoSUSExceptions cs;
 
     public CartaoSUS() {
 
     }
 
-    public CartaoSUS(String nmrCartaoSUS, String CGS) {
+    public CartaoSUS(String nmrCartaoSUS, String CGS) throws CartaoSUSExceptions{
         log = new Log();
-        try {
-            if (!contemCharacter(nmrCartaoSUS)) {
-                throw new Exception("O cartão contem caracteres não númericos");
+        utilidades = new Utils();
+        
+        if (utilidades.naoContemCharacter(nmrCartaoSUS)) {
+            this.numeroCartaoSUS = nmrCartaoSUS;
+            if (utilidades.naoContemCharacter(CGS)) {
+                this.consultaGeralSaudeCGS = CGS;
             } else {
-                this.numeroCartaoSUS = nmrCartaoSUS;
-                this.setNumeroCartaoSUS(nmrCartaoSUS);
+                cs = new CartaoSUSExceptions("O CGS está incorreto: contém caracteres não númericos");
+                log.EscreveNoLog(cs.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
+                throw cs;
             }
-        } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro:" + erro.getMessage());
+        } else {
+            cs = new CartaoSUSExceptions("O cartão SUS está incorreto: contém caracteres não númericos");
+            log.EscreveNoLog(cs.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
+            throw cs;
         }
-        try {
-            this.consultaGeralSaudeCGS = CGS;
-        } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, "O CGS está incorreto, tente novamente!");
-        }
+
     }
 
     public String getNumeroCartaoSUS() {
@@ -58,19 +65,6 @@ public class CartaoSUS {
 
     public void setConsultaGeralSaudeCGS(String consultaGeralSaudeCGS) {
         this.consultaGeralSaudeCGS = consultaGeralSaudeCGS;
-    }
-
-    public final boolean contemCharacter(String nmrCartao) {
-        boolean contemDigito = false;
-
-        if (nmrCartao != null && !nmrCartao.isEmpty()) {
-            for (char c : nmrCartao.toCharArray()) {
-                if (contemDigito = Character.isDigit(c)) {
-                    break;
-                }
-            }
-        }
-        return contemDigito;
     }
 
     @Override
