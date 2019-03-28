@@ -5,7 +5,9 @@
  */
 package views;
 
+import controller.AcolhimentoController;
 import controller.Log;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -13,7 +15,7 @@ import controller.Log;
  */
 public class Acolhimento extends javax.swing.JDialog {
 
-    Log log;
+    private Log log;
 
     /**
      * Creates new form Acolhimento
@@ -22,6 +24,7 @@ public class Acolhimento extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         log = new Log();
+
     }
 
     /**
@@ -128,7 +131,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSexo.setLabelFor(campoSexo);
         labelSexo.setText("Sexo:");
 
-        campoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Outro" }));
 
         labelDataNascimento.setLabelFor(campoDataNascimento);
         labelDataNascimento.setText("Data de nascimento:");
@@ -148,7 +151,8 @@ public class Acolhimento extends javax.swing.JDialog {
         labelEscolaridade.setLabelFor(campoEscolaridade);
         labelEscolaridade.setText("Escolaridade:");
 
-        campoEscolaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoEscolaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não sabe ler/Escrever", "1o Grau incompleto", "Ensino médio incompleto", "Superior Incompleto", "Especialização/Residencia", "1o Grau Completo", "Ensino médio completo", "Superior completo", "Mestrado", "Doutorado" }));
+        campoEscolaridade.setSelectedIndex(6);
 
         botaoLimparInformacoesPaciente.setText("Limpar");
         botaoLimparInformacoesPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -194,7 +198,7 @@ public class Acolhimento extends javax.swing.JDialog {
                                     .addComponent(campoEndereco)
                                     .addComponent(campoCelular)
                                     .addComponent(campoEscolaridade, 0, 203, Short.MAX_VALUE))))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInformacoesPacienteLayout.setVerticalGroup(
             panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,12 +314,12 @@ public class Acolhimento extends javax.swing.JDialog {
                                     .addComponent(checkINSS)
                                     .addComponent(checkSindicato)
                                     .addComponent(checkServMedicoPart))
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                                 .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(checkMunicipio)
                                     .addComponent(checkUnidade)
                                     .addComponent(checkSUS))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(71, 71, 71)
                                 .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(checkSem)
                                     .addComponent(checkEmpresa)
@@ -335,27 +339,30 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(labelOrigemEncaminhamento)
                 .addGap(18, 18, 18)
-                .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(checkINSS)
-                    .addComponent(checkSUS)
-                    .addComponent(checkEmpresa))
                 .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelOrigemEncaminhamentoLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(checkSindicato))
-                    .addGroup(panelOrigemEncaminhamentoLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
                         .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(checkMunicipio)
-                            .addComponent(checkSem))))
+                            .addComponent(checkINSS)
+                            .addComponent(checkEmpresa))
+                        .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelOrigemEncaminhamentoLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(checkSindicato))
+                            .addGroup(panelOrigemEncaminhamentoLayout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(checkSem)))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(checkOutro)
+                            .addComponent(checkServMedicoPart)))
+                    .addGroup(panelOrigemEncaminhamentoLayout.createSequentialGroup()
+                        .addComponent(checkSUS)
+                        .addGap(26, 26, 26)
+                        .addComponent(checkMunicipio)
+                        .addGap(18, 18, 18)
+                        .addComponent(checkUnidade)))
                 .addGap(18, 18, 18)
-                .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(checkOutro)
-                    .addGroup(panelOrigemEncaminhamentoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(checkUnidade)
-                        .addComponent(checkServMedicoPart)))
-                .addGap(18, 18, 18)
-                .addComponent(campoMunicipioUnidadeOUOutro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(campoMunicipioUnidadeOUOutro, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(botaoLimparOrigemEncaminhamento)
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -375,6 +382,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelCBO.setLabelFor(campoCBO);
         labelCBO.setText("CBO:");
 
+        campoCBO.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         campoCBO.setEnabled(false);
         campoCBO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -388,7 +396,12 @@ public class Acolhimento extends javax.swing.JDialog {
         labelRelacaoTrabalho.setLabelFor(campoRelacaoTrabalho);
         labelRelacaoTrabalho.setText("Relação de Trabalho:");
 
-        campoRelacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoRelacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado", "Desempregado", "Aposentado", "Empregado", "Autônomo", "Mercado Informal" }));
+        campoRelacaoTrabalho.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                campoRelacaoTrabalhoItemStateChanged(evt);
+            }
+        });
 
         campoMercadoInformal.setDisabledTextColor(new java.awt.Color(102, 102, 102));
         campoMercadoInformal.setEnabled(false);
@@ -396,16 +409,22 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSituacaoTrabalho.setLabelFor(campoSituacaoTrabalho);
         labelSituacaoTrabalho.setText("Situação de Trabalho:");
 
-        campoSituacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoSituacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo na mesma ocupação", "Empregado", "Afastado", "Autonomo", "Aposentado", "Mercado Informal" }));
+        campoSituacaoTrabalho.setSelectedIndex(2);
 
         labelCarteiraTrabalho.setLabelFor(campoCarteiraTrabalho);
         labelCarteiraTrabalho.setText("Carteira de Trabalho:");
 
-        campoCarteiraTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoCarteiraTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado com carteira", "Assalariado com dispensa de assinatura da carteira pelo RJU", "Não assalariado", "Assalariado sem carteira assinada", "Não se aplica" }));
 
         labelObjetivoConsulta.setText("Objetivo Da Consulta:");
 
-        campoObjetivoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoObjetivoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Esclarecimento diagnóstico", "Tratamento", "Outro" }));
+        campoObjetivoConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoObjetivoConsultaActionPerformed(evt);
+            }
+        });
 
         campoOutroObjetivoConsulta.setEnabled(false);
         campoOutroObjetivoConsulta.addActionListener(new java.awt.event.ActionListener() {
@@ -431,9 +450,9 @@ public class Acolhimento extends javax.swing.JDialog {
                             .addGroup(panelInformacoesProfissionaisPacienteLayout.createSequentialGroup()
                                 .addComponent(labelObjetivoConsulta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoObjetivoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(campoObjetivoConsulta, 0, 1, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(campoOutroObjetivoConsulta))
+                                .addComponent(campoOutroObjetivoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(panelInformacoesProfissionaisPacienteLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addComponent(labelCarteiraTrabalho)
@@ -460,8 +479,8 @@ public class Acolhimento extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(campoCBO, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(campoEmpresa)
-                                    .addComponent(campoProfissao, 0, 193, Short.MAX_VALUE))))
+                                    .addComponent(campoProfissao, 0, 374, Short.MAX_VALUE)
+                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(30, 30, 30))))
         );
         panelInformacoesProfissionaisPacienteLayout.setVerticalGroup(
@@ -512,17 +531,18 @@ public class Acolhimento extends javax.swing.JDialog {
 
         labelEmissaoCAT.setText("Emissão de CAT:");
 
-        campoEmissaoCAT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoEmissaoCAT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Emitida", "Não emitida", "Não sabe", "Não se aplica" }));
 
         labelBeneficiosPrevidenciarios.setText("Beneficios Previdenciários:");
 
-        campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não recebe aposentadoria", "1º Grau", "Auxílio", "Auxílio acidente", "Acidentária", "Aposentadoria Previdenciária", "Aposentadoria tempo de serviço, idade ou especial", "Não se aplica", "Não sabe informar" }));
 
         labelLaudoAposentadoriaDesdeQuando.setText("Laudo/Aposentadoria, desde quando?");
 
         labelFisioterapiaAnteriormente.setText("Realizou fisioterapia anteriormente?");
 
-        campoFisioterapiaAnteriormente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        campoFisioterapiaAnteriormente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
+        campoFisioterapiaAnteriormente.setSelectedIndex(1);
 
         botaoLimparInformacoesRelacionadasAgravo.setText("Limpar");
 
@@ -532,30 +552,26 @@ public class Acolhimento extends javax.swing.JDialog {
             panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
-                        .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(campoFisioterapiaAnteriormente, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botaoLimparInformacoesRelacionadasAgravo)
+                    .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(campoEmissaoCAT, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(campoBeneficiosPrevidenciarios, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(labelFisioterapiaAnteriormente)
+                                .addComponent(labelBeneficiosPrevidenciarios)
+                                .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
+                                    .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(labelTituloInformacoesAgravo, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelEmissaoCAT, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addGap(80, 80, 80))
                                 .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
                                     .addComponent(labelLaudoAposentadoriaDesdeQuando)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(campoLaudoAposentadoriaDesdeQuando))
-                                .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(campoBeneficiosPrevidenciarios, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(labelTituloInformacoesAgravo)
-                                        .addComponent(labelEmissaoCAT)
-                                        .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
-                                            .addGap(193, 193, 193)
-                                            .addComponent(campoEmissaoCAT, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(botaoLimparInformacoesRelacionadasAgravo))
-                        .addGap(0, 25, Short.MAX_VALUE))
-                    .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
-                        .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelFisioterapiaAnteriormente)
-                            .addComponent(labelBeneficiosPrevidenciarios))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(campoLaudoAposentadoriaDesdeQuando, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(campoFisioterapiaAnteriormente, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28))
         );
         panelInformacoesAgravoLayout.setVerticalGroup(
             panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -586,12 +602,18 @@ public class Acolhimento extends javax.swing.JDialog {
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         botaoSalvar.setText("Salvar e Realizar Avaliação de Enfermagem");
+        botaoSalvar.setToolTipText("Salvar e Realizar Avaliação de Enfermagem");
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(botaoSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 227, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -615,16 +637,17 @@ public class Acolhimento extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelOrigemEncaminhamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelInformacoesPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoLimparTudo, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(21, 21, 21)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(panelInformacoesPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(panelOrigemEncaminhamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelInformacoesAgravo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelInformacoesProfissionaisPaciente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -648,7 +671,7 @@ public class Acolhimento extends javax.swing.JDialog {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(botaoLimparTudo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(botaoVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(56, 56, 56))
+                .addContainerGap())
         );
 
         pack();
@@ -671,7 +694,20 @@ public class Acolhimento extends javax.swing.JDialog {
     }//GEN-LAST:event_checkServMedicoPartActionPerformed
 
     private void checkOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOutroActionPerformed
-        // TODO add your handling code here:
+        /**
+         * Se o checkbox com valor outro tá selecionado, deixa o textfield
+         * visivel
+         */
+        try {
+            if (this.checkOutro.isSelected()) {
+                this.campoMunicipioUnidadeOUOutro.setEnabled(true);
+            } else {
+                this.campoMunicipioUnidadeOUOutro.setEnabled(false);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
     }//GEN-LAST:event_checkOutroActionPerformed
 
     private void campoCBOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoCBOActionPerformed
@@ -687,10 +723,10 @@ public class Acolhimento extends javax.swing.JDialog {
     }//GEN-LAST:event_campoOutroObjetivoConsultaActionPerformed
 
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
+        /**
+         * Voltar para a tela principal apenas escondendo a tela do acolhimento
+         */
         try {
-            /**
-             * Voltar para a tela principal apenas escondendo a tela do acolhimento
-             */
             this.setLocationRelativeTo(null);
             this.setVisible(false);
         } catch (Exception erro) {
@@ -698,6 +734,45 @@ public class Acolhimento extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_botaoVoltarActionPerformed
+
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+
+    }//GEN-LAST:event_botaoSalvarActionPerformed
+
+    private void campoRelacaoTrabalhoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_campoRelacaoTrabalhoItemStateChanged
+        /**
+         * Se selecionar o item mercado informal no combobox, o textfield para
+         * especificar fica visivel
+         */
+        try {
+            if (campoRelacaoTrabalho.getSelectedItem().toString().equals("Mercado Informal")) {
+                this.campoMercadoInformal.setEnabled(true);
+            } else {
+                this.campoMercadoInformal.setEnabled(false);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+
+    }//GEN-LAST:event_campoRelacaoTrabalhoItemStateChanged
+
+    private void campoObjetivoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoObjetivoConsultaActionPerformed
+        /**
+         * Se selecionar que o objetivo da consulta for outro, deixa enabled o
+         * textfield para especificar o outro
+         */
+        try {
+            if (this.campoObjetivoConsulta.getSelectedItem().toString().equals("Outro")) {
+                this.campoOutroObjetivoConsulta.setEnabled(true);
+            } else {
+                this.campoOutroObjetivoConsulta.setEnabled(false);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_campoObjetivoConsultaActionPerformed
 
     /**
      * @param args the command line arguments

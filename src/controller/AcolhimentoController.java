@@ -5,6 +5,7 @@
  */
 package controller;
 
+import javax.swing.JOptionPane;
 import views.FramePrincipal;
 
 /**
@@ -12,10 +13,20 @@ import views.FramePrincipal;
  * @author LuizFritsch
  */
 public class AcolhimentoController {
-    
-    public AcolhimentoController(){
-        FramePrincipal fp = new FramePrincipal();
-        fp.setVisible(true);
+
+    private Log log;
+
+    public AcolhimentoController() {
+
+        try {
+            FramePrincipal fp = new FramePrincipal();
+            fp.setVisible(true);
+        } catch (Exception erro) {
+            log = new Log();
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+
     }
-    
+
 }

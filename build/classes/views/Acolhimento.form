@@ -26,18 +26,20 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="panelOrigemEncaminhamento" max="32767" attributes="0"/>
-                  <Component id="panelInformacoesPaciente" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="botaoLimparTudo" min="-2" pref="101" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="botaoVoltar" min="-2" pref="89" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="panelInformacoesPaciente" alignment="0" max="32767" attributes="0"/>
+                      <Component id="panelOrigemEncaminhamento" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="panelInformacoesAgravo" max="32767" attributes="0"/>
                   <Component id="panelInformacoesProfissionaisPaciente" max="32767" attributes="0"/>
@@ -69,7 +71,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -129,7 +131,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -245,11 +247,10 @@
         <Component class="javax.swing.JComboBox" name="campoSexo">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Masculino"/>
+                <StringItem index="1" value="Feminino"/>
+                <StringItem index="2" value="Outro"/>
               </StringArray>
             </Property>
           </Properties>
@@ -318,13 +319,20 @@
         <Component class="javax.swing.JComboBox" name="campoEscolaridade">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="10">
+                <StringItem index="0" value="N&#xe3;o sabe ler/Escrever"/>
+                <StringItem index="1" value="1o Grau incompleto"/>
+                <StringItem index="2" value="Ensino m&#xe9;dio incompleto"/>
+                <StringItem index="3" value="Superior Incompleto"/>
+                <StringItem index="4" value="Especializa&#xe7;&#xe3;o/Residencia"/>
+                <StringItem index="5" value="1o Grau Completo"/>
+                <StringItem index="6" value="Ensino m&#xe9;dio completo"/>
+                <StringItem index="7" value="Superior completo"/>
+                <StringItem index="8" value="Mestrado"/>
+                <StringItem index="9" value="Doutorado"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="6"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -364,13 +372,13 @@
                                       <Component id="checkSindicato" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="checkServMedicoPart" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <EmptySpace pref="51" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="checkMunicipio" min="-2" max="-2" attributes="0"/>
                                       <Component id="checkUnidade" min="-2" max="-2" attributes="0"/>
                                       <Component id="checkSUS" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="checkSem" min="-2" max="-2" attributes="0"/>
                                       <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
@@ -399,34 +407,38 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="checkINSS" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkSUS" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="checkEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="checkSindicato" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="checkMunicipio" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkSem" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkINSS" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="checkSindicato" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                  <Component id="checkSem" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="checkOutro" min="-2" max="-2" attributes="0"/>
+                              <Component id="checkServMedicoPart" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="checkOutro" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="checkUnidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="checkServMedicoPart" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="checkSUS" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="checkMunicipio" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="checkUnidade" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="campoMunicipioUnidadeOUOutro" min="-2" max="-2" attributes="0"/>
+                  <Component id="campoMunicipioUnidadeOUOutro" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="botaoLimparOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
@@ -537,12 +549,12 @@
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="labelObjetivoConsulta" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="campoObjetivoConsulta" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Component id="campoObjetivoConsulta" pref="0" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="campoOutroObjetivoConsulta" max="32767" attributes="0"/>
+                                  <Component id="campoOutroObjetivoConsulta" min="-2" pref="212" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
@@ -576,8 +588,8 @@
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="campoCBO" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="campoEmpresa" max="32767" attributes="0"/>
-                                      <Component id="campoProfissao" pref="193" max="32767" attributes="0"/>
+                                      <Component id="campoProfissao" pref="374" max="32767" attributes="0"/>
+                                      <Component id="campoEmpresa" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -682,6 +694,9 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoCBO">
           <Properties>
+            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -709,14 +724,19 @@
         <Component class="javax.swing.JComboBox" name="campoRelacaoTrabalho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="6">
+                <StringItem index="0" value="Assalariado"/>
+                <StringItem index="1" value="Desempregado"/>
+                <StringItem index="2" value="Aposentado"/>
+                <StringItem index="3" value="Empregado"/>
+                <StringItem index="4" value="Aut&#xf4;nomo"/>
+                <StringItem index="5" value="Mercado Informal"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="campoRelacaoTrabalhoItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -740,13 +760,16 @@
         <Component class="javax.swing.JComboBox" name="campoSituacaoTrabalho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="6">
+                <StringItem index="0" value="Ativo na mesma ocupa&#xe7;&#xe3;o"/>
+                <StringItem index="1" value="Empregado"/>
+                <StringItem index="2" value="Afastado"/>
+                <StringItem index="3" value="Autonomo"/>
+                <StringItem index="4" value="Aposentado"/>
+                <StringItem index="5" value="Mercado Informal"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="2"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -763,11 +786,12 @@
         <Component class="javax.swing.JComboBox" name="campoCarteiraTrabalho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="5">
+                <StringItem index="0" value="Assalariado com carteira"/>
+                <StringItem index="1" value="Assalariado com dispensa de assinatura da carteira pelo RJU"/>
+                <StringItem index="2" value="N&#xe3;o assalariado"/>
+                <StringItem index="3" value="Assalariado sem carteira assinada"/>
+                <StringItem index="4" value="N&#xe3;o se aplica"/>
               </StringArray>
             </Property>
           </Properties>
@@ -783,14 +807,16 @@
         <Component class="javax.swing.JComboBox" name="campoObjetivoConsulta">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="3">
+                <StringItem index="0" value="Esclarecimento diagn&#xf3;stico"/>
+                <StringItem index="1" value="Tratamento"/>
+                <StringItem index="2" value="Outro"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoObjetivoConsultaActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -822,42 +848,35 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="campoFisioterapiaAnteriormente" alignment="1" min="-2" pref="118" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="botaoLimparInformacoesRelacionadasAgravo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="campoEmissaoCAT" alignment="1" min="-2" pref="309" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="campoBeneficiosPrevidenciarios" alignment="1" min="-2" pref="309" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="labelFisioterapiaAnteriormente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="labelTituloInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="labelLaudoAposentadoriaDesdeQuando" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="campoLaudoAposentadoriaDesdeQuando" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Component id="campoBeneficiosPrevidenciarios" alignment="1" min="-2" pref="142" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelTituloInformacoesAgravo" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
-                                              <Component id="campoEmissaoCAT" min="-2" pref="142" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                      <Component id="campoLaudoAposentadoriaDesdeQuando" min="-2" pref="279" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Component id="botaoLimparInformacoesRelacionadasAgravo" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="25" max="32767" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelFisioterapiaAnteriormente" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="campoFisioterapiaAnteriormente" alignment="1" min="-2" pref="279" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -911,10 +930,10 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+                <StringItem index="0" value="Emitida"/>
+                <StringItem index="1" value="N&#xe3;o emitida"/>
+                <StringItem index="2" value="N&#xe3;o sabe"/>
+                <StringItem index="3" value="N&#xe3;o se aplica"/>
               </StringArray>
             </Property>
           </Properties>
@@ -930,11 +949,16 @@
         <Component class="javax.swing.JComboBox" name="campoBeneficiosPrevidenciarios">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="9">
+                <StringItem index="0" value="N&#xe3;o recebe aposentadoria"/>
+                <StringItem index="1" value="1&#xba; Grau"/>
+                <StringItem index="2" value="Aux&#xed;lio"/>
+                <StringItem index="3" value="Aux&#xed;lio acidente"/>
+                <StringItem index="4" value="Acident&#xe1;ria"/>
+                <StringItem index="5" value="Aposentadoria Previdenci&#xe1;ria"/>
+                <StringItem index="6" value="Aposentadoria tempo de servi&#xe7;o, idade ou especial"/>
+                <StringItem index="7" value="N&#xe3;o se aplica"/>
+                <StringItem index="8" value="N&#xe3;o sabe informar"/>
               </StringArray>
             </Property>
           </Properties>
@@ -957,13 +981,12 @@
         <Component class="javax.swing.JComboBox" name="campoFisioterapiaAnteriormente">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Item 1"/>
-                <StringItem index="1" value="Item 2"/>
-                <StringItem index="2" value="Item 3"/>
-                <StringItem index="3" value="Item 4"/>
+              <StringArray count="2">
+                <StringItem index="0" value="Sim"/>
+                <StringItem index="1" value="N&#xe3;o"/>
               </StringArray>
             </Property>
+            <Property name="selectedIndex" type="int" value="1"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -988,7 +1011,7 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="botaoSalvar" alignment="0" pref="0" max="32767" attributes="0"/>
+              <Component id="botaoSalvar" alignment="0" pref="227" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -1004,7 +1027,11 @@
         <Component class="javax.swing.JButton" name="botaoSalvar">
           <Properties>
             <Property name="text" type="java.lang.String" value="Salvar e Realizar Avalia&#xe7;&#xe3;o de Enfermagem"/>
+            <Property name="toolTipText" type="java.lang.String" value="Salvar e Realizar Avalia&#xe7;&#xe3;o de Enfermagem"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoSalvarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
