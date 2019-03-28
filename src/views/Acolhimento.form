@@ -525,6 +525,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparOrigemEncaminhamentoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -833,6 +836,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparInformacoesProfissionaisPacienteActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -861,13 +867,8 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="labelFisioterapiaAnteriormente" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" attributes="0">
-                                              <Component id="labelTituloInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                      </Group>
+                                      <Component id="labelTituloInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="labelLaudoAposentadoriaDesdeQuando" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -998,6 +999,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparInformacoesRelacionadasAgravoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -1041,6 +1045,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpar Tudo"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparTudoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="botaoVoltar">
       <Properties>

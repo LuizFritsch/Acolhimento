@@ -7,7 +7,10 @@ package views;
 
 import controller.AcolhimentoController;
 import controller.Log;
+import java.awt.Component;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
  *
@@ -298,6 +301,11 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         botaoLimparOrigemEncaminhamento.setText("Limpar");
+        botaoLimparOrigemEncaminhamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparOrigemEncaminhamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelOrigemEncaminhamentoLayout = new javax.swing.GroupLayout(panelOrigemEncaminhamento);
         panelOrigemEncaminhamento.setLayout(panelOrigemEncaminhamentoLayout);
@@ -434,6 +442,11 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         botaoLimparInformacoesProfissionaisPaciente.setText("Limpar");
+        botaoLimparInformacoesProfissionaisPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparInformacoesProfissionaisPacienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelInformacoesProfissionaisPacienteLayout = new javax.swing.GroupLayout(panelInformacoesProfissionaisPaciente);
         panelInformacoesProfissionaisPaciente.setLayout(panelInformacoesProfissionaisPacienteLayout);
@@ -545,6 +558,11 @@ public class Acolhimento extends javax.swing.JDialog {
         campoFisioterapiaAnteriormente.setSelectedIndex(1);
 
         botaoLimparInformacoesRelacionadasAgravo.setText("Limpar");
+        botaoLimparInformacoesRelacionadasAgravo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparInformacoesRelacionadasAgravoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelInformacoesAgravoLayout = new javax.swing.GroupLayout(panelInformacoesAgravo);
         panelInformacoesAgravo.setLayout(panelInformacoesAgravoLayout);
@@ -563,11 +581,8 @@ public class Acolhimento extends javax.swing.JDialog {
                                 .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(labelFisioterapiaAnteriormente)
                                     .addComponent(labelBeneficiosPrevidenciarios)
-                                    .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
-                                        .addGroup(panelInformacoesAgravoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(labelTituloInformacoesAgravo, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelEmissaoCAT, javax.swing.GroupLayout.Alignment.LEADING))
-                                        .addGap(80, 80, 80))
+                                    .addComponent(labelTituloInformacoesAgravo)
+                                    .addComponent(labelEmissaoCAT)
                                     .addGroup(panelInformacoesAgravoLayout.createSequentialGroup()
                                         .addComponent(labelLaudoAposentadoriaDesdeQuando)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -624,6 +639,11 @@ public class Acolhimento extends javax.swing.JDialog {
         );
 
         botaoLimparTudo.setText("Limpar Tudo");
+        botaoLimparTudo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoLimparTudoActionPerformed(evt);
+            }
+        });
 
         botaoVoltar.setText("Voltar");
         botaoVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -716,7 +736,15 @@ public class Acolhimento extends javax.swing.JDialog {
     }//GEN-LAST:event_campoCBOActionPerformed
 
     private void botaoLimparInformacoesPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparInformacoesPacienteActionPerformed
-        // TODO add your handling code here:
+        /**
+         * Limpa o texto do panel de informacoes do paciente
+         */
+        try {
+            limpaTextFields(this.panelInformacoesPaciente);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
     }//GEN-LAST:event_botaoLimparInformacoesPacienteActionPerformed
 
     private void campoOutroObjetivoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoOutroObjetivoConsultaActionPerformed
@@ -774,6 +802,67 @@ public class Acolhimento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }//GEN-LAST:event_campoObjetivoConsultaActionPerformed
+
+    private void limpaTextFields(JPanel panel) {
+        for (Component c : panel.getComponents()) {
+            if (c.getClass().toString().contains("javax.swing.JTextField")) {
+                JTextField temp = (JTextField) c;
+                temp.setText("");
+            }
+
+        }
+    }
+
+    private void botaoLimparTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparTudoActionPerformed
+        /**
+         * Limpa o texto do panel de informacoes do paciente
+         */
+        try {
+            limpaTextFields(this.panelInformacoesPaciente);
+            limpaTextFields(this.panelInformacoesAgravo);
+            limpaTextFields(this.panelInformacoesProfissionaisPaciente);
+            limpaTextFields(this.panelOrigemEncaminhamento);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_botaoLimparTudoActionPerformed
+
+    private void botaoLimparInformacoesProfissionaisPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparInformacoesProfissionaisPacienteActionPerformed
+        /**
+         * Limpa o texto do panel de informacoes profissionais do paciente
+         */
+        try {
+            limpaTextFields(this.panelInformacoesProfissionaisPaciente);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_botaoLimparInformacoesProfissionaisPacienteActionPerformed
+
+    private void botaoLimparInformacoesRelacionadasAgravoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparInformacoesRelacionadasAgravoActionPerformed
+        /**
+         * Limpa o texto do panel de informacoes relacionadas ao agravo
+         */
+        try {
+            limpaTextFields(this.panelInformacoesAgravo);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_botaoLimparInformacoesRelacionadasAgravoActionPerformed
+
+    private void botaoLimparOrigemEncaminhamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparOrigemEncaminhamentoActionPerformed
+        /**
+         * Limpa o texto do panel de origem do encaminhamento
+         */
+        try {
+            limpaTextFields(this.panelOrigemEncaminhamento);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, erro.getMessage());
+        }
+    }//GEN-LAST:event_botaoLimparOrigemEncaminhamentoActionPerformed
 
     /**
      * @param args the command line arguments
