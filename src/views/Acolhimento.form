@@ -853,28 +853,30 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="botaoLimparInformacoesRelacionadasAgravo" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="campoEmissaoCAT" alignment="1" min="-2" pref="309" max="-2" attributes="0"/>
+                          <Component id="campoFisioterapiaAnteriormente" alignment="1" min="-2" pref="285" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="campoBeneficiosPrevidenciarios" alignment="1" min="-2" pref="309" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelFisioterapiaAnteriormente" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="labelTituloInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="campoEmissaoCAT" alignment="1" min="-2" pref="309" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                  <Component id="campoBeneficiosPrevidenciarios" alignment="1" min="-2" pref="309" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="labelFisioterapiaAnteriormente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelBeneficiosPrevidenciarios" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="labelTituloInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="labelLaudoAposentadoriaDesdeQuando" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="campoLaudoAposentadoriaDesdeQuando" min="-2" pref="279" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="labelLaudoAposentadoriaDesdeQuando" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="campoLaudoAposentadoriaDesdeQuando" min="-2" pref="279" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <Component id="campoFisioterapiaAnteriormente" alignment="1" min="-2" pref="279" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>

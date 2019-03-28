@@ -44,11 +44,6 @@ public class FramePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        campoAcolhimentos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(campoAcolhimentos);
 
         botaoPesquisarAcolhimentos.setText("Pesquisar");
@@ -164,10 +159,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoEditarAcolhimentosActionPerformed
 
     private void botaoSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSairActionPerformed
+        /**
+         * Sair do sistema
+         */
         try {
-            /**
-             * Sair do sistema
-             */
             System.exit(0);
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
@@ -203,10 +198,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_campoPesquisarAcolhimentosFocusLost
 
     private void botaoRealizarAcolhimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRealizarAcolhimentoActionPerformed
+        /**
+         * Abre o JFrame de acolhimento
+         */
         try {
-            /**
-             * Abre o JFrame de acolhimento
-             */
             Acolhimento dialog = new Acolhimento(this, rootPaneCheckingEnabled);
             dialog.setLocationRelativeTo(null);
             dialog.setVisible(true);
@@ -217,12 +212,12 @@ public class FramePrincipal extends javax.swing.JFrame {
 
     private void botaoExcluirAcolhimentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirAcolhimentosActionPerformed
         try {
-            
+
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
         }
     }//GEN-LAST:event_botaoExcluirAcolhimentosActionPerformed
-    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoEditarAcolhimentos;
