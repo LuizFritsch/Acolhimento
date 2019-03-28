@@ -22,10 +22,6 @@ public class CartaoSUS {
     private Utils utilidades;
     private CartaoSUSExceptions cs;
 
-    public CartaoSUS() {
-
-    }
-
     public CartaoSUS(String nmrCartaoSUS, String CGS) throws CartaoSUSExceptions {
         log = new Log();
         utilidades = new Utils();
@@ -67,7 +63,7 @@ public class CartaoSUS {
 
     @Override
     public String toString() {
-        return "CartaoSUS{" + "numeroCartaoSUS=" + numeroCartaoSUS + ", consultaGeralSaudeCGS=" + consultaGeralSaudeCGS + ", log=" + log + ", utilidades=" + utilidades + ", cs=" + cs + '}';
+        return "CartaoSUS{" + "numeroCartaoSUS=" + numeroCartaoSUS + ", consultaGeralSaudeCGS=" + consultaGeralSaudeCGS + '}';
     }
 
 }

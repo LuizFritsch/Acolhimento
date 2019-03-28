@@ -5,7 +5,8 @@
  */
 package models;
 
-import controller.Utils;
+import controller.Log;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -17,17 +18,19 @@ public class Residencia {
     private String numero;
     private String bairro;
     private String cidade;
-    private Utils utilidades;
-
-    public Residencia() {
-
-    }
-
+    private Log log;
+    
     public Residencia(String rua, String numero, String bairro, String cidade) {
-        this.rua = rua;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
+        try {
+            this.rua = rua;
+            this.numero = numero;
+            this.bairro = bairro;
+            this.cidade = cidade;
+        } catch (Exception erro) {
+            log = new Log();
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
     }
 
     public String getRua() {

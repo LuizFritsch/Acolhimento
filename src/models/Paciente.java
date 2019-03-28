@@ -12,7 +12,7 @@ import java.util.Date;
  * @author luizfritsch
  */
 public class Paciente {
-    
+
     private String nomePaciente;
     private String codigoPaciente;
     private String CPF;
@@ -21,11 +21,9 @@ public class Paciente {
     private Residencia residencia;
     private Date dataNascimento;
     private Profissao profissao;
+    private CartaoSUS cartaoSUS;
 
-    public Paciente() {
-    }
-
-    public Paciente(String nomePaciente, String codigoPaciente, String CPF, String naturalidade, String nomeMae, Residencia residencia, Date dataNascimento, Profissao profissao) {
+    public Paciente(String nomePaciente, String codigoPaciente, String CPF, String naturalidade, String nomeMae, Residencia residencia, Date dataNascimento, Profissao profissao, CartaoSUS cartaoSUS) {
         this.nomePaciente = nomePaciente;
         this.codigoPaciente = codigoPaciente;
         this.CPF = CPF;
@@ -34,6 +32,7 @@ public class Paciente {
         this.residencia = residencia;
         this.dataNascimento = dataNascimento;
         this.profissao = profissao;
+        this.cartaoSUS = cartaoSUS;
     }
 
     public String getNomePaciente() {
@@ -100,9 +99,17 @@ public class Paciente {
         this.profissao = profissao;
     }
 
+    public CartaoSUS getCartaoSUS() {
+        return cartaoSUS;
+    }
+
+    public void setCartaoSUS(CartaoSUS cartaoSUS) {
+        this.cartaoSUS = cartaoSUS;
+    }
+
     @Override
     public String toString() {
-        return "Paciente{" + "nomePaciente=" + nomePaciente + ", codigoPaciente=" + codigoPaciente + ", CPF=" + CPF + ", naturalidade=" + naturalidade + ", nomeMae=" + nomeMae + ", residencia=" + residencia + ", dataNascimento=" + dataNascimento + ", profissao=" + profissao + '}';
+        return "Paciente{" + "nomePaciente=" + nomePaciente + ", codigoPaciente=" + codigoPaciente + ", CPF=" + CPF + ", naturalidade=" + naturalidade + ", nomeMae=" + nomeMae + ", residencia=" + residencia + ", dataNascimento=" + dataNascimento + ", profissao=" + profissao + ", cartaoSUS=" + cartaoSUS + '}';
     }
-    
+
 }

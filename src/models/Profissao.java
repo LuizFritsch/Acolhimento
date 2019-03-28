@@ -5,19 +5,26 @@
  */
 package models;
 
+import controller.Log;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author luizfritsch
  */
 public class Profissao {
-    
-    private String nomeProfissao;
 
-    public Profissao() {
-    }
+    private String nomeProfissao;
+    private Log log;
 
     public Profissao(String nomeProfissao) {
-        this.nomeProfissao = nomeProfissao;
+        try {
+            this.nomeProfissao = nomeProfissao;
+        } catch (Exception erro) {
+            log = new Log();
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
     }
 
     public String getNomeProfissao() {
@@ -32,5 +39,5 @@ public class Profissao {
     public String toString() {
         return "Profissao{" + "nomeProfissao=" + nomeProfissao + '}';
     }
-    
+
 }
