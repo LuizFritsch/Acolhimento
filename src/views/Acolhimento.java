@@ -885,10 +885,13 @@ public class Acolhimento extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botaoLimparTudoActionPerformed
 
+    /**
+     *
+     * Limpa o texto do panel de informacoes profissionais do paciente
+     *
+     * @param evt
+     */
     private void botaoLimparInformacoesProfissionaisPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparInformacoesProfissionaisPacienteActionPerformed
-        /**
-         * Limpa o texto do panel de informacoes profissionais do paciente
-         */
         try {
             limpaTextFields(this.panelInformacoesProfissionaisPaciente);
         } catch (Exception erro) {
@@ -897,10 +900,13 @@ public class Acolhimento extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botaoLimparInformacoesProfissionaisPacienteActionPerformed
 
+    /**
+     *
+     * Limpa o texto do panel de informacoes relacionadas ao agravo
+     *
+     * @param evt
+     */
     private void botaoLimparInformacoesRelacionadasAgravoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparInformacoesRelacionadasAgravoActionPerformed
-        /**
-         * Limpa o texto do panel de informacoes relacionadas ao agravo
-         */
         try {
             limpaTextFields(this.panelInformacoesAgravo);
         } catch (Exception erro) {
@@ -909,10 +915,14 @@ public class Acolhimento extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botaoLimparInformacoesRelacionadasAgravoActionPerformed
 
+    /**
+     *
+     * Limpa o texto do panel de origem do encaminhamento
+     *
+     * @param evt
+     *
+     */
     private void botaoLimparOrigemEncaminhamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparOrigemEncaminhamentoActionPerformed
-        /**
-         * Limpa o texto do panel de origem do encaminhamento
-         */
         try {
             limpaTextFields(this.panelOrigemEncaminhamento);
         } catch (Exception erro) {
