@@ -833,12 +833,14 @@ public class Acolhimento extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_campoRelacaoTrabalhoItemStateChanged
-
+    /**
+     *
+     * Se selecionar que o objetivo da consulta for outro, deixa enabled o
+     * textfield para especificar o outro
+     *
+     * @param evt
+     */
     private void campoObjetivoConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoObjetivoConsultaActionPerformed
-        /**
-         * Se selecionar que o objetivo da consulta for outro, deixa enabled o
-         * textfield para especificar o outro
-         */
         try {
             if (this.campoObjetivoConsulta.getSelectedItem().toString().equals("Outro")) {
                 this.campoOutroObjetivoConsulta.setEnabled(true);
@@ -865,10 +867,13 @@ public class Acolhimento extends javax.swing.JDialog {
         }
     }
 
+    /**
+     *
+     * Limpa o texto do panel de informacoes do paciente
+     *
+     * @param evt
+     */
     private void botaoLimparTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparTudoActionPerformed
-        /**
-         * Limpa o texto do panel de informacoes do paciente
-         */
         try {
             limpaTextFields(this.panelInformacoesPaciente);
             limpaTextFields(this.panelInformacoesAgravo);
