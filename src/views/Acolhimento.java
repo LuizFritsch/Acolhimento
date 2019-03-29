@@ -23,6 +23,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private Log log;
     private AcolhimentoController ac;
     private ArrayList<String> listaInformacoesPaciente;
+    ArrayList<JPanel> listaDePanel;
 
     /**
      * Creates new form Acolhimento
@@ -33,6 +34,11 @@ public class Acolhimento extends javax.swing.JDialog {
         log = new Log();
         ac = new AcolhimentoController();
         listaInformacoesPaciente = new ArrayList<>();
+        listaDePanel = new ArrayList<>();
+        listaDePanel.add(panelInformacoesPaciente);
+        listaDePanel.add(panelInformacoesAgravo);
+        listaDePanel.add(panelInformacoesProfissionaisPaciente);
+        listaDePanel.add(panelOrigemEncaminhamento);
     }
 
     /**
@@ -719,11 +725,14 @@ public class Acolhimento extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_checkServMedicoPartActionPerformed
 
+    /**
+     *
+     * Se o checkbox com valor outro tá selecionado, deixa o textfield visivel
+     *
+     * @param evt
+     */
     private void checkOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOutroActionPerformed
-        /**
-         * Se o checkbox com valor outro tá selecionado, deixa o textfield
-         * visivel
-         */
+
         try {
             if (this.checkOutro.isSelected()) {
                 this.campoMunicipioUnidadeOUOutro.setEnabled(true);
@@ -740,10 +749,13 @@ public class Acolhimento extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoCBOActionPerformed
 
+    /**
+     *
+     * Limpa o texto do panel de informacoes do paciente
+     *
+     * @param evt
+     */
     private void botaoLimparInformacoesPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparInformacoesPacienteActionPerformed
-        /**
-         * Limpa o texto do panel de informacoes do paciente
-         */
         try {
             limpaTextFields(this.panelInformacoesPaciente);
         } catch (Exception erro) {
@@ -756,10 +768,13 @@ public class Acolhimento extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoOutroObjetivoConsultaActionPerformed
 
+    /**
+     *
+     * Voltar para a tela principal apenas escondendo a tela do acolhimento
+     *
+     * @param evt
+     */
     private void botaoVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarActionPerformed
-        /**
-         * Voltar para a tela principal apenas escondendo a tela do acolhimento
-         */
         try {
             this.setLocationRelativeTo(null);
             this.setVisible(false);
@@ -801,19 +816,21 @@ public class Acolhimento extends javax.swing.JDialog {
         return listaInformacoesPanel;
     }
 
+    /**
+     * Ao clickar no botao salvar, pega todos panels, e procura texto em todos
+     * textfields, combobox, checkbox e etc e envia pra controller tratar
+     *
+     * @param evt
+     */
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         try {
-            ArrayList<JPanel> listaDePanel = new ArrayList<>();
-            listaDePanel.add(panelInformacoesPaciente);
-            listaDePanel.add(panelInformacoesAgravo);
-            listaDePanel.add(panelInformacoesProfissionaisPaciente);
-            listaDePanel.add(panelOrigemEncaminhamento);
             ac.salvar(getInfoPorPanel(listaDePanel));
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed
+
     /**
      * Se selecionar o item mercado informal no combobox, o textfield para
      * especificar fica visivel
@@ -833,6 +850,7 @@ public class Acolhimento extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_campoRelacaoTrabalhoItemStateChanged
+
     /**
      *
      * Se selecionar que o objetivo da consulta for outro, deixa enabled o
@@ -853,6 +871,11 @@ public class Acolhimento extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_campoObjetivoConsultaActionPerformed
 
+    /**
+     * limpa o texto de um panel em especifico
+     *
+     * @param panel
+     */
     private void limpaTextFields(JPanel panel) {
         try {
             for (Component c : panel.getComponents()) {
@@ -875,10 +898,9 @@ public class Acolhimento extends javax.swing.JDialog {
      */
     private void botaoLimparTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparTudoActionPerformed
         try {
-            limpaTextFields(this.panelInformacoesPaciente);
-            limpaTextFields(this.panelInformacoesAgravo);
-            limpaTextFields(this.panelInformacoesProfissionaisPaciente);
-            limpaTextFields(this.panelOrigemEncaminhamento);
+            for (JPanel panel : listaDePanel) {
+                limpaTextFields(panel);
+            }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(this, erro.getMessage());
