@@ -41,7 +41,7 @@ public class AcolhimentoController {
 
     }
 
-    public static FramePrincipal singletonGetInstanceOfFramePrincipal() {
+    public synchronized static FramePrincipal singletonGetInstanceOfFramePrincipal() {
         if (fp == null) {
             fp = new FramePrincipal();
         }
