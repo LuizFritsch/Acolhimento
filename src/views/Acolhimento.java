@@ -814,12 +814,13 @@ public class Acolhimento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed
-
+    /**
+     * Se selecionar o item mercado informal no combobox, o textfield para
+     * especificar fica visivel
+     *
+     * @param evt
+     */
     private void campoRelacaoTrabalhoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_campoRelacaoTrabalhoItemStateChanged
-        /**
-         * Se selecionar o item mercado informal no combobox, o textfield para
-         * especificar fica visivel
-         */
         try {
             if (campoRelacaoTrabalho.getSelectedItem().toString().equals("Mercado Informal")) {
                 this.campoMercadoInformal.setEnabled(true);

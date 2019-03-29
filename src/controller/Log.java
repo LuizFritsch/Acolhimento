@@ -11,16 +11,20 @@ public class Log {
     private static final String PATH = "" + System.getProperty("user.dir");
     private static final String FILENAME = "" + PATH + "\\Log.txt";
 
+    /**
+     *
+     * Escreve no log a data e o erro que aconteceu
+     *
+     * @param erro
+     */
     public void EscreveNoLog(String erro) {
         BufferedWriter bw = null;
         FileWriter fw = null;
         try {
-            /**
-             * Escreve no log a data e o erro que aconteceu
-             */
+
             Date data = new Date();
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-            fw = new FileWriter(FILENAME,true); //O parametro true, faz com q dê append ao inves de criar um novo arquivo toda vez
+            fw = new FileWriter(FILENAME, true); //O parametro true, faz com q dê append ao inves de criar um novo arquivo toda vez
             bw = new BufferedWriter(fw);
             bw.append(data + "  -  " + erro + "\n");
         } catch (IOException e) {
