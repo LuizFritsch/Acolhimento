@@ -5,6 +5,7 @@
  */
 package controller;
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import views.FramePrincipal;
 
@@ -15,17 +16,36 @@ import views.FramePrincipal;
 public class AcolhimentoController {
 
     private Log log;
+    private static FramePrincipal fp;
 
     public AcolhimentoController() {
-
         try {
-            FramePrincipal fp = new FramePrincipal();
+            fp = singletonGetInstanceOfFramePrincipal();
             fp.setVisible(true);
         } catch (Exception erro) {
             log = new Log();
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
+    }
+
+    public void salvar(ArrayList<String> infoPaciente) {
+        try {
+            for (String string : infoPaciente) {
+                System.out.println(string);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+
+    }
+
+    public static FramePrincipal singletonGetInstanceOfFramePrincipal() {
+        if (fp == null) {
+            fp = new FramePrincipal();
+        }
+        return fp;
 
     }
 

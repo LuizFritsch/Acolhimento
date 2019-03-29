@@ -8,6 +8,8 @@ package views;
 import controller.AcolhimentoController;
 import controller.Log;
 import java.awt.Component;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -19,6 +21,8 @@ import javax.swing.JTextField;
 public class Acolhimento extends javax.swing.JDialog {
 
     private Log log;
+    private AcolhimentoController ac;
+    private ArrayList<String> listaInformacoesPaciente;
 
     /**
      * Creates new form Acolhimento
@@ -27,7 +31,8 @@ public class Acolhimento extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         log = new Log();
-
+        ac = new AcolhimentoController();
+        listaInformacoesPaciente = new ArrayList<>();
     }
 
     /**
@@ -42,7 +47,7 @@ public class Acolhimento extends javax.swing.JDialog {
         panelInformacoesPaciente = new javax.swing.JPanel();
         labelTituloInformacoesPaciente = new javax.swing.JLabel();
         labelSUS = new javax.swing.JLabel();
-        campoSUS = new javax.swing.JTextField();
+        javax.swing.JTextField campoSUS = new javax.swing.JTextField();
         labelNomePaciente = new javax.swing.JLabel();
         campoNomePaciente = new javax.swing.JTextField();
         labelSexo = new javax.swing.JLabel();
@@ -764,8 +769,50 @@ public class Acolhimento extends javax.swing.JDialog {
 
     }//GEN-LAST:event_botaoVoltarActionPerformed
 
-    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+    /**
+     * Metodo para salvar todas infos dos panels em uma lista
+     *
+     * @param panel
+     * @return
+     */
+    public ArrayList<String> getInfoPorPanel(ArrayList<JPanel> listaDePanel) {
+        ArrayList<String> listaInformacoesPanel = new ArrayList<>();
+        try {
+            for (JPanel panel : listaDePanel) {
+                /**
+                 * Pega tudo que está nos TEXTFIELDS e adiciona na lista
+                 */
+                for (Component c : panel.getComponents()) {
+                    if (c.getClass().toString().contains("javax.swing.JTextField")) {
+                        JTextField temp = (JTextField) c;
+                        listaInformacoesPanel.add(temp.getText());
+                    }
+                    if (c.getClass().toString().contains("javax.swing.JComboBox")) {
+                        JComboBox temp = (JComboBox) c;
+                        listaInformacoesPanel.add(temp.getSelectedItem().toString());
+                    }
+                }
+            }
 
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+        return listaInformacoesPanel;
+    }
+
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        try {
+            ArrayList<JPanel> listaDePanel = new ArrayList<>();
+            listaDePanel.add(panelInformacoesPaciente);
+            listaDePanel.add(panelInformacoesAgravo);
+            listaDePanel.add(panelInformacoesProfissionaisPaciente);
+            listaDePanel.add(panelOrigemEncaminhamento);
+            ac.salvar(getInfoPorPanel(listaDePanel));
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 
     private void campoRelacaoTrabalhoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_campoRelacaoTrabalhoItemStateChanged
@@ -804,12 +851,16 @@ public class Acolhimento extends javax.swing.JDialog {
     }//GEN-LAST:event_campoObjetivoConsultaActionPerformed
 
     private void limpaTextFields(JPanel panel) {
-        for (Component c : panel.getComponents()) {
-            if (c.getClass().toString().contains("javax.swing.JTextField")) {
-                JTextField temp = (JTextField) c;
-                temp.setText("");
+        try {
+            for (Component c : panel.getComponents()) {
+                if (c.getClass().toString().contains("javax.swing.JTextField")) {
+                    JTextField temp = (JTextField) c;
+                    temp.setText("");
+                }
             }
-
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }
 
@@ -896,7 +947,6 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JTextField campoOutroObjetivoConsulta;
     private javax.swing.JComboBox<String> campoProfissao;
     private javax.swing.JComboBox<String> campoRelacaoTrabalho;
-    private javax.swing.JTextField campoSUS;
     private javax.swing.JComboBox<String> campoSexo;
     private javax.swing.JComboBox<String> campoSituacaoTrabalho;
     private javax.swing.JCheckBox checkEmpresa;
