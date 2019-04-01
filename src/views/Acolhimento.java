@@ -87,7 +87,6 @@ public class Acolhimento extends javax.swing.JDialog {
         panelInformacoesProfissionaisPaciente = new javax.swing.JPanel();
         labelTituloInformacoesProfissionaisPaciente = new javax.swing.JLabel();
         labelProfisssao = new javax.swing.JLabel();
-        campoProfissao = new javax.swing.JComboBox<>();
         labelCBO = new javax.swing.JLabel();
         campoCBO = new javax.swing.JTextField();
         labelEmpresa = new javax.swing.JLabel();
@@ -103,6 +102,8 @@ public class Acolhimento extends javax.swing.JDialog {
         campoObjetivoConsulta = new javax.swing.JComboBox<>();
         campoOutroObjetivoConsulta = new javax.swing.JTextField();
         botaoLimparInformacoesProfissionaisPaciente = new javax.swing.JButton();
+        botaoPesquisarProfissao = new javax.swing.JButton();
+        campoProfissao = new javax.swing.JTextField();
         panelInformacoesAgravo = new javax.swing.JPanel();
         labelTituloInformacoesAgravo = new javax.swing.JLabel();
         labelEmissaoCAT = new javax.swing.JLabel();
@@ -396,8 +397,6 @@ public class Acolhimento extends javax.swing.JDialog {
         labelProfisssao.setLabelFor(campoProfissao);
         labelProfisssao.setText("Profissao:");
 
-        campoProfissao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         labelCBO.setLabelFor(campoCBO);
         labelCBO.setText("CBO:");
 
@@ -459,6 +458,8 @@ public class Acolhimento extends javax.swing.JDialog {
             }
         });
 
+        botaoPesquisarProfissao.setText("Pesquisar Profissão");
+
         javax.swing.GroupLayout panelInformacoesProfissionaisPacienteLayout = new javax.swing.GroupLayout(panelInformacoesProfissionaisPaciente);
         panelInformacoesProfissionaisPaciente.setLayout(panelInformacoesProfissionaisPacienteLayout);
         panelInformacoesProfissionaisPacienteLayout.setHorizontalGroup(
@@ -502,9 +503,12 @@ public class Acolhimento extends javax.swing.JDialog {
                                     .addComponent(labelProfisssao))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(campoCBO, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(campoProfissao, 0, 374, Short.MAX_VALUE)
-                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInformacoesProfissionaisPacienteLayout.createSequentialGroup()
+                                        .addComponent(campoProfissao, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(botaoPesquisarProfissao))
+                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(campoCBO, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(30, 30, 30))))
         );
         panelInformacoesProfissionaisPacienteLayout.setVerticalGroup(
@@ -514,8 +518,9 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addComponent(labelTituloInformacoesProfissionaisPaciente)
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelProfisssao))
+                    .addComponent(labelProfisssao)
+                    .addComponent(botaoPesquisarProfissao)
+                    .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCBO)
@@ -963,6 +968,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JButton botaoLimparInformacoesRelacionadasAgravo;
     private javax.swing.JButton botaoLimparOrigemEncaminhamento;
     private javax.swing.JButton botaoLimparTudo;
+    private javax.swing.JButton botaoPesquisarProfissao;
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JComboBox<String> campoBeneficiosPrevidenciarios;
@@ -983,7 +989,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JTextField campoNomePaciente;
     private javax.swing.JComboBox<String> campoObjetivoConsulta;
     private javax.swing.JTextField campoOutroObjetivoConsulta;
-    private javax.swing.JComboBox<String> campoProfissao;
+    private javax.swing.JTextField campoProfissao;
     private javax.swing.JComboBox<String> campoRelacaoTrabalho;
     private javax.swing.JComboBox<String> campoSexo;
     private javax.swing.JComboBox<String> campoSituacaoTrabalho;
