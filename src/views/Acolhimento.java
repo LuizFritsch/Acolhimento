@@ -467,6 +467,11 @@ public class Acolhimento extends javax.swing.JDialog {
 
         campoProfissao.setEditable(false);
         campoProfissao.setEnabled(false);
+        campoProfissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoProfissaoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelInformacoesProfissionaisPacienteLayout = new javax.swing.GroupLayout(panelInformacoesProfissionaisPaciente);
         panelInformacoesProfissionaisPaciente.setLayout(panelInformacoesProfissionaisPacienteLayout);
@@ -512,10 +517,10 @@ public class Acolhimento extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInformacoesProfissionaisPacienteLayout.createSequentialGroup()
-                                        .addComponent(campoProfissao, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(campoProfissao, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(botaoPesquisarProfissao))
-                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                                     .addComponent(campoCBO, javax.swing.GroupLayout.Alignment.TRAILING))))
                         .addGap(30, 30, 30))))
         );
@@ -525,11 +530,10 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addGap(8, 8, 8)
                 .addComponent(labelTituloInformacoesProfissionaisPaciente)
                 .addGap(18, 18, 18)
-                .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(labelProfisssao)
-                        .addComponent(botaoPesquisarProfissao)))
+                .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelProfisssao)
+                    .addComponent(botaoPesquisarProfissao)
+                    .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCBO)
@@ -976,6 +980,10 @@ public class Acolhimento extends javax.swing.JDialog {
             log.EscreveNoLog(erro.getMessage());
         }
     }//GEN-LAST:event_botaoPesquisarProfissaoActionPerformed
+
+    private void campoProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoProfissaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoProfissaoActionPerformed
 
     /**
      * @param args the command line arguments

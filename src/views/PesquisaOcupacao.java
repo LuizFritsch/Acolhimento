@@ -9,6 +9,7 @@ import com.mysql.jdbc.log.Jdk14Logger;
 import controller.Log;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import models.dao.OperacoesBancoDeDadosDAO;
 
@@ -20,6 +21,8 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
 
     private Log log;
     private OperacoesBancoDeDadosDAO opdao;
+    public String nomeProfissao;
+    public String cbo;
 
     /**
      * Creates new form PesquisaOcupacao
@@ -29,6 +32,7 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
         initComponents();
 
         try {
+
             opdao = new OperacoesBancoDeDadosDAO();
             ResultSet rs = opdao.selectTodasProfissoes();
             DefaultTableModel model = (DefaultTableModel) tableProfissoes.getModel();
@@ -107,6 +111,7 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tableProfissoes.setAutoCreateRowSorter(true);
         tableProfissoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -130,6 +135,7 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
+        tableProfissoes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tableProfissoes);
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -186,10 +192,13 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
 
     private void botaoSelecionarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarProfissaoActionPerformed
         try {
-            this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), this.tableProfissoes.getSelectedColumn());
-            System.out.println();
+            this.nomeProfissao = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 0).toString();
+            this.cbo = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 1).toString();
+            System.out.println(nomeProfissao + "\n" + cbo);
+            this.dispose();
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }//GEN-LAST:event_botaoSelecionarProfissaoActionPerformed
 
