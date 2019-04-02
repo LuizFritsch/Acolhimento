@@ -35,7 +35,7 @@ public class ConexaoBancoDeDadosDAOTest {
         sql.append("FROM profissoes");
         try {
             ConexaoBancoDeDadosDAO cddao = ConexaoBancoDeDadosDAO.getInstance();
-            PreparedStatement comando = cddao.abrirConexao().prepareStatement(sql.toString());
+            PreparedStatement comando = cddao.pegarConexao().prepareStatement(sql.toString());
             ResultSet resultado = comando.executeQuery();
             System.out.println(resultado.toString());
             cddao.fecharConexao();

@@ -34,14 +34,14 @@ public class ConexaoBancoDeDadosDAO {
         this.conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
     }
 
-    public Connection abrirConexao() {
+    public Connection pegarConexao() {
         return conexao;
     }
 
     public static ConexaoBancoDeDadosDAO getInstance() throws SQLException, ClassNotFoundException {
         if (instance == null) {
             instance = new ConexaoBancoDeDadosDAO();
-        } else if (instance.abrirConexao().isClosed()) {
+        } else if (instance.pegarConexao().isClosed()) {
             instance = new ConexaoBancoDeDadosDAO();
         }
         return instance;
