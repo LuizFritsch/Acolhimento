@@ -459,6 +459,11 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         botaoPesquisarProfissao.setText("Pesquisar Profissão");
+        botaoPesquisarProfissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarProfissaoActionPerformed(evt);
+            }
+        });
 
         campoProfissao.setEditable(false);
         campoProfissao.setEnabled(false);
@@ -961,6 +966,16 @@ public class Acolhimento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, erro.getMessage());
         }
     }//GEN-LAST:event_botaoLimparOrigemEncaminhamentoActionPerformed
+
+    private void botaoPesquisarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarProfissaoActionPerformed
+        try {
+            PesquisaOcupacao po = new PesquisaOcupacao(null, rootPaneCheckingEnabled);
+            po.setLocationRelativeTo(null);
+            po.setVisible(true);
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+        }
+    }//GEN-LAST:event_botaoPesquisarProfissaoActionPerformed
 
     /**
      * @param args the command line arguments
