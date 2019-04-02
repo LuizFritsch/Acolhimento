@@ -18,9 +18,24 @@ import java.util.ArrayList;
 public class OperacoesBancoDeDadosDAO {
 
     private ConexaoBancoDeDadosDAO conexaoDao;
+    private final String INSERT = "INSERT INTO profissoes(codigo, nome, cbo) VALUES (?,?,?)";
+    //private final String UPDATE = "UPDATE CONTATO SET NOME=?, TELEFONE=?, EMAIL=? WHERE ID=?";
+    private final String DELETE = "DELETE FROM profissoes WHERE ID =?";
+    //private final String LIST = "SELECT * FROM CONTATO";
+    //private final String LISTBYID = "SELECT * FROM CONTATO WHERE ID=?";
 
     public OperacoesBancoDeDadosDAO() throws SQLException, ClassNotFoundException {
         this.conexaoDao = ConexaoBancoDeDadosDAO.getInstance();
+    }
+
+    public void insertProfissoes(String cbo, String nome) throws SQLException {
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERT);
+
+        comando.setString(1, null);
+        comando.setString(2, nome);
+        comando.setString(3, cbo);
+
+        comando.execute();
     }
 
     public ResultSet selectTodasProfissoes() throws SQLException, Exception {

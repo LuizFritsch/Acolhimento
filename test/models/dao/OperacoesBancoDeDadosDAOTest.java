@@ -6,6 +6,7 @@
 package models.dao;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,6 +45,12 @@ public class OperacoesBancoDeDadosDAOTest {
     @Test
     public void testSelectTodasProfissoes() throws Exception {
 
+    }
+    
+    @Test
+    public void test2() throws SQLException, ClassNotFoundException{
+        OperacoesBancoDeDadosDAO op = new OperacoesBancoDeDadosDAO();
+        op.insertProfissoes("TESTE", "123");
     }
 
 }
