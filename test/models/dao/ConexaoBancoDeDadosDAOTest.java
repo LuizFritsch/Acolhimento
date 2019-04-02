@@ -21,7 +21,7 @@ import java.sql.ResultSet;
  * @author luizfritsch
  */
 public class ConexaoBancoDeDadosDAOTest {
-    
+
     public ConexaoBancoDeDadosDAOTest() {
     }
 
@@ -34,15 +34,16 @@ public class ConexaoBancoDeDadosDAOTest {
         sql.append("SELECT *");
         sql.append("FROM profissoes");
         try {
-            Connection conn = ConexaoBancoDeDadosDAO.abrir();
-            PreparedStatement comando = conn.prepareStatement(sql.toString());
+            ConexaoBancoDeDadosDAO cddao = ConexaoBancoDeDadosDAO.getInstance();
+            PreparedStatement comando = cddao.abrirConexao().prepareStatement(sql.toString());
             ResultSet resultado = comando.executeQuery();
             System.out.println(resultado.toString());
+            cddao.fecharConexao();
             assertTrue(true);
         } catch (Exception e) {
             Log log = new Log();
             log.EscreveNoLog(e.getMessage());
         }
     }
-    
+
 }
