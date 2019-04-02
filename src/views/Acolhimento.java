@@ -460,6 +460,9 @@ public class Acolhimento extends javax.swing.JDialog {
 
         botaoPesquisarProfissao.setText("Pesquisar Profissão");
 
+        campoProfissao.setEditable(false);
+        campoProfissao.setEnabled(false);
+
         javax.swing.GroupLayout panelInformacoesProfissionaisPacienteLayout = new javax.swing.GroupLayout(panelInformacoesProfissionaisPaciente);
         panelInformacoesProfissionaisPaciente.setLayout(panelInformacoesProfissionaisPacienteLayout);
         panelInformacoesProfissionaisPacienteLayout.setHorizontalGroup(
@@ -517,10 +520,11 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addGap(8, 8, 8)
                 .addComponent(labelTituloInformacoesProfissionaisPaciente)
                 .addGap(18, 18, 18)
-                .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelProfisssao)
-                    .addComponent(botaoPesquisarProfissao)
-                    .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(labelProfisssao)
+                        .addComponent(botaoPesquisarProfissao)))
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCBO)

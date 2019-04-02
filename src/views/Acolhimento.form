@@ -616,10 +616,12 @@
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="labelTituloInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelProfisssao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="botaoPesquisarProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="campoProfissao" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="labelProfisssao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoPesquisarProfissao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -840,6 +842,10 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoProfissao">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
