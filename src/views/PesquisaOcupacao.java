@@ -7,8 +7,10 @@ package views;
 
 import com.mysql.jdbc.log.Jdk14Logger;
 import controller.Log;
+import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import models.dao.OperacoesBancoDeDadosDAO;
@@ -75,6 +77,11 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
         botaoPesquisarProfissao.setText("Pesquisar");
 
         botaoSelecionarProfissao.setText("Selecionar");
+        botaoSelecionarProfissao.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botaoSelecionarProfissaoMouseClicked(evt);
+            }
+        });
         botaoSelecionarProfissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSelecionarProfissaoActionPerformed(evt);
@@ -136,6 +143,11 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
             }
         });
         tableProfissoes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tableProfissoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableProfissoesMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tableProfissoes);
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -205,19 +217,36 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
     public void setCbo(String cbo) {
         this.cbo = cbo;
     }
-    
-    
+
+
     private void botaoSelecionarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarProfissaoActionPerformed
+
         try {
-            this.nomeProfissao = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 1).toString();
-            this.cbo = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 0).toString();
-            System.out.println(nomeProfissao + "\n" + cbo);
-            this.dispose();
+            if (this.tableProfissoes.getSelectedRow() == -1) {
+                JOptionPane.showMessageDialog(this, "Por favor, selecione uma profissão!");
+            } else {
+                this.nomeProfissao = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 1).toString();
+                this.cbo = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 0).toString();
+                this.dispose();
+            }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }//GEN-LAST:event_botaoSelecionarProfissaoActionPerformed
+
+    private void tableProfissoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProfissoesMouseClicked
+        if (evt.getClickCount() == 2) {
+            JTable target = (JTable) evt.getSource();
+            this.nomeProfissao = this.tableProfissoes.getValueAt(target.getSelectedRow(), 1).toString();
+            this.cbo = this.tableProfissoes.getValueAt(target.getSelectedRow(), 0).toString();
+            this.dispose();
+        }
+    }//GEN-LAST:event_tableProfissoesMouseClicked
+
+    private void botaoSelecionarProfissaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSelecionarProfissaoMouseClicked
+
+    }//GEN-LAST:event_botaoSelecionarProfissaoMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;
