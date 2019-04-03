@@ -190,10 +190,27 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
+    public String getNomeProfissao() {
+        return nomeProfissao;
+    }
+
+    public void setNomeProfissao(String nomeProfissao) {
+        this.nomeProfissao = nomeProfissao;
+    }
+
+    public String getCbo() {
+        return cbo;
+    }
+
+    public void setCbo(String cbo) {
+        this.cbo = cbo;
+    }
+    
+    
     private void botaoSelecionarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSelecionarProfissaoActionPerformed
         try {
-            this.nomeProfissao = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 0).toString();
-            this.cbo = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 1).toString();
+            this.nomeProfissao = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 1).toString();
+            this.cbo = this.tableProfissoes.getValueAt(this.tableProfissoes.getSelectedRow(), 0).toString();
             System.out.println(nomeProfissao + "\n" + cbo);
             this.dispose();
         } catch (Exception erro) {

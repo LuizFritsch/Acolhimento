@@ -400,6 +400,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelCBO.setLabelFor(campoCBO);
         labelCBO.setText("CBO:");
 
+        campoCBO.setEditable(false);
         campoCBO.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         campoCBO.setEnabled(false);
         campoCBO.addActionListener(new java.awt.event.ActionListener() {
@@ -466,6 +467,7 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         campoProfissao.setEditable(false);
+        campoProfissao.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         campoProfissao.setEnabled(false);
         campoProfissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,12 +518,12 @@ public class Acolhimento extends javax.swing.JDialog {
                                     .addComponent(labelProfisssao))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInformacoesProfissionaisPacienteLayout.createSequentialGroup()
-                                        .addComponent(campoProfissao, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                        .addComponent(campoCBO)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(botaoPesquisarProfissao))
-                                    .addComponent(campoEmpresa, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                                    .addComponent(campoCBO, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                    .addComponent(campoProfissao))))
                         .addGap(30, 30, 30))))
         );
         panelInformacoesProfissionaisPacienteLayout.setVerticalGroup(
@@ -532,12 +534,13 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelProfisssao)
-                    .addComponent(botaoPesquisarProfissao)
                     .addComponent(campoProfissao, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelCBO)
-                    .addComponent(campoCBO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(campoCBO, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaoPesquisarProfissao)))
                 .addGap(18, 18, 18)
                 .addGroup(panelInformacoesProfissionaisPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelEmpresa)
@@ -971,11 +974,21 @@ public class Acolhimento extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_botaoLimparOrigemEncaminhamentoActionPerformed
 
+    /**
+     * Ao clickar no botao de pesquisa, abre o JDialog pesquisa ocupacao Ao
+     * fechar o JDialog, seta os textfields deste form com os valores do outro
+     *
+     * @param evt
+     */
     private void botaoPesquisarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarProfissaoActionPerformed
         try {
             PesquisaOcupacao po = new PesquisaOcupacao(null, rootPaneCheckingEnabled);
             po.setLocationRelativeTo(null);
             po.setVisible(true);
+            if (!po.isVisible()) {
+                this.campoProfissao.setText(po.getNomeProfissao());
+                this.campoCBO.setText(po.getCbo());
+            }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
         }
