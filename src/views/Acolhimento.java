@@ -448,7 +448,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelRelacaoTrabalho.setText("Relação de Trabalho:");
 
         campoRelacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado", "Desempregado", "Aposentado", "Empregado", "Autônomo", "Mercado Informal" }));
-        campoRelacaoTrabalho.setName("Relação de Trabalho:"); // NOI18N
+        campoRelacaoTrabalho.setName("Relação de Trabalho"); // NOI18N
         campoRelacaoTrabalho.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 campoRelacaoTrabalhoItemStateChanged(evt);
@@ -483,7 +483,7 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         campoOutroObjetivoConsulta.setEnabled(false);
-        campoOutroObjetivoConsulta.setName("campoOutroObjetivoConsulta"); // NOI18N
+        campoOutroObjetivoConsulta.setName("outroObjetivoConsulta"); // NOI18N
         campoOutroObjetivoConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoOutroObjetivoConsultaActionPerformed(evt);
@@ -927,8 +927,36 @@ public class Acolhimento extends javax.swing.JDialog {
                      */
                     else if (c.getClass().toString().contains("javax.swing.JComboBox")) {
                         JComboBox temp = (JComboBox) c;
-                        hmlistaInformacoesPanel.put(temp.getName(), temp.getSelectedItem().toString());
-                        listaInformacoesPanel.add(temp.getSelectedItem().toString());
+                        switch (temp.getName()) {
+                            case "Relação de Trabalho":
+                                if (temp.getSelectedItem().equals("Mercado Informal")) {
+                                    for (Component d : panel.getComponents()) {
+                                        if (d.getClass().toString().contains("javax.swing.JTextField")) {
+                                            JTextField relacaoTrabalhoMercInf = (JTextField) d;
+                                            if (relacaoTrabalhoMercInf.getName().equals("campoMercadoInformal")) {
+                                                hmlistaInformacoesPanel.put("Relação de Trabalho", relacaoTrabalhoMercInf.getText());
+                                            }
+                                        }
+                                    }
+                                }
+                                break;
+                            case "Objetivo da Consulta":
+                                if (temp.getSelectedItem().equals("Outro")) {
+                                    for (Component d : panel.getComponents()) {
+                                        if (d.getClass().toString().contains("javax.swing.JTextField")) {
+                                            JTextField outroObjConsulta = (JTextField) d;
+                                            if (outroObjConsulta.getName().equals("campoMercadoInformal")) {
+                                                hmlistaInformacoesPanel.put("Relação de Trabalho", outroObjConsulta.getText());
+                                            }
+                                        }
+                                    }
+                                }
+                                break;
+                            default:
+                                hmlistaInformacoesPanel.put(temp.getName(), temp.getSelectedItem().toString());
+                                listaInformacoesPanel.add(temp.getSelectedItem().toString());
+                                break;
+                        }
                     } /**
                      * Quando o componente do panel for um checkbox
                      */
