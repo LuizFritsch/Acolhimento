@@ -9,6 +9,7 @@ import controller.AcolhimentoController;
 import controller.Log;
 import java.awt.Component;
 import java.util.ArrayList;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -753,7 +754,6 @@ public class Acolhimento extends javax.swing.JDialog {
      * @param evt
      */
     private void checkOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkOutroActionPerformed
-
         try {
             if (this.checkOutro.isSelected()) {
                 this.campoMunicipioUnidadeOUOutro.setEnabled(true);
@@ -893,6 +893,25 @@ public class Acolhimento extends javax.swing.JDialog {
     }//GEN-LAST:event_campoObjetivoConsultaActionPerformed
 
     /**
+     * Tira a seleção de todos checkbox de um panel
+     *
+     * @param panel
+     */
+    private void limpaCheckBox(JPanel panel) {
+        try {
+            for (Component c : panel.getComponents()) {
+                if (c.getClass().toString().contains("javax.swing.JCheckBox")) {
+                    JCheckBox temp = (JCheckBox) c;
+                    temp.setSelected(false);
+                }
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+    }
+
+    /**
      * limpa o texto de um panel em especifico
      *
      * @param panel
@@ -921,6 +940,7 @@ public class Acolhimento extends javax.swing.JDialog {
         try {
             for (JPanel panel : listaDePanel) {
                 limpaTextFields(panel);
+                limpaCheckBox(panel);
             }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
@@ -967,7 +987,8 @@ public class Acolhimento extends javax.swing.JDialog {
      */
     private void botaoLimparOrigemEncaminhamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparOrigemEncaminhamentoActionPerformed
         try {
-            limpaTextFields(this.panelOrigemEncaminhamento);
+            limpaCheckBox(this.panelOrigemEncaminhamento);
+            this.campoMunicipioUnidadeOUOutro.setEnabled(false);
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(this, erro.getMessage());
