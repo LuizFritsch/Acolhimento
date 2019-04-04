@@ -7,8 +7,12 @@ package views;
 
 import controller.AcolhimentoController;
 import controller.Log;
+import exceptions.CampoEmBrancoException;
 import java.awt.Component;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -133,6 +137,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSUS.setLabelFor(campoSUS);
         labelSUS.setText("Cartão SUS:");
 
+        campoSUS.setName("Cartão SUS"); // NOI18N
         campoSUS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoSUSActionPerformed(evt);
@@ -143,6 +148,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelNomePaciente.setText("Nome Completo:");
 
         campoNomePaciente.setToolTipText("Nome do Paciente");
+        campoNomePaciente.setName("Nome completo"); // NOI18N
 
         labelSexo.setLabelFor(campoSexo);
         labelSexo.setText("Sexo:");
@@ -152,17 +158,27 @@ public class Acolhimento extends javax.swing.JDialog {
         labelDataNascimento.setLabelFor(campoDataNascimento);
         labelDataNascimento.setText("Data de nascimento:");
 
+        campoDataNascimento.setName("Data de nascimento"); // NOI18N
+
         labelNaturalidade.setLabelFor(campoNaturalidade);
         labelNaturalidade.setText("Naturalidade:");
+
+        campoNaturalidade.setName("Naturalidade"); // NOI18N
 
         labelNomeMae.setLabelFor(campoNomeMae);
         labelNomeMae.setText("Nome da mãe:");
 
+        campoNomeMae.setName("Nome da mãe"); // NOI18N
+
         labelEndereco.setLabelFor(campoEndereco);
         labelEndereco.setText("Endereço:");
 
+        campoEndereco.setName("Endereço"); // NOI18N
+
         labelCelular.setLabelFor(campoCelular);
         labelCelular.setText("Celular:");
+
+        campoCelular.setName("Celular"); // NOI18N
 
         labelEscolaridade.setLabelFor(campoEscolaridade);
         labelEscolaridade.setText("Escolaridade:");
@@ -273,6 +289,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelOrigemEncaminhamento.setText("Origem do Encaminhamento:");
 
         checkINSS.setText("INSS");
+        checkINSS.setName("Origem Encaminhamento"); // NOI18N
         checkINSS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkINSSActionPerformed(evt);
@@ -280,16 +297,22 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         checkSUS.setText("SUS");
+        checkSUS.setName("Origem Encaminhamento"); // NOI18N
 
         checkEmpresa.setText("Empresa");
+        checkEmpresa.setName("Origem Encaminhamento"); // NOI18N
 
         checkSindicato.setText("Sindicato");
+        checkSindicato.setName("Origem Encaminhamento"); // NOI18N
 
         checkMunicipio.setText("Município");
+        checkMunicipio.setName("Origem Encaminhamento"); // NOI18N
 
         checkSem.setText("Sem");
+        checkSem.setName("Origem Encaminhamento"); // NOI18N
 
         checkServMedicoPart.setText("Serv. Médico Part.");
+        checkServMedicoPart.setName("Origem Encaminhamento"); // NOI18N
         checkServMedicoPart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkServMedicoPartActionPerformed(evt);
@@ -297,8 +320,10 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         checkUnidade.setText("Unidade");
+        checkUnidade.setName("Origem Encaminhamento"); // NOI18N
 
         checkOutro.setText("Outro");
+        checkOutro.setName("outro"); // NOI18N
         checkOutro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 checkOutroActionPerformed(evt);
@@ -307,6 +332,7 @@ public class Acolhimento extends javax.swing.JDialog {
 
         campoMunicipioUnidadeOUOutro.setToolTipText("Município, Unidade ou outro...");
         campoMunicipioUnidadeOUOutro.setEnabled(false);
+        campoMunicipioUnidadeOUOutro.setName("campoMunicipioUnidadeOUOutro"); // NOI18N
         campoMunicipioUnidadeOUOutro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoMunicipioUnidadeOUOutroActionPerformed(evt);
@@ -404,6 +430,7 @@ public class Acolhimento extends javax.swing.JDialog {
         campoCBO.setEditable(false);
         campoCBO.setDisabledTextColor(new java.awt.Color(51, 51, 51));
         campoCBO.setEnabled(false);
+        campoCBO.setName("CBO"); // NOI18N
         campoCBO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoCBOActionPerformed(evt);
@@ -413,10 +440,13 @@ public class Acolhimento extends javax.swing.JDialog {
         labelEmpresa.setLabelFor(campoEmpresa);
         labelEmpresa.setText("Empresa:");
 
+        campoEmpresa.setName("Empresa"); // NOI18N
+
         labelRelacaoTrabalho.setLabelFor(campoRelacaoTrabalho);
         labelRelacaoTrabalho.setText("Relação de Trabalho:");
 
         campoRelacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado", "Desempregado", "Aposentado", "Empregado", "Autônomo", "Mercado Informal" }));
+        campoRelacaoTrabalho.setName("Relação de Trabalho:"); // NOI18N
         campoRelacaoTrabalho.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 campoRelacaoTrabalhoItemStateChanged(evt);
@@ -425,21 +455,25 @@ public class Acolhimento extends javax.swing.JDialog {
 
         campoMercadoInformal.setDisabledTextColor(new java.awt.Color(102, 102, 102));
         campoMercadoInformal.setEnabled(false);
+        campoMercadoInformal.setName("campoMercadoInformal"); // NOI18N
 
         labelSituacaoTrabalho.setLabelFor(campoSituacaoTrabalho);
         labelSituacaoTrabalho.setText("Situação de Trabalho:");
 
         campoSituacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo na mesma ocupação", "Empregado", "Afastado", "Autonomo", "Aposentado", "Mercado Informal" }));
         campoSituacaoTrabalho.setSelectedIndex(2);
+        campoSituacaoTrabalho.setName("Situação de Trabalho"); // NOI18N
 
         labelCarteiraTrabalho.setLabelFor(campoCarteiraTrabalho);
         labelCarteiraTrabalho.setText("Carteira de Trabalho:");
 
         campoCarteiraTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado com carteira", "Assalariado com dispensa de assinatura da carteira pelo RJU", "Não assalariado", "Assalariado sem carteira assinada", "Não se aplica" }));
+        campoCarteiraTrabalho.setName("Carteira de Trabalho"); // NOI18N
 
         labelObjetivoConsulta.setText("Objetivo Da Consulta:");
 
         campoObjetivoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Esclarecimento diagnóstico", "Tratamento", "Outro" }));
+        campoObjetivoConsulta.setName("Objetivo da Consulta"); // NOI18N
         campoObjetivoConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoObjetivoConsultaActionPerformed(evt);
@@ -447,6 +481,7 @@ public class Acolhimento extends javax.swing.JDialog {
         });
 
         campoOutroObjetivoConsulta.setEnabled(false);
+        campoOutroObjetivoConsulta.setName("campoOutroObjetivoConsulta"); // NOI18N
         campoOutroObjetivoConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoOutroObjetivoConsultaActionPerformed(evt);
@@ -470,6 +505,7 @@ public class Acolhimento extends javax.swing.JDialog {
         campoProfissao.setEditable(false);
         campoProfissao.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         campoProfissao.setEnabled(false);
+        campoProfissao.setName("Profissão"); // NOI18N
         campoProfissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoProfissaoActionPerformed(evt);
@@ -584,6 +620,8 @@ public class Acolhimento extends javax.swing.JDialog {
         campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não recebe aposentadoria", "1º Grau", "Auxílio", "Auxílio acidente", "Acidentária", "Aposentadoria Previdenciária", "Aposentadoria tempo de serviço, idade ou especial", "Não se aplica", "Não sabe informar" }));
 
         labelLaudoAposentadoriaDesdeQuando.setText("Laudo/Aposentadoria, desde quando?");
+
+        campoLaudoAposentadoriaDesdeQuando.setName("Laudo/Aposentadoria desde quando"); // NOI18N
 
         labelFisioterapiaAnteriormente.setText("Realizou fisioterapia anteriormente?");
 
@@ -812,27 +850,128 @@ public class Acolhimento extends javax.swing.JDialog {
      * @return
      */
     public ArrayList<String> getInfoPorPanel(ArrayList<JPanel> listaDePanel) {
+
+        /**
+         * Array contendo tudo que foi passado no form
+         */
         ArrayList<String> listaInformacoesPanel = new ArrayList<>();
+        HashMap<String, String> hmlistaInformacoesPanel = new HashMap<String, String>();
+
+        /**
+         * Strings pra armazenar estes dados que são digitados em outros
+         * textfields (Campos que tem a opção 'outro')
+         *
+         */
+        String origemEncaminhamento = "";
+        String relacaoTrabalho = "";
+        String objetivoConsulta = "";
+
         try {
+            /**
+             * Para cada panel presente no formulário
+             */
             for (JPanel panel : listaDePanel) {
+
                 /**
-                 * Pega tudo que está nos TEXTFIELDS e adiciona na lista
+                 * Percorre todos componentes dele
                  */
                 for (Component c : panel.getComponents()) {
+
+                    /**
+                     * Quando o componente do panel for um textfield
+                     */
                     if (c.getClass().toString().contains("javax.swing.JTextField")) {
                         JTextField temp = (JTextField) c;
-                        listaInformacoesPanel.add(temp.getText());
+
+                        /**
+                         * Se existir algum campo vazio, lança a exceção de
+                         * campo em branco
+                         */
+                        if (temp.getText().equals("") || temp.getText().equals(" ")) {
+
+                            /**
+                             * Se o campo profissao estiver vazio, lanca excecao
+                             */
+                            if (temp.getName().equals("Profissão")) {
+                                throw new CampoEmBrancoException("Por favor, selecione uma profissão!");
+                            }
+
+                            /**
+                             * Se o campo estiver enabled e estiver vazio, lança
+                             * exceção de campo em branco
+                             */
+                            if (temp.isEnabled() == true) {
+                                throw new CampoEmBrancoException("Campo em branco no: " + temp.getName());
+                            }
+
+                        } else if (temp.getName().equals("campoMunicipioUnidadeOUOutro")) {
+                            if (temp.isEnabled()) {
+                                origemEncaminhamento = temp.getText();
+                                System.out.println("--------");
+                                System.out.println(origemEncaminhamento);
+                                System.out.println("--------");
+                            }
+                        } else {
+
+                            /**
+                             * Se o campo não estiver vazio, adiciona na lista
+                             * SE O CAMPO NÃO FOR O 'OUTRO ORIGEM DE
+                             * ENCAMINHAMENTO'
+                             */
+                            hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
+                            listaInformacoesPanel.add(temp.getText());
+                        }
                     }
+
+                    /**
+                     * Quando o componente do panel for um combobox
+                     */
                     if (c.getClass().toString().contains("javax.swing.JComboBox")) {
                         JComboBox temp = (JComboBox) c;
+                        hmlistaInformacoesPanel.put(temp.getName(), temp.getSelectedItem().toString());
                         listaInformacoesPanel.add(temp.getSelectedItem().toString());
                     }
+
+                    /**
+                     * Quando o componente do panel for um checkbox
+                     */
+                    if (c.getClass().toString().contains("javax.swing.JCheckBox")) {
+                        JCheckBox temp = (JCheckBox) c;
+                        /**
+                         * Se o checkbox estiver selecionado, armazena o texto
+                         * dele, se não, não
+                         */
+                        if (temp.isSelected()) {
+                            if (temp.getName().equals("outro")) {
+                                hmlistaInformacoesPanel.put("Origem Encaminhamento", origemEncaminhamento);
+                            } else {
+                                hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
+                                listaInformacoesPanel.add(temp.getText());
+                            }
+
+                        }
+                    }
                 }
+
+            }
+            Set<String> chaves = hmlistaInformacoesPanel.keySet();
+            for (String chave : chaves) {
+
+                System.out.println(chave + " : " + hmlistaInformacoesPanel.get(chave));
+
             }
 
         } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            /**
+             * Verifico se o erro é apenas um campo em branco, pra evitar de
+             * escrever no log quando isso acontecer
+             */
+            if (erro instanceof CampoEmBrancoException) {
+                JOptionPane.showMessageDialog(null, erro.getMessage());
+            } else {
+                log.EscreveNoLog(erro.getMessage());
+                JOptionPane.showMessageDialog(null, erro.getMessage());
+            }
         }
         return listaInformacoesPanel;
     }

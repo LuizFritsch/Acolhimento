@@ -219,6 +219,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoSUS">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Cart&#xe3;o SUS" noResource="true"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoSUSActionPerformed"/>
           </Events>
@@ -238,6 +241,7 @@
         <Component class="javax.swing.JTextField" name="campoNomePaciente">
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Nome do Paciente"/>
+            <Property name="name" type="java.lang.String" value="Nome completo" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelSexo">
@@ -271,6 +275,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoDataNascimento">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Data de nascimento" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelNaturalidade">
           <Properties>
@@ -281,6 +288,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoNaturalidade">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Naturalidade" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelNomeMae">
           <Properties>
@@ -291,6 +301,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoNomeMae">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Nome da m&#xe3;e" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEndereco">
           <Properties>
@@ -301,6 +314,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoEndereco">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Endere&#xe7;o" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelCelular">
           <Properties>
@@ -311,6 +327,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoCelular">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Celular" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEscolaridade">
           <Properties>
@@ -465,6 +484,7 @@
         <Component class="javax.swing.JCheckBox" name="checkINSS">
           <Properties>
             <Property name="text" type="java.lang.String" value="INSS"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkINSSActionPerformed"/>
@@ -473,31 +493,37 @@
         <Component class="javax.swing.JCheckBox" name="checkSUS">
           <Properties>
             <Property name="text" type="java.lang.String" value="SUS"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkEmpresa">
           <Properties>
             <Property name="text" type="java.lang.String" value="Empresa"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkSindicato">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sindicato"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkMunicipio">
           <Properties>
             <Property name="text" type="java.lang.String" value="Munic&#xed;pio"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkSem">
           <Properties>
             <Property name="text" type="java.lang.String" value="Sem"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkServMedicoPart">
           <Properties>
             <Property name="text" type="java.lang.String" value="Serv. M&#xe9;dico Part."/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkServMedicoPartActionPerformed"/>
@@ -506,11 +532,13 @@
         <Component class="javax.swing.JCheckBox" name="checkUnidade">
           <Properties>
             <Property name="text" type="java.lang.String" value="Unidade"/>
+            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="checkOutro">
           <Properties>
             <Property name="text" type="java.lang.String" value="Outro"/>
+            <Property name="name" type="java.lang.String" value="outro" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkOutroActionPerformed"/>
@@ -520,6 +548,7 @@
           <Properties>
             <Property name="toolTipText" type="java.lang.String" value="Munic&#xed;pio, Unidade ou outro..."/>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="campoMunicipioUnidadeOUOutro" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoMunicipioUnidadeOUOutroActionPerformed"/>
@@ -698,6 +727,7 @@
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="CBO" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoCBOActionPerformed"/>
@@ -712,6 +742,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoEmpresa">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Empresa" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelRelacaoTrabalho">
           <Properties>
@@ -733,6 +766,7 @@
                 <StringItem index="5" value="Mercado Informal"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="Rela&#xe7;&#xe3;o de Trabalho:" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="campoRelacaoTrabalhoItemStateChanged"/>
@@ -747,6 +781,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="campoMercadoInformal" noResource="true"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelSituacaoTrabalho">
@@ -770,6 +805,7 @@
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="2"/>
+            <Property name="name" type="java.lang.String" value="Situa&#xe7;&#xe3;o de Trabalho" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -794,6 +830,7 @@
                 <StringItem index="4" value="N&#xe3;o se aplica"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="Carteira de Trabalho" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -813,6 +850,7 @@
                 <StringItem index="2" value="Outro"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="Objetivo da Consulta" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoObjetivoConsultaActionPerformed"/>
@@ -824,6 +862,7 @@
         <Component class="javax.swing.JTextField" name="campoOutroObjetivoConsulta">
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="campoOutroObjetivoConsulta" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoOutroObjetivoConsultaActionPerformed"/>
@@ -852,6 +891,7 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
+            <Property name="name" type="java.lang.String" value="Profiss&#xe3;o" noResource="true"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoProfissaoActionPerformed"/>
@@ -992,6 +1032,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campoLaudoAposentadoriaDesdeQuando">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Laudo/Aposentadoria desde quando" noResource="true"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelFisioterapiaAnteriormente">
           <Properties>

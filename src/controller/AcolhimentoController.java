@@ -31,9 +31,7 @@ public class AcolhimentoController {
 
     public void salvar(ArrayList<String> infoPaciente) {
         try {
-            for (String string : infoPaciente) {
-                System.out.println(string);
-            }
+
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
