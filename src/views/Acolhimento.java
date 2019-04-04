@@ -41,9 +41,9 @@ public class Acolhimento extends javax.swing.JDialog {
         listaInformacoesPaciente = new ArrayList<>();
         listaDePanel = new ArrayList<>();
         listaDePanel.add(panelInformacoesPaciente);
+        listaDePanel.add(panelOrigemEncaminhamento);
         listaDePanel.add(panelInformacoesAgravo);
         listaDePanel.add(panelInformacoesProfissionaisPaciente);
-        listaDePanel.add(panelOrigemEncaminhamento);
     }
 
     /**
@@ -154,6 +154,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSexo.setText("Sexo:");
 
         campoSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Outro" }));
+        campoSexo.setName("Sexo"); // NOI18N
 
         labelDataNascimento.setLabelFor(campoDataNascimento);
         labelDataNascimento.setText("Data de nascimento:");
@@ -185,6 +186,7 @@ public class Acolhimento extends javax.swing.JDialog {
 
         campoEscolaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não sabe ler/Escrever", "1o Grau incompleto", "Ensino médio incompleto", "Superior Incompleto", "Especialização/Residencia", "1o Grau Completo", "Ensino médio completo", "Superior completo", "Mestrado", "Doutorado" }));
         campoEscolaridade.setSelectedIndex(6);
+        campoEscolaridade.setName("Escolaridade"); // NOI18N
 
         botaoLimparInformacoesPaciente.setText("Limpar");
         botaoLimparInformacoesPaciente.addActionListener(new java.awt.event.ActionListener() {
@@ -614,10 +616,12 @@ public class Acolhimento extends javax.swing.JDialog {
         labelEmissaoCAT.setText("Emissão de CAT:");
 
         campoEmissaoCAT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Emitida", "Não emitida", "Não sabe", "Não se aplica" }));
+        campoEmissaoCAT.setName("Emissão de CAT"); // NOI18N
 
         labelBeneficiosPrevidenciarios.setText("Beneficios Previdenciários:");
 
         campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não recebe aposentadoria", "1º Grau", "Auxílio", "Auxílio acidente", "Acidentária", "Aposentadoria Previdenciária", "Aposentadoria tempo de serviço, idade ou especial", "Não se aplica", "Não sabe informar" }));
+        campoBeneficiosPrevidenciarios.setName("Beneficios Previdenciarios"); // NOI18N
 
         labelLaudoAposentadoriaDesdeQuando.setText("Laudo/Aposentadoria, desde quando?");
 
@@ -627,6 +631,7 @@ public class Acolhimento extends javax.swing.JDialog {
 
         campoFisioterapiaAnteriormente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sim", "Não" }));
         campoFisioterapiaAnteriormente.setSelectedIndex(1);
+        campoFisioterapiaAnteriormente.setName("Realizou fisioterapia anteriormente"); // NOI18N
 
         botaoLimparInformacoesRelacionadasAgravo.setText("Limpar");
         botaoLimparInformacoesRelacionadasAgravo.addActionListener(new java.awt.event.ActionListener() {
@@ -856,7 +861,6 @@ public class Acolhimento extends javax.swing.JDialog {
          */
         ArrayList<String> listaInformacoesPanel = new ArrayList<>();
         HashMap<String, String> hmlistaInformacoesPanel = new HashMap<String, String>();
-
         /**
          * Strings pra armazenar estes dados que são digitados em outros
          * textfields (Campos que tem a opção 'outro')
@@ -865,8 +869,8 @@ public class Acolhimento extends javax.swing.JDialog {
         String origemEncaminhamento = "";
         String relacaoTrabalho = "";
         String objetivoConsulta = "";
-
         try {
+
             /**
              * Para cada panel presente no formulário
              */
@@ -907,9 +911,6 @@ public class Acolhimento extends javax.swing.JDialog {
                         } else if (temp.getName().equals("campoMunicipioUnidadeOUOutro")) {
                             if (temp.isEnabled()) {
                                 origemEncaminhamento = temp.getText();
-                                System.out.println("--------");
-                                System.out.println(origemEncaminhamento);
-                                System.out.println("--------");
                             }
                         } else {
 
@@ -921,29 +922,38 @@ public class Acolhimento extends javax.swing.JDialog {
                             hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
                             listaInformacoesPanel.add(temp.getText());
                         }
-                    }
-
-                    /**
+                    } /**
                      * Quando o componente do panel for um combobox
                      */
-                    if (c.getClass().toString().contains("javax.swing.JComboBox")) {
+                    else if (c.getClass().toString().contains("javax.swing.JComboBox")) {
                         JComboBox temp = (JComboBox) c;
                         hmlistaInformacoesPanel.put(temp.getName(), temp.getSelectedItem().toString());
                         listaInformacoesPanel.add(temp.getSelectedItem().toString());
-                    }
-
-                    /**
+                    } /**
                      * Quando o componente do panel for um checkbox
                      */
-                    if (c.getClass().toString().contains("javax.swing.JCheckBox")) {
+                    else if (c.getClass().toString().contains("javax.swing.JCheckBox")) {
                         JCheckBox temp = (JCheckBox) c;
+
                         /**
                          * Se o checkbox estiver selecionado, armazena o texto
                          * dele, se não, não
                          */
                         if (temp.isSelected()) {
+
+                            /**
+                             * Percorro todos componentes até achar o JTextField
+                             * outro NAO É NADA EFICIENTE SE ADICIONAR MUITOS
+                             * COMPONENTES DPS NESTE PANEL, MAS POR ENQUANTO FOI
+                             * A MELHOR SOLUÇÃO QUE ACHEI
+                             */
                             if (temp.getName().equals("outro")) {
-                                hmlistaInformacoesPanel.put("Origem Encaminhamento", origemEncaminhamento);
+                                for (Component d : panel.getComponents()) {
+                                    if (d.getClass().toString().contains("javax.swing.JTextField")) {
+                                        JTextField campoOutroOrigemEncaminhamento = (JTextField) d;
+                                        hmlistaInformacoesPanel.put("Origem Encaminhamento", campoOutroOrigemEncaminhamento.getText());
+                                    }
+                                }
                             } else {
                                 hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
                                 listaInformacoesPanel.add(temp.getText());
@@ -951,6 +961,7 @@ public class Acolhimento extends javax.swing.JDialog {
 
                         }
                     }
+
                 }
 
             }

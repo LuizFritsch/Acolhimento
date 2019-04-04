@@ -261,6 +261,7 @@
                 <StringItem index="2" value="Outro"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="Sexo" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -356,6 +357,7 @@
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="6"/>
+            <Property name="name" type="java.lang.String" value="Escolaridade" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -996,6 +998,7 @@
                 <StringItem index="3" value="N&#xe3;o se aplica"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="Emiss&#xe3;o de CAT" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1021,6 +1024,7 @@
                 <StringItem index="8" value="N&#xe3;o sabe informar"/>
               </StringArray>
             </Property>
+            <Property name="name" type="java.lang.String" value="Beneficios Previdenciarios" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1050,6 +1054,7 @@
               </StringArray>
             </Property>
             <Property name="selectedIndex" type="int" value="1"/>
+            <Property name="name" type="java.lang.String" value="Realizou fisioterapia anteriormente" noResource="true"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
