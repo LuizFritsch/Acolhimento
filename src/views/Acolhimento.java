@@ -10,15 +10,20 @@ import controller.Log;
 import exceptions.CampoEmBrancoException;
 import java.awt.Component;
 import java.awt.TextField;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 import models.CartaoSUS;
 
 /**
@@ -46,6 +51,17 @@ public class Acolhimento extends javax.swing.JDialog {
         listaDePanel.add(panelOrigemEncaminhamento);
         listaDePanel.add(panelInformacoesAgravo);
         listaDePanel.add(panelInformacoesProfissionaisPaciente);
+        MaskFormatter maskData;
+        //  Mascara no campo data.
+        //  Como o salvar não pega JFormattedTextField, por preguiça de criar um 
+        //metodo novo, fiz esta pequena gambiarra ao inicializar o textfield 
+        //como JformatedTextField e setar a mascara dele aqui.
+        try {
+            maskData = new MaskFormatter("##/##/####");
+            maskData.install((JFormattedTextField) campoDataNascimento);
+        } catch (ParseException erro) {
+            log.EscreveNoLog("Erro: " + erro.getMessage());
+        }
     }
 
     /**
@@ -66,7 +82,7 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSexo = new javax.swing.JLabel();
         campoSexo = new javax.swing.JComboBox<>();
         labelDataNascimento = new javax.swing.JLabel();
-        campoDataNascimento = new javax.swing.JTextField();
+        campoDataNascimento = new javax.swing.JFormattedTextField();
         labelNaturalidade = new javax.swing.JLabel();
         campoNaturalidade = new javax.swing.JTextField();
         labelNomeMae = new javax.swing.JLabel();
@@ -880,7 +896,7 @@ public class Acolhimento extends javax.swing.JDialog {
      * @param panel
      * @return
      */
-    public ArrayList<String> getInfoPorPanel(ArrayList<JPanel> listaDePanel) {
+    public HashMap<String, String> getInfoPorPanel(ArrayList<JPanel> listaDePanel) {
 
         /**
          * Array contendo tudo que foi passado no form
@@ -893,8 +909,7 @@ public class Acolhimento extends javax.swing.JDialog {
          *
          */
         String origemEncaminhamento = "";
-        String relacaoTrabalho = "";
-        String objetivoConsulta = "";
+
         try {
 
             /**
@@ -906,6 +921,14 @@ public class Acolhimento extends javax.swing.JDialog {
                  * Percorre todos componentes dele
                  */
                 for (Component c : panel.getComponents()) {
+                    if (c.getClass().toString().contains("javax.swing.JFormattedTextField")) {
+                        JFormattedTextField temp = (JFormattedTextField) c;
+                        if (temp.getText().equals("") || temp.getText().equals(" ") || temp.getText().equals("  /  /    ") || temp.getText().equals("  /  /  ")) {
+                            throw new CampoEmBrancoException("Por favor, digite uma data de nascimento!");
+                        } else {
+                            hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
+                        }
+                    }
 
                     /**
                      * Quando o componente do panel for um textfield
@@ -1019,13 +1042,6 @@ public class Acolhimento extends javax.swing.JDialog {
                 }
 
             }
-            Set<String> chaves = hmlistaInformacoesPanel.keySet();
-            for (String chave : chaves) {
-
-                System.out.println(chave + " : " + hmlistaInformacoesPanel.get(chave));
-
-            }
-
         } catch (Exception erro) {
             /**
              * Verifico se o erro é apenas um campo em branco, pra evitar de
@@ -1038,7 +1054,7 @@ public class Acolhimento extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, erro.getMessage());
             }
         }
-        return listaInformacoesPanel;
+        return hmlistaInformacoesPanel;
     }
 
     /**
@@ -1128,6 +1144,10 @@ public class Acolhimento extends javax.swing.JDialog {
             for (Component c : panel.getComponents()) {
                 if (c.getClass().toString().contains("javax.swing.JTextField")) {
                     JTextField temp = (JTextField) c;
+                    temp.setText("");
+                }
+                if (c.getClass().toString().contains("javax.swing.JFormattedTextField")) {
+                    JFormattedTextField temp = (JFormattedTextField) c;
                     temp.setText("");
                 }
             }
@@ -1304,14 +1324,6 @@ public class Acolhimento extends javax.swing.JDialog {
 
     }//GEN-LAST:event_campoSUSKeyPressed
 
-    private void campoDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataNascimentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoDataNascimentoActionPerformed
-
-    private void campoDataNascimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoDataNascimentoKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoDataNascimentoKeyTyped
-
     /**
      * Quando é digitado algo, verifica se o tamanho do textfield não é maior
      * que 15, pois o celular tem apenas 11 digitos. E Verifica se o caracter
@@ -1372,6 +1384,14 @@ public class Acolhimento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
         }
     }//GEN-LAST:event_campoNomePacienteKeyTyped
+
+    private void campoDataNascimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoDataNascimentoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataNascimentoKeyTyped
+
+    private void campoDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataNascimentoActionPerformed
 
     /**
      * @param args the command line arguments
