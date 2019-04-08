@@ -216,15 +216,21 @@
         </Component>
         <Component class="javax.swing.JTextField" name="campoSUS">
           <Properties>
-            <Property name="name" type="java.lang.String" value="Cart&#xe3;o SUS" noResource="true"/>
+            <Property name="toolTipText" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;Numero do Cartao SUS&quot;" type="code"/>
+            </Property>
+            <Property name="name" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="&quot;Cart&#xe3;o SUS&quot;" type="code"/>
+            </Property>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="&quot;&quot;"/>
+          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoSUSActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoSUSKeyPressed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoSUSKeyTyped"/>
           </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="0"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JLabel" name="labelNomePaciente">
           <Properties>
@@ -239,6 +245,10 @@
             <Property name="toolTipText" type="java.lang.String" value="Nome do Paciente"/>
             <Property name="name" type="java.lang.String" value="Nome completo" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoNomePacienteActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoNomePacienteKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelSexo">
           <Properties>
@@ -275,6 +285,10 @@
           <Properties>
             <Property name="name" type="java.lang.String" value="Data de nascimento" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoDataNascimentoActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoDataNascimentoKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelNaturalidade">
           <Properties>
@@ -301,6 +315,9 @@
           <Properties>
             <Property name="name" type="java.lang.String" value="Nome da m&#xe3;e" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoNomeMaeKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEndereco">
           <Properties>
@@ -327,6 +344,9 @@
           <Properties>
             <Property name="name" type="java.lang.String" value="Celular" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoCelularKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEscolaridade">
           <Properties>

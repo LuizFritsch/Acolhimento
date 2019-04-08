@@ -9,6 +9,7 @@ import controller.AcolhimentoController;
 import controller.Log;
 import exceptions.CampoEmBrancoException;
 import java.awt.Component;
+import java.awt.TextField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import models.CartaoSUS;
 
 /**
  *
@@ -58,7 +60,7 @@ public class Acolhimento extends javax.swing.JDialog {
         panelInformacoesPaciente = new javax.swing.JPanel();
         labelTituloInformacoesPaciente = new javax.swing.JLabel();
         labelSUS = new javax.swing.JLabel();
-        javax.swing.JTextField campoSUS = new javax.swing.JTextField();
+        campoSUS = new javax.swing.JTextField();
         labelNomePaciente = new javax.swing.JLabel();
         campoNomePaciente = new javax.swing.JTextField();
         labelSexo = new javax.swing.JLabel();
@@ -136,10 +138,19 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSUS.setLabelFor(campoSUS);
         labelSUS.setText("Cartão SUS:");
 
-        campoSUS.setName("Cartão SUS"); // NOI18N
+        campoSUS.setToolTipText("Numero do Cartao SUS");
+        campoSUS.setName("Cartão SUS");
         campoSUS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoSUSActionPerformed(evt);
+            }
+        });
+        campoSUS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                campoSUSKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoSUSKeyTyped(evt);
             }
         });
 
@@ -148,6 +159,16 @@ public class Acolhimento extends javax.swing.JDialog {
 
         campoNomePaciente.setToolTipText("Nome do Paciente");
         campoNomePaciente.setName("Nome completo"); // NOI18N
+        campoNomePaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoNomePacienteActionPerformed(evt);
+            }
+        });
+        campoNomePaciente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoNomePacienteKeyTyped(evt);
+            }
+        });
 
         labelSexo.setLabelFor(campoSexo);
         labelSexo.setText("Sexo:");
@@ -159,6 +180,16 @@ public class Acolhimento extends javax.swing.JDialog {
         labelDataNascimento.setText("Data de nascimento:");
 
         campoDataNascimento.setName("Data de nascimento"); // NOI18N
+        campoDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoDataNascimentoActionPerformed(evt);
+            }
+        });
+        campoDataNascimento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoDataNascimentoKeyTyped(evt);
+            }
+        });
 
         labelNaturalidade.setLabelFor(campoNaturalidade);
         labelNaturalidade.setText("Naturalidade:");
@@ -169,6 +200,11 @@ public class Acolhimento extends javax.swing.JDialog {
         labelNomeMae.setText("Nome da mãe:");
 
         campoNomeMae.setName("Nome da mãe"); // NOI18N
+        campoNomeMae.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoNomeMaeKeyTyped(evt);
+            }
+        });
 
         labelEndereco.setLabelFor(campoEndereco);
         labelEndereco.setText("Endereço:");
@@ -179,6 +215,11 @@ public class Acolhimento extends javax.swing.JDialog {
         labelCelular.setText("Celular:");
 
         campoCelular.setName("Celular"); // NOI18N
+        campoCelular.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoCelularKeyTyped(evt);
+            }
+        });
 
         labelEscolaridade.setLabelFor(campoEscolaridade);
         labelEscolaridade.setText("Escolaridade:");
@@ -283,6 +324,8 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addComponent(botaoLimparInformacoesPaciente)
                 .addGap(15, 15, 15))
         );
+
+        campoSUS.getAccessibleContext().setAccessibleName("\"\"");
 
         panelOrigemEncaminhamento.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -758,7 +801,7 @@ public class Acolhimento extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoSUSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSUSActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_campoSUSActionPerformed
 
     private void campoMunicipioUnidadeOUOutroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoMunicipioUnidadeOUOutroActionPerformed
@@ -1024,7 +1067,7 @@ public class Acolhimento extends javax.swing.JDialog {
             if (campoRelacaoTrabalho.getSelectedItem().toString().equals("Mercado Informal")) {
                 this.campoMercadoInformal.setEditable(true);
                 this.campoMercadoInformal.setEnabled(true);
-                
+
             } else {
                 this.campoMercadoInformal.setEditable(false);
                 this.campoMercadoInformal.setEnabled(false);
@@ -1182,19 +1225,19 @@ public class Acolhimento extends javax.swing.JDialog {
     private void campoProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoProfissaoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoProfissaoActionPerformed
-    
-     /**
-     * Se selecionar o item Outro no combobox, o textfield para
-     * especificar fica visivel
+
+    /**
+     * Se selecionar o item Outro no combobox, o textfield para especificar fica
+     * visivel
      *
      * @param evt
      */
     private void campoObjetivoConsultaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_campoObjetivoConsultaItemStateChanged
-              try {
+        try {
             if (campoObjetivoConsulta.getSelectedItem().toString().equals("Outro")) {
                 this.campoOutroObjetivoConsulta.setEditable(true);
                 this.campoOutroObjetivoConsulta.setEnabled(true);
-                
+
             } else {
                 this.campoOutroObjetivoConsulta.setEditable(false);
                 this.campoOutroObjetivoConsulta.setEnabled(false);
@@ -1205,6 +1248,129 @@ public class Acolhimento extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_campoObjetivoConsultaItemStateChanged
+
+    public boolean verificaSeEhNumero(char charDaView) {
+        try {
+            if (Character.isDigit(charDaView) == true) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception erro) {
+            return false;
+        }
+    }
+
+    /**
+     * Se o tamanho da string for maior que um determinado tamanho, retorna
+     * false, se nao, retorna true.
+     *
+     * @param text
+     * @param tamanhoMaxPermitido
+     * @return
+     */
+    public boolean tamanhoStringInTextFieldEhMenorOuIgualTamanhoPermitido(String text, int tamanhoMaxPermitido) {
+        if (text.length() > tamanhoMaxPermitido) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
+     * Quando é digitado algo, verifica se o tamanho do textfield não é maior
+     * que 15, pois o cartao sus sempre tem apenas 15 digitos. E Verifica se o
+     * caracter digitado é um numero, se nao, nao coloca no textfield.
+     *
+     * @param evt
+     */
+    private void campoSUSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSUSKeyTyped
+        try {
+            if (tamanhoStringInTextFieldEhMenorOuIgualTamanhoPermitido(campoSUS.getText(), 14) == false) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "O comprimento do cartão SUS não pode ser maior que 15 dígitos! :(", "Erro", 2);
+            } else if (!Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no cartão SUS! :(", "Erro", 2);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_campoSUSKeyTyped
+
+    private void campoSUSKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoSUSKeyPressed
+
+    }//GEN-LAST:event_campoSUSKeyPressed
+
+    private void campoDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataNascimentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataNascimentoActionPerformed
+
+    private void campoDataNascimentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoDataNascimentoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoDataNascimentoKeyTyped
+
+    /**
+     * Quando é digitado algo, verifica se o tamanho do textfield não é maior
+     * que 15, pois o celular tem apenas 11 digitos. E Verifica se o caracter
+     * digitado é um numero, se nao, nao coloca no textfield.
+     *
+     * @param evt
+     */
+    private void campoCelularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCelularKeyTyped
+        try {
+            if (tamanhoStringInTextFieldEhMenorOuIgualTamanhoPermitido(campoCelular.getText(), 10) == false) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "O comprimento do celular não pode ser maior que 11 dígitos! :(", "Erro", 2);
+            } else if (!Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no celular! :(", "Erro", 2);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_campoCelularKeyTyped
+    /**
+     * Verifica se o caracter digitado é um digito, se for, não o adiciona no
+     * textfield e abre uma mensagem informando o erro
+     *
+     * @param evt
+     */
+    private void campoNomeMaeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNomeMaeKeyTyped
+        try {
+            if (Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "Não pode haver números no nome de uma pessoa! :(", "Erro", 2);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_campoNomeMaeKeyTyped
+
+    private void campoNomePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomePacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoNomePacienteActionPerformed
+
+    /**
+     * Verifica se o caracter digitado é um digito, se for, não o adiciona no
+     * textfield e abre uma mensagem informando o erro
+     *
+     * @param evt
+     */
+    private void campoNomePacienteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoNomePacienteKeyTyped
+        try {
+            if (Character.isDigit(evt.getKeyChar())) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "Não pode haver números no nome de uma pessoa! :(", "Erro", 2);
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_campoNomePacienteKeyTyped
 
     /**
      * @param args the command line arguments
@@ -1239,6 +1405,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JTextField campoOutroObjetivoConsulta;
     private javax.swing.JTextField campoProfissao;
     private javax.swing.JComboBox<String> campoRelacaoTrabalho;
+    private javax.swing.JTextField campoSUS;
     private javax.swing.JComboBox<String> campoSexo;
     private javax.swing.JComboBox<String> campoSituacaoTrabalho;
     private javax.swing.JCheckBox checkEmpresa;
