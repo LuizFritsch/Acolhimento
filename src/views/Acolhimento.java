@@ -1289,6 +1289,7 @@ public class Acolhimento extends javax.swing.JDialog {
             if (tamanhoStringInTextFieldEhMenorOuIgualTamanhoPermitido(campoSUS.getText(), 14) == false) {
                 evt.consume();
                 JOptionPane.showMessageDialog(this, "O comprimento do cartão SUS não pode ser maior que 15 dígitos! :(", "Erro", 2);
+                campoNomePaciente.requestFocus();
             } else if (!Character.isDigit(evt.getKeyChar())) {
                 evt.consume();
                 JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no cartão SUS! :(", "Erro", 2);
