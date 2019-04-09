@@ -6,17 +6,14 @@
 package controller;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 import javax.swing.JOptionPane;
 import models.CartaoSUS;
 import models.Paciente;
 import models.Profissao;
 import models.Residencia;
-import models.dao.ConexaoBancoDeDadosDAO;
 import models.dao.OperacoesBancoDeDadosDAO;
 import views.FramePrincipal;
 

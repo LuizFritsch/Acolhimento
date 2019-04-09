@@ -9,15 +9,9 @@ import controller.AcolhimentoController;
 import controller.Log;
 import exceptions.CampoEmBrancoException;
 import java.awt.Component;
-import java.awt.TextField;
-import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JCheckBox;
@@ -27,7 +21,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.MaskFormatter;
-import models.CartaoSUS;
 
 /**
  *
