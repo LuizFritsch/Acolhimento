@@ -10,6 +10,7 @@ import controller.Log;
 import exceptions.CampoEmBrancoException;
 import java.awt.Component;
 import java.awt.TextField;
+import java.awt.event.KeyEvent;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +18,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFormattedTextField;
@@ -94,6 +97,8 @@ public class Acolhimento extends javax.swing.JDialog {
         labelEscolaridade = new javax.swing.JLabel();
         campoEscolaridade = new javax.swing.JComboBox<>();
         botaoLimparInformacoesPaciente = new javax.swing.JButton();
+        labelCPF = new javax.swing.JLabel();
+        campoCPF = new javax.swing.JTextField();
         panelOrigemEncaminhamento = new javax.swing.JPanel();
         labelOrigemEncaminhamento = new javax.swing.JLabel();
         checkINSS = new javax.swing.JCheckBox();
@@ -251,15 +256,22 @@ public class Acolhimento extends javax.swing.JDialog {
             }
         });
 
+        labelCPF.setText("CPF:");
+
+        campoCPF.setToolTipText("Digite o CPF");
+        campoCPF.setName("CPF"); // NOI18N
+        campoCPF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campoCPFKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelInformacoesPacienteLayout = new javax.swing.GroupLayout(panelInformacoesPaciente);
         panelInformacoesPaciente.setLayout(panelInformacoesPacienteLayout);
         panelInformacoesPacienteLayout.setHorizontalGroup(
             panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
                 .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(labelTituloInformacoesPaciente))
                     .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
                         .addGap(42, 42, 42)
                         .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -268,8 +280,6 @@ public class Acolhimento extends javax.swing.JDialog {
                                 .addComponent(labelEndereco)
                                 .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(campoNaturalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                                    .addComponent(campoSUS, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                                    .addComponent(labelSUS)
                                     .addComponent(labelNomePaciente)
                                     .addComponent(campoNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
                                     .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
@@ -287,12 +297,23 @@ public class Acolhimento extends javax.swing.JDialog {
                                                 .addComponent(campoDataNascimento))))
                                     .addComponent(labelNaturalidade)
                                     .addComponent(labelNomeMae)
-                                    .addComponent(campoNomeMae, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE))
+                                    .addComponent(campoNomeMae, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                                    .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                        .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(campoSUS, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(labelSUS))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(labelCPF)
+                                            .addComponent(campoCPF))))
                                 .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelCelular)
                                 .addComponent(campoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelEscolaridade)
-                                .addComponent(campoEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(campoEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(labelTituloInformacoesPaciente)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInformacoesPacienteLayout.setVerticalGroup(
@@ -301,9 +322,13 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addGap(15, 15, 15)
                 .addComponent(labelTituloInformacoesPaciente)
                 .addGap(18, 18, 18)
-                .addComponent(labelSUS)
+                .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelSUS)
+                    .addComponent(labelCPF))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoSUS, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoSUS, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoCPF, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelNomePaciente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1309,10 +1334,21 @@ public class Acolhimento extends javax.swing.JDialog {
             if (tamanhoStringInTextFieldEhMenorOuIgualTamanhoPermitido(campoSUS.getText(), 14) == false) {
                 evt.consume();
                 JOptionPane.showMessageDialog(this, "O comprimento do cartão SUS não pode ser maior que 15 dígitos! :(", "Erro", 2);
-                campoNomePaciente.requestFocus();
+                campoCPF.requestFocus();
             } else if (!Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-                JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no cartão SUS! :(", "Erro", 2);
+                /**
+                 * Se o caracter não é um numero, mas é uma letra, ele dá
+                 * consume e mostra a mensagem que nao pode haver caracteres se
+                 * nao for uma letra ele não mostra nenhum tipo de mensagem. Fiz
+                 * isso para evitar que fique aparecendo a mensagem quando o
+                 * usuário aperta Esc ou Back_Space ou DEL.
+                 */
+                if (!Character.isLetter(evt.getKeyChar()) && !temCharEspecial(evt.getKeyChar())) {
+
+                } else {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no cartão SUS! :(", "Erro", 2);
+                }
             }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
@@ -1337,8 +1373,19 @@ public class Acolhimento extends javax.swing.JDialog {
                 evt.consume();
                 JOptionPane.showMessageDialog(this, "O comprimento do celular não pode ser maior que 11 dígitos! :(", "Erro", 2);
             } else if (!Character.isDigit(evt.getKeyChar())) {
-                evt.consume();
-                JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no celular! :(", "Erro", 2);
+                /**
+                 * Se o caracter não é um numero, mas é uma letra, ele dá
+                 * consume e mostra a mensagem que nao pode haver caracteres se
+                 * nao for uma letra ele não mostra nenhum tipo de mensagem. Fiz
+                 * isso para evitar que fique aparecendo a mensagem quando o
+                 * usuário aperta Esc ou Back_Space ou DEL.
+                 */
+                if (!Character.isLetter(evt.getKeyChar()) && !temCharEspecial(evt.getKeyChar())) {
+
+                } else {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no cartão SUS! :(", "Erro", 2);
+                }
             }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
@@ -1393,6 +1440,47 @@ public class Acolhimento extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_campoDataNascimentoActionPerformed
 
+    public boolean temCharEspecial(Character chr) {
+        Pattern p = Pattern.compile("[!@#$%&*()_+=|<>?{}\\\\[\\\\]~-]", Pattern.CASE_INSENSITIVE);
+        Matcher m = p.matcher(String.valueOf(chr));
+        if (String.valueOf(chr) == null || String.valueOf(chr).isEmpty()) {
+            return false;
+        }
+        boolean b = m.find();
+        if (b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    private void campoCPFKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campoCPFKeyTyped
+        try {
+            if (tamanhoStringInTextFieldEhMenorOuIgualTamanhoPermitido(campoCPF.getText(), 10) == false) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "O comprimento do cpf não pode ser maior que 11 dígitos! :(", "Erro", 2);
+                campoNomePaciente.requestFocus();
+            } else if (!Character.isDigit(evt.getKeyChar())) {
+                /**
+                 * Se o caracter não é um numero, mas é uma letra, ele dá
+                 * consume e mostra a mensagem que nao pode haver caracteres se
+                 * nao for uma letra ele não mostra nenhum tipo de mensagem. Fiz
+                 * isso para evitar que fique aparecendo a mensagem quando o
+                 * usuário aperta Esc ou Back_Space ou DEL.
+                 */
+
+                if (!Character.isLetter(evt.getKeyChar()) && !temCharEspecial(evt.getKeyChar())) {
+
+                } else {
+                    evt.consume();
+                    JOptionPane.showMessageDialog(this, "Não pode haver caracteres não numéricos no cartão SUS! :(", "Erro", 2);
+                }
+            }
+        } catch (Exception erro) {
+            log.EscreveNoLog(erro.getMessage());
+            JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
+        }
+    }//GEN-LAST:event_campoCPFKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -1408,6 +1496,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JButton botaoVoltar;
     private javax.swing.JComboBox<String> campoBeneficiosPrevidenciarios;
     private javax.swing.JTextField campoCBO;
+    private javax.swing.JTextField campoCPF;
     private javax.swing.JComboBox<String> campoCarteiraTrabalho;
     private javax.swing.JTextField campoCelular;
     private javax.swing.JTextField campoDataNascimento;
@@ -1440,6 +1529,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JCheckBox checkUnidade;
     private javax.swing.JLabel labelBeneficiosPrevidenciarios;
     private javax.swing.JLabel labelCBO;
+    private javax.swing.JLabel labelCPF;
     private javax.swing.JLabel labelCarteiraTrabalho;
     private javax.swing.JLabel labelCelular;
     private javax.swing.JLabel labelDataNascimento;

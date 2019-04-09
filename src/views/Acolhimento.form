@@ -93,10 +93,6 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                          <Component id="labelTituloInformacoesPaciente" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="botaoLimparInformacoesPaciente" min="-2" max="-2" attributes="0"/>
@@ -104,8 +100,6 @@
                                   <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="campoNaturalidade" alignment="0" pref="267" max="32767" attributes="0"/>
-                                      <Component id="campoSUS" pref="267" max="32767" attributes="0"/>
-                                      <Component id="labelSUS" min="-2" max="-2" attributes="0"/>
                                       <Component id="labelNomePaciente" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="campoNomePaciente" alignment="0" pref="267" max="32767" attributes="0"/>
                                       <Group type="102" alignment="0" attributes="0">
@@ -130,6 +124,17 @@
                                       <Component id="labelNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="labelNomeMae" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="campoNomeMae" alignment="0" pref="267" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="campoSUS" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                              <Component id="labelSUS" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="labelCPF" min="-2" max="-2" attributes="0"/>
+                                              <Component id="campoCPF" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <Component id="campoEndereco" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                                   <Component id="labelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -138,6 +143,10 @@
                                   <Component id="campoEscolaridade" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                          <Component id="labelTituloInformacoesPaciente" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -150,9 +159,15 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="labelTituloInformacoesPaciente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="labelSUS" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelSUS" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelCPF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="campoSUS" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="campoSUS" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="campoCPF" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelNomePaciente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -388,6 +403,20 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparInformacoesPacienteActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelCPF">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="CPF:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="campoCPF">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="Digite o CPF"/>
+            <Property name="name" type="java.lang.String" value="CPF" noResource="true"/>
+          </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoCPFKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>
