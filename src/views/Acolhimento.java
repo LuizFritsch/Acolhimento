@@ -1293,7 +1293,12 @@ public class Acolhimento extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_campoObjetivoConsultaItemStateChanged
-
+    
+    /**
+     * Metodo para verificar se um char é número
+     * @param charDaView
+     * @return 
+     */
     public boolean verificaSeEhNumero(char charDaView) {
         try {
             if (Character.isDigit(charDaView) == true) {
@@ -1439,7 +1444,11 @@ public class Acolhimento extends javax.swing.JDialog {
     private void campoDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoDataNascimentoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campoDataNascimentoActionPerformed
-
+    /**
+     * Metodo para verificar se um char é especial
+     * @param chr
+     * @return true se sim, false se não
+     */
     public boolean temCharEspecial(Character chr) {
         Pattern p = Pattern.compile("[!@#$%&*()_+=|<>?{}\\\\[\\\\]~-]", Pattern.CASE_INSENSITIVE);
         Matcher m = p.matcher(String.valueOf(chr));
