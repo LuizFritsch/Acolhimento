@@ -30,7 +30,6 @@ public class Acolhimento extends javax.swing.JDialog {
 
     private Log log;
     private AcolhimentoController ac;
-    private ArrayList<String> listaInformacoesPaciente;
     ArrayList<JPanel> listaDePanel;
 
     /**
@@ -41,7 +40,6 @@ public class Acolhimento extends javax.swing.JDialog {
         initComponents();
         log = new Log();
         ac = new AcolhimentoController();
-        listaInformacoesPaciente = new ArrayList<>();
         listaDePanel = new ArrayList<>();
         listaDePanel.add(panelInformacoesPaciente);
         listaDePanel.add(panelOrigemEncaminhamento);
@@ -917,9 +915,8 @@ public class Acolhimento extends javax.swing.JDialog {
     public HashMap<String, String> getInfoPorPanel(ArrayList<JPanel> listaDePanel) {
 
         /**
-         * Array contendo tudo que foi passado no form
+         * Hashmap contendo tudo que foi passado no form
          */
-        ArrayList<String> listaInformacoesPanel = new ArrayList<>();
         HashMap<String, String> hmlistaInformacoesPanel = new HashMap<String, String>();
         /**
          * Strings pra armazenar estes dados que são digitados em outros
@@ -987,7 +984,6 @@ public class Acolhimento extends javax.swing.JDialog {
                              * ENCAMINHAMENTO'
                              */
                             hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
-                            listaInformacoesPanel.add(temp.getText());
                         }
                     } /**
                      * Quando o componente do panel for um combobox
@@ -1021,7 +1017,6 @@ public class Acolhimento extends javax.swing.JDialog {
                                 break;
                             default:
                                 hmlistaInformacoesPanel.put(temp.getName(), temp.getSelectedItem().toString());
-                                listaInformacoesPanel.add(temp.getSelectedItem().toString());
                                 break;
                         }
                     } /**
@@ -1051,7 +1046,6 @@ public class Acolhimento extends javax.swing.JDialog {
                                 }
                             } else {
                                 hmlistaInformacoesPanel.put(temp.getName(), temp.getText());
-                                listaInformacoesPanel.add(temp.getText());
                             }
 
                         }
@@ -1286,11 +1280,12 @@ public class Acolhimento extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_campoObjetivoConsultaItemStateChanged
-    
+
     /**
      * Metodo para verificar se um char é número
+     *
      * @param charDaView
-     * @return 
+     * @return
      */
     public boolean verificaSeEhNumero(char charDaView) {
         try {
@@ -1439,6 +1434,7 @@ public class Acolhimento extends javax.swing.JDialog {
     }//GEN-LAST:event_campoDataNascimentoActionPerformed
     /**
      * Metodo para verificar se um char é especial
+     *
      * @param chr
      * @return true se sim, false se não
      */
