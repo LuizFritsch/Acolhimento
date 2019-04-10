@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import models.Paciente;
 
 /**
  *
@@ -47,4 +48,11 @@ public class OperacoesBancoDeDadosDAO {
         return resultado;
     }
 
+    public boolean insertPaciente(Paciente paciente) {
+        if (true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

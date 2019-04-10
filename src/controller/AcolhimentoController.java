@@ -49,7 +49,7 @@ public class AcolhimentoController {
             CartaoSUS cartaoSUS = new CartaoSUS(infoPaciente.get("Cartão SUS"), "123");
             Profissao profissao = new Profissao(infoPaciente.get("Profissão"));
             Paciente p = new Paciente(infoPaciente.get("Nome completo"), "codigoPaciente", infoPaciente.get("CPF"), infoPaciente.get("Naturalidade"), infoPaciente.get("Nome da mãe"), residencia, data, profissao, cartaoSUS);
-            System.out.println(p.toString());
+            
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
