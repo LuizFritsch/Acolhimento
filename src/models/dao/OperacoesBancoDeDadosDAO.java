@@ -53,17 +53,17 @@ public class OperacoesBancoDeDadosDAO {
         return resultado;
     }
 
-    public boolean insertCartaoSUS(CartaoSUS cartaosus) throws SQLException {
+    public void insertCartaoSUS(CartaoSUS cartaosus) throws SQLException {
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTCARTAOSUS);
 
         comando.setString(1, null);
         comando.setString(2, cartaosus.getNumeroCartaoSUS());
         comando.setString(3, cartaosus.getNumeroCartaoSUS());
 
-        return comando.execute();
+        comando.execute();
     }
 
-    public boolean insertResidencia(Residencia residencia) throws SQLException {
+    public void insertResidencia(Residencia residencia) throws SQLException {
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTRESIDENCIA);
 
         comando.setString(1, null);
@@ -72,23 +72,12 @@ public class OperacoesBancoDeDadosDAO {
         comando.setString(4, residencia.getBairro());
         comando.setString(5, residencia.getCidade());
 
-        return comando.execute();
+        comando.execute();
     }
 
-    public boolean insertPaciente(Paciente paciente) throws SQLException, Exception {
-        if (insertCartaoSUS(paciente.getCartaoSUS())) {
-            System.out.println("1");
-            if (insertResidencia(paciente.getResidencia())) {
-                System.out.println("A");
-                return true;
-            } else {
-                System.out.println("B");
-                return false;
-            }
-        } else {
-            System.out.println("2");
-            return false;
-        }
+    public void insertPaciente(Paciente paciente) throws SQLException, Exception {
+        insertCartaoSUS(paciente.getCartaoSUS());
+        insertResidencia(paciente.getResidencia());
 
     }
 }
