@@ -24,7 +24,7 @@ public class OperacoesBancoDeDadosDAO {
     private final String INSERTPROFISSOES = "INSERT INTO profissoes(codigo, nome, cbo) VALUES (?,?,?)";
     private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(codigo, numero, cgs) VALUES (?,?,?)";
     private final String INSERTRESIDENCIA = "INSERT INTO residencia(codigo, rua, numero, bairro, cidade) VALUES (?,?,?,?,?)";
-    private final String INSERTPACIENTE = "INSERT INTO residencia(codigo, nome, cpf, naturalidade, nomemae, datanascimento) VALUES (?,?,?,?,?,?)";
+    private final String INSERTPACIENTE = "INSERT INTO paciente(codigo, nome, cpf, naturalidade, nomemae, datanascimento) VALUES (?,?,?,?,?,?)";
     //private final String UPDATE = "UPDATE CONTATO SET NOME=?, TELEFONE=?, EMAIL=? WHERE ID=?";
     private final String DELETE = "DELETE FROM profissoes WHERE ID =?";
     //private final String LIST = "SELECT * FROM CONTATO";
@@ -79,5 +79,14 @@ public class OperacoesBancoDeDadosDAO {
         insertCartaoSUS(paciente.getCartaoSUS());
         insertResidencia(paciente.getResidencia());
 
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPACIENTE);
+        comando.setString(1, null);
+        comando.setString(2, paciente.getNomePaciente());
+        comando.setString(3, paciente.getCPF());
+        comando.setString(4, paciente.getNaturalidade());
+        comando.setString(5, paciente.getNomeMae());
+        comando.setString(6, paciente.getDataNascimento().toString());
+
+        comando.execute();
     }
 }
