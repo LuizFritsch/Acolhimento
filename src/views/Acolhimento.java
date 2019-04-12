@@ -90,6 +90,8 @@ public class Acolhimento extends javax.swing.JDialog {
         botaoLimparInformacoesPaciente = new javax.swing.JButton();
         labelCPF = new javax.swing.JLabel();
         campoCPF = new javax.swing.JTextField();
+        campoNumeroCasa = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         panelOrigemEncaminhamento = new javax.swing.JPanel();
         labelOrigemEncaminhamento = new javax.swing.JLabel();
         checkINSS = new javax.swing.JCheckBox();
@@ -257,6 +259,10 @@ public class Acolhimento extends javax.swing.JDialog {
             }
         });
 
+        campoNumeroCasa.setName("Numero da casa"); // NOI18N
+
+        jLabel1.setText("Número:");
+
         javax.swing.GroupLayout panelInformacoesPacienteLayout = new javax.swing.GroupLayout(panelInformacoesPaciente);
         panelInformacoesPaciente.setLayout(panelInformacoesPacienteLayout);
         panelInformacoesPacienteLayout.setHorizontalGroup(
@@ -267,41 +273,46 @@ public class Acolhimento extends javax.swing.JDialog {
                         .addGap(42, 42, 42)
                         .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(botaoLimparInformacoesPaciente)
-                            .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(labelEndereco)
-                                .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(campoNaturalidade, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                                    .addComponent(labelNomePaciente)
-                                    .addComponent(campoNomePaciente, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                                    .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
-                                        .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
-                                                .addComponent(labelSexo)
-                                                .addGap(76, 76, 76))
-                                            .addComponent(campoSexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
-                                                .addGap(24, 24, 24)
-                                                .addComponent(labelDataNascimento))
-                                            .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addComponent(campoDataNascimento))))
-                                    .addComponent(labelNaturalidade)
-                                    .addComponent(labelNomeMae)
-                                    .addComponent(campoNomeMae, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-                                    .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
-                                        .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(campoSUS, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(labelSUS))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(labelCPF)
-                                            .addComponent(campoCPF))))
-                                .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(campoNaturalidade)
+                                .addComponent(labelNomePaciente)
+                                .addComponent(campoNomePaciente)
+                                .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                    .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                            .addComponent(labelSexo)
+                                            .addGap(76, 76, 76))
+                                        .addComponent(campoSexo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                            .addGap(24, 24, 24)
+                                            .addComponent(labelDataNascimento))
+                                        .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addComponent(campoDataNascimento))))
+                                .addComponent(labelNaturalidade)
+                                .addComponent(labelNomeMae)
+                                .addComponent(campoNomeMae)
+                                .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                    .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(campoSUS, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelSUS))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(labelCPF)
+                                        .addComponent(campoCPF)))
                                 .addComponent(labelCelular)
                                 .addComponent(campoCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(labelEscolaridade)
-                                .addComponent(campoEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(campoEscolaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
+                                    .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelEndereco))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(campoNumeroCasa))))))
                     .addGroup(panelInformacoesPacienteLayout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(labelTituloInformacoesPaciente)))
@@ -341,9 +352,13 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(campoNomeMae, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labelEndereco)
+                .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelEndereco)
+                    .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campoNumeroCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelCelular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1509,6 +1524,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JTextField campoNaturalidade;
     private javax.swing.JTextField campoNomeMae;
     private javax.swing.JTextField campoNomePaciente;
+    private javax.swing.JTextField campoNumeroCasa;
     private javax.swing.JComboBox<String> campoObjetivoConsulta;
     private javax.swing.JTextField campoOutroObjetivoConsulta;
     private javax.swing.JTextField campoProfissao;
@@ -1525,6 +1541,7 @@ public class Acolhimento extends javax.swing.JDialog {
     private javax.swing.JCheckBox checkServMedicoPart;
     private javax.swing.JCheckBox checkSindicato;
     private javax.swing.JCheckBox checkUnidade;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelBeneficiosPrevidenciarios;
     private javax.swing.JLabel labelCBO;
     private javax.swing.JLabel labelCPF;

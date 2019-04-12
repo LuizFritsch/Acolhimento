@@ -45,11 +45,19 @@ public class AcolhimentoController {
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
             formatter.format(data);
             Set<String> chaves = infoPaciente.keySet();
-            Residencia residencia = new Residencia(infoPaciente.get("Endereço"), "", "", "");
+            Residencia residencia = new Residencia(infoPaciente.get("Endereço"), infoPaciente.get("Numero da casa"), "1", "1");
             CartaoSUS cartaoSUS = new CartaoSUS(infoPaciente.get("Cartão SUS"), "123");
             Profissao profissao = new Profissao(infoPaciente.get("Profissão"));
             Paciente p = new Paciente(infoPaciente.get("Nome completo"), "codigoPaciente", infoPaciente.get("CPF"), infoPaciente.get("Naturalidade"), infoPaciente.get("Nome da mãe"), residencia, data, profissao, cartaoSUS);
-            
+            try {
+                System.out.println(p.toString());
+                op.insertPaciente(p);
+                fp.setVisible(false);
+                fp.setEnabled(false);
+            } catch (Exception erro) {
+                log.EscreveNoLog(erro.getMessage());
+                JOptionPane.showMessageDialog(null, erro.getMessage());
+            }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());

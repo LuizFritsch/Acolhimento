@@ -96,51 +96,58 @@
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="botaoLimparInformacoesPaciente" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="campoNaturalidade" alignment="0" pref="267" max="32767" attributes="0"/>
-                                      <Component id="labelNomePaciente" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoNomePaciente" alignment="0" pref="267" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <Component id="labelSexo" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="campoSexo" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="campoNaturalidade" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="labelNomePaciente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoNomePaciente" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="labelSexo" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                                                  <Component id="labelDataNascimento" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="campoDataNascimento" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                          <Component id="campoSexo" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
                                       </Group>
-                                      <Component id="labelNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelNomeMae" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campoNomeMae" alignment="0" pref="267" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="campoSUS" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                              <Component id="labelSUS" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                                              <Component id="labelDataNascimento" min="-2" max="-2" attributes="0"/>
                                           </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="labelCPF" min="-2" max="-2" attributes="0"/>
-                                              <Component id="campoCPF" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="campoDataNascimento" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="campoEndereco" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
+                                  <Component id="labelNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelNomeMae" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="campoNomeMae" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="campoSUS" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
+                                          <Component id="labelSUS" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="labelCPF" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoCPF" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <Component id="labelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="campoCelular" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                                   <Component id="labelEscolaridade" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="campoEscolaridade" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="campoEndereco" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
+                                          <Component id="labelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoNumeroCasa" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -191,9 +198,15 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="campoNomeMae" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelEndereco" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="campoEndereco" min="-2" pref="28" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="campoEndereco" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="campoNumeroCasa" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelCelular" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -418,6 +431,16 @@
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campoCPFKeyTyped"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="campoNumeroCasa">
+          <Properties>
+            <Property name="name" type="java.lang.String" value="Numero da casa" noResource="true"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="N&#xfa;mero:"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

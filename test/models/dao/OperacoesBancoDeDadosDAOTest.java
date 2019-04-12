@@ -6,13 +6,8 @@
 package models.dao;
 
 import exceptions.CartaoSUSExceptions;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import models.CartaoSUS;
-import models.Paciente;
-import models.Profissao;
-import models.Residencia;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
