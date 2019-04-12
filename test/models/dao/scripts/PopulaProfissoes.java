@@ -7,8 +7,10 @@ package models.dao.scripts;
 
 import controller.Log;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import models.dao.OperacoesBancoDeDadosDAO;
@@ -29,14 +31,16 @@ public class PopulaProfissoes {
         try {
             OperacoesBancoDeDadosDAO opdao = new OperacoesBancoDeDadosDAO();
             String arquivoCSV = System.getProperty("user.dir") + "/test/models/dao/scripts/cbo-profissoes.csv";
-            BufferedReader br = null;
+
             String linha = "";
             String csvDivisor = ";";
-
-            br = new BufferedReader(new FileReader(arquivoCSV));
+            BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(arquivoCSV), "ISO-8859-1"));
+            
             while ((linha = br.readLine()) != null) {
                 String[] profissao = linha.split(csvDivisor);
-                opdao.insertProfissoes(profissao[0], profissao[1]);
+                String cbo = profissao[0];
+                String nome = profissao[1];                
+                opdao.insertProfissoes(cbo, nome);
             }
         } catch (SQLException | ClassNotFoundException | IOException e) {
             log = new Log();

@@ -21,7 +21,7 @@ import models.Residencia;
 public class OperacoesBancoDeDadosDAO {
 
     private ConexaoBancoDeDadosDAO conexaoDao;
-    private final String INSERTPROFISSOES = "INSERT INTO profissoes(codigo, nome, cbo) VALUES (?,?,?)";
+    private final String INSERTPROFISSOES = "INSERT INTO profissao(codigo, cbo, nome) VALUES (?, ?,?)";
     private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(codigo, numero, cgs) VALUES (?,?,?)";
     private final String INSERTRESIDENCIA = "INSERT INTO residencia(codigo, rua, numero, bairro, cidade) VALUES (?,?,?,?,?)";
     private final String INSERTPACIENTE = "INSERT INTO paciente(codigo, nome, cpf, naturalidade, nomemae, datanascimento) VALUES (?,?,?,?,?,?)";
@@ -34,12 +34,12 @@ public class OperacoesBancoDeDadosDAO {
         this.conexaoDao = ConexaoBancoDeDadosDAO.getInstance();
     }
 
-    public void insertProfissoes(String cbo, String nome) throws SQLException {
+        public void insertProfissoes(String cbo, String nome) throws SQLException {
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPROFISSOES);
-
+        
         comando.setString(1, null);
-        comando.setString(2, nome);
-        comando.setString(3, cbo);
+        comando.setString(2, cbo);
+        comando.setString(3, nome);
 
         comando.execute();
     }
