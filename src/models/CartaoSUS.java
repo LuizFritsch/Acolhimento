@@ -27,11 +27,18 @@ public class CartaoSUS {
         utilidades = new Utils();
 
         if (utilidades.naoContemCaracterNaoNumerico(nmrCartaoSUS)) {
-            this.numeroCartaoSUS = nmrCartaoSUS;
-            if (utilidades.naoContemCaracterNaoNumerico(CGS)) {
-                this.consultaGeralSaudeCGS = CGS;
+            if (nmrCartaoSUS.length() == 15) {
+                this.numeroCartaoSUS = nmrCartaoSUS;
+                if (utilidades.naoContemCaracterNaoNumerico(CGS)) {
+                    this.consultaGeralSaudeCGS = CGS;
+                } else {
+                    cs = new CartaoSUSExceptions("O CGS está incorreto: contém caracteres não númericos");
+                    log.EscreveNoLog(cs.getMessage());
+                    JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
+                    throw cs;
+                }
             } else {
-                cs = new CartaoSUSExceptions("O CGS está incorreto: contém caracteres não númericos");
+                cs = new CartaoSUSExceptions("O cartão SUS está incorreto: o comprimento é diferente de 15");
                 log.EscreveNoLog(cs.getMessage());
                 JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
                 throw cs;

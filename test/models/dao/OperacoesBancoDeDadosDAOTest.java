@@ -26,7 +26,10 @@ import static org.junit.Assert.*;
  */
 public class OperacoesBancoDeDadosDAOTest {
 
-    public OperacoesBancoDeDadosDAOTest() {
+    OperacoesBancoDeDadosDAO op;
+
+    public OperacoesBancoDeDadosDAOTest() throws SQLException, ClassNotFoundException {
+        op = new OperacoesBancoDeDadosDAO();
     }
 
     @BeforeClass
@@ -45,36 +48,25 @@ public class OperacoesBancoDeDadosDAOTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of selectTodasProfissoes method, of class OperacoesBancoDeDadosDAO.
-     */
     @Test
-    public void testSelectTodasProfissoes() throws Exception {
-
+    public void test5() throws SQLException, ClassNotFoundException, CartaoSUSExceptions {
+        CartaoSUS cartaosus = new CartaoSUS("123456789012345", "1234");
+        op.insertCartaoSUS(cartaosus);
+        assertEquals("1", op.selectCodigoCartaoSUSPeloNumero(cartaosus));
     }
-
+    
     @Test
-    public void test2() throws SQLException, ClassNotFoundException {
-        OperacoesBancoDeDadosDAO op = new OperacoesBancoDeDadosDAO();
-        op.insertProfissoes("TESTE", "123");
+    public void test6() throws SQLException, ClassNotFoundException, CartaoSUSExceptions {
+        CartaoSUS cartaosus = new CartaoSUS("123456789012346", "1234");
+        op.insertCartaoSUS(cartaosus);
+        assertEquals("2", op.selectCodigoCartaoSUSPeloNumero(cartaosus));
     }
-
+    
     @Test
-    public void test3() throws SQLException, ClassNotFoundException, CartaoSUSExceptions {
-        OperacoesBancoDeDadosDAO op = new OperacoesBancoDeDadosDAO();
-        CartaoSUS cartaosus = new CartaoSUS("465465", "4565465460");
-        //assertinsertCartaoSUS(cartaosus)
-    }
-
-    @Test
-    public void test4() throws SQLException, ClassNotFoundException, CartaoSUSExceptions, Exception {
-        OperacoesBancoDeDadosDAO op = new OperacoesBancoDeDadosDAO();
-        CartaoSUS cartaosus = new CartaoSUS("909067867879090", "90945430");
-        Residencia residencia = new Residencia("", "", "", "");
-        Profissao profissao = new Profissao("");
-        Date data = new Date();
-        Paciente paciente = new Paciente("", "", "", "", "", residencia, data, profissao, cartaosus);
-        //assertTrue(op.insertPaciente(paciente));
+    public void test7() throws SQLException, ClassNotFoundException, CartaoSUSExceptions {
+        CartaoSUS cartaosus = new CartaoSUS("123456789012347", "1234");
+        op.insertCartaoSUS(cartaosus);
+        assertEquals("3", op.selectCodigoCartaoSUSPeloNumero(cartaosus));
     }
 
 }

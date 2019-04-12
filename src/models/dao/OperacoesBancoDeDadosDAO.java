@@ -22,21 +22,22 @@ public class OperacoesBancoDeDadosDAO {
 
     private ConexaoBancoDeDadosDAO conexaoDao;
     private final String INSERTPROFISSOES = "INSERT INTO profissao(codigo, cbo, nome) VALUES (?, ?,?)";
-    private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(codigo, numero, cgs) VALUES (?,?,?)";
+    private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(numero, cgs) VALUES (?,?)";
     private final String INSERTRESIDENCIA = "INSERT INTO residencia(codigo, rua, numero, bairro, cidade) VALUES (?,?,?,?,?)";
-    private final String INSERTPACIENTE = "INSERT INTO paciente(codigo, nome, cpf, naturalidade, nomemae, datanascimento) VALUES (?,?,?,?,?,?)";
+    private final String INSERTPACIENTE = "INSERT INTO paciente(codigo, nome, cpf, naturalidade, nomemae, cartaosus_codigo, residencia_codigo, profissao_codigo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     //private final String UPDATE = "UPDATE CONTATO SET NOME=?, TELEFONE=?, EMAIL=? WHERE ID=?";
     private final String DELETE = "DELETE FROM profissoes WHERE ID =?";
     //private final String LIST = "SELECT * FROM CONTATO";
     //private final String LISTBYID = "SELECT * FROM CONTATO WHERE ID=?";
+    private final String SELECTCARTAOSUS = "SELECT * FROM cartaosus WHERE numero = ?";
 
     public OperacoesBancoDeDadosDAO() throws SQLException, ClassNotFoundException {
         this.conexaoDao = ConexaoBancoDeDadosDAO.getInstance();
     }
 
-        public void insertProfissoes(String cbo, String nome) throws SQLException {
+    public void insertProfissoes(String cbo, String nome) throws SQLException {
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPROFISSOES);
-        
+
         comando.setString(1, null);
         comando.setString(2, cbo);
         comando.setString(3, nome);
@@ -56,9 +57,8 @@ public class OperacoesBancoDeDadosDAO {
     public void insertCartaoSUS(CartaoSUS cartaosus) throws SQLException {
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTCARTAOSUS);
 
-        comando.setString(1, null);
-        comando.setString(2, cartaosus.getNumeroCartaoSUS());
-        comando.setString(3, cartaosus.getNumeroCartaoSUS());
+        comando.setString(1, cartaosus.getNumeroCartaoSUS());
+        comando.setString(2, cartaosus.getConsultaGeralSaudeCGS());
 
         comando.execute();
     }
@@ -75,17 +75,33 @@ public class OperacoesBancoDeDadosDAO {
         comando.execute();
     }
 
+    public String selectCodigoCartaoSUSPeloNumero(CartaoSUS cartaosus) throws SQLException {
+
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTCARTAOSUS);
+
+        comando.setString(1, cartaosus.getNumeroCartaoSUS());
+        
+        ResultSet r = comando.executeQuery();
+
+        r.next();
+        
+        return r.getString("codigo");
+    }
+
     public void insertPaciente(Paciente paciente) throws SQLException, Exception {
         insertCartaoSUS(paciente.getCartaoSUS());
         insertResidencia(paciente.getResidencia());
 
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPACIENTE);
+        //codigo, nome, cpf, naturalidade, nomemae, cartaosus_codigo, residencia_codigo, profissao_codigo
         comando.setString(1, null);
         comando.setString(2, paciente.getNomePaciente());
         comando.setString(3, paciente.getCPF());
         comando.setString(4, paciente.getNaturalidade());
         comando.setString(5, paciente.getNomeMae());
-        comando.setString(6, paciente.getDataNascimento().toString());
+        comando.setString(6, selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS()));
+        comando.setString(7, paciente.getDataNascimento().toString());
+        comando.setString(8, paciente.getDataNascimento().toString());
 
         comando.execute();
     }
