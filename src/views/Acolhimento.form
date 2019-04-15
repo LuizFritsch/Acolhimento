@@ -205,7 +205,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="campoEndereco" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="campoNumeroCasa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campoNumeroCasa" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelCelular" min="-2" max="-2" attributes="0"/>

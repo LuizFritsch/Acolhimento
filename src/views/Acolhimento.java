@@ -12,6 +12,7 @@ import java.awt.Component;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JCheckBox;
@@ -358,7 +359,7 @@ public class Acolhimento extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelInformacoesPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(campoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campoNumeroCasa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(campoNumeroCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(labelCelular)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1078,7 +1079,7 @@ public class Acolhimento extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(null, erro.getMessage());
             } else {
                 log.EscreveNoLog(erro.getMessage());
-                JOptionPane.showMessageDialog(null, erro.getMessage());
+                System.out.println("2");
             }
         }
         return hmlistaInformacoesPanel;
@@ -1092,7 +1093,12 @@ public class Acolhimento extends javax.swing.JDialog {
      */
     private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
         try {
-            ac.salvar(getInfoPorPanel(listaDePanel));
+            HashMap<String, String> mapPaciente = getInfoPorPanel(listaDePanel);
+            if (ac.salvar(mapPaciente)) {
+                JOptionPane.showMessageDialog(null, "Paciente inserido com sucesso");
+            } else {
+                throw new Exception("Não foi possível salvar o paciente, por favor, tente novamente!");
+            }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());

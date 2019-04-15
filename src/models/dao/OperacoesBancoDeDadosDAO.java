@@ -25,7 +25,7 @@ public class OperacoesBancoDeDadosDAO {
     private final String INSERTPROFISSOES = "INSERT INTO profissao(codigo, cbo, nome) VALUES (?, ?,?)";
     private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(numero, cgs) VALUES (?,?)";
     private final String INSERTRESIDENCIA = "INSERT INTO residencia(codigo, rua, numero, bairro, cidade) VALUES (?,?,?,?,?)";
-    private final String INSERTPACIENTE = "INSERT INTO paciente(nome, cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo, residencia_codigo, profissao_codigo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    private final String INSERTPACIENTE = "INSERT INTO paciente(nome, cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo, residencia_codigo, profissao_codigo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     //private final String UPDATE = "UPDATE CONTATO SET NOME=?, TELEFONE=?, EMAIL=? WHERE ID=?";
     private final String DELETE = "DELETE FROM profissoes WHERE ID =?";
     //private final String LIST = "SELECT * FROM CONTATO";
@@ -133,15 +133,13 @@ public class OperacoesBancoDeDadosDAO {
      */
     public String selectResidencia(Residencia residencia) throws SQLException {
 
-        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTRESIDENCIA);
-
-        comando.setString(1, residencia.getRua());
-        comando.setString(2, residencia.getNumero());
-
-        ResultSet r = comando.executeQuery();
-
-        r.next();
-
+        ResultSet r;
+        try (PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTRESIDENCIA)) {
+            comando.setString(1, residencia.getRua());
+            comando.setString(2, residencia.getNumero());
+            r = comando.executeQuery();
+            r.next();
+        }
         return r.getString("codigo");
     }
 
@@ -154,14 +152,12 @@ public class OperacoesBancoDeDadosDAO {
      */
     public String selectProfissao(Profissao profissao) throws SQLException {
 
-        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTPROFISSAO);
-
-        comando.setString(1, profissao.getNomeProfissao());
-
-        ResultSet r = comando.executeQuery();
-
-        r.next();
-
+        ResultSet r;
+        try (PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTPROFISSAO)) {
+            comando.setString(1, profissao.getNomeProfissao());
+            r = comando.executeQuery();
+            r.next();
+        }
         return r.getString("codigo");
     }
 
@@ -169,30 +165,36 @@ public class OperacoesBancoDeDadosDAO {
      *
      * @param paciente
      * @throws SQLException
-     * @throws Exception
      */
-    public void insertPaciente(Paciente paciente) throws SQLException, Exception {
+    public void insertPaciente(Paciente paciente) throws SQLException {
         insertCartaoSUS(paciente.getCartaoSUS());
         insertResidencia(paciente.getResidencia());
 
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPACIENTE);
-        /**"INSERT INTO 
-        paciente
-        (nome, cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo, residencia_codigo, profissao_codigo) 
-        * VALUES (?, ?, ?, ?, ?, ?, ?)";
-        **/
-        comando.setString(1, paciente.getNomePaciente());
-        comando.setString(2, paciente.getCPF());
-        comando.setString(3, paciente.getNaturalidade());
-        comando.setString(4, paciente.getNomeMae());
-        comando.setString(5, paciente.getDataNascimento().toString());
-        comando.setString(6, selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS()));
-        comando.setString(7, selectResidencia(paciente.getResidencia()));
-        comando.setString(8, selectProfissao(paciente.getProfissao()));
+        /**
+         * private final String INSERTPACIENTE = "INSERT INTO paciente(nome,
+         * cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo,
+         * residencia_codigo, profissao_codigo) VALUES (?, ?, ?, ?, ?, ?, ?,
+         * ?)";
+         */
+        try {
+            
+            comando.setString(1, paciente.getNomePaciente());
+            comando.setString(2, paciente.getCPF());
+            comando.setString(3, paciente.getNaturalidade());
+            comando.setString(4, paciente.getNomeMae());
+            comando.setString(5, paciente.getDataNascimento().toString());
+            comando.setString(6, selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS()));
+            System.out.println("erro ao pegar o cartao sus");
+            comando.setString(7, selectResidencia(paciente.getResidencia()));
+            System.out.println("erro no insert residencia do paciente");
+            comando.setString(8, selectProfissao(paciente.getProfissao()));
+            System.out.println("erro no insert profissao");
+            comando.execute();
+            System.out.println("Executou a query");
+        } catch (Exception e) {
+            System.out.println("errooooooooooooo");
+        }
         
-        System.out.println("codigo do cartao: "+selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS())+ " residencia codigo"+selectResidencia(paciente.getResidencia())+selectProfissao(paciente.getProfissao()));
-        System.out.println(comando.getParameterMetaData());
-        System.out.println(comando.toString());
-        comando.execute();
     }
 }

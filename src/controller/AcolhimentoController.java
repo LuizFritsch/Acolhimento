@@ -5,6 +5,8 @@
  */
 package controller;
 
+import exceptions.CartaoSUSExceptions;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -32,35 +34,36 @@ public class AcolhimentoController {
             fp = singletonGetInstanceOfFramePrincipal();
             fp.setVisible(true);
             op = new OperacoesBancoDeDadosDAO();
-        } catch (Exception erro) {
+        } catch (SQLException | ClassNotFoundException erro) {
             log = new Log();
             log.EscreveNoLog(erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }
 
-    public void salvar(HashMap<String, String> infoPaciente) {
+    public Paciente criaPaciente(HashMap<String, String> infoPaciente) throws CartaoSUSExceptions {
+        Date data = new Date(infoPaciente.get("Data de nascimento"));
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+        formatter.format(data);
+        //Set<String> chaves = infoPaciente.keySet();
+        Residencia residencia = new Residencia(infoPaciente.get("Endereço"), infoPaciente.get("Numero da casa"), "1", "1");
+        CartaoSUS cartaoSUS = new CartaoSUS(infoPaciente.get("Cartão SUS"), "123");
+        Profissao profissao = new Profissao(infoPaciente.get("Profissão"));
+        Paciente paciente = new Paciente(infoPaciente.get("Nome completo"), "codigoPaciente", infoPaciente.get("CPF"), infoPaciente.get("Naturalidade"), infoPaciente.get("Nome da mãe"), residencia, data, profissao, cartaoSUS);
+        return paciente;
+    }
+
+    public boolean salvar(HashMap<String, String> infoPaciente) {
         try {
-            Date data = new Date(infoPaciente.get("Data de nascimento"));
-            SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-            formatter.format(data);
-            Set<String> chaves = infoPaciente.keySet();
-            Residencia residencia = new Residencia(infoPaciente.get("Endereço"), infoPaciente.get("Numero da casa"), "1", "1");
-            CartaoSUS cartaoSUS = new CartaoSUS(infoPaciente.get("Cartão SUS"), "123");
-            Profissao profissao = new Profissao(infoPaciente.get("Profissão"));
-            Paciente p = new Paciente(infoPaciente.get("Nome completo"), "codigoPaciente", infoPaciente.get("CPF"), infoPaciente.get("Naturalidade"), infoPaciente.get("Nome da mãe"), residencia, data, profissao, cartaoSUS);
-            try {
-                System.out.println(p.toString());
-                op.insertPaciente(p);
-                fp.setVisible(false);
-                fp.setEnabled(false);
-            } catch (Exception erro) {
-                log.EscreveNoLog(erro.getMessage());
-                JOptionPane.showMessageDialog(null, erro.getMessage());
-            }
-        } catch (Exception erro) {
+            Paciente paciente = criaPaciente(infoPaciente);
+            op.insertPaciente(paciente);
+            JOptionPane.showMessageDialog(null, "PACIENTE INSERIDO COM SUCESSO!");
+            return true;
+        } catch (CartaoSUSExceptions | SQLException erro) {
             log.EscreveNoLog(erro.getMessage());
+            System.out.println("erro no salvar da controller");
             JOptionPane.showMessageDialog(null, erro.getMessage());
+            return false;
         }
 
     }
