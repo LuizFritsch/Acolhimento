@@ -5,11 +5,9 @@
  */
 package models.dao;
 
-import java.awt.List;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import models.CartaoSUS;
 import models.Paciente;
 import models.Profissao;
