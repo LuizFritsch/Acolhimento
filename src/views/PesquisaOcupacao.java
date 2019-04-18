@@ -5,13 +5,10 @@
  */
 package views;
 
-import com.mysql.jdbc.log.Jdk14Logger;
 import controller.Log;
-import java.awt.event.MouseEvent;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import models.dao.OperacoesBancoDeDadosDAO;
 
