@@ -1,4 +1,6 @@
 <img src="https://github.com/LuizFritsch/Acolhimento-CerestOeste/blob/master/src/icones/iconCEREST.png" align="right" />
+<img height="10%" width="13%" src="https://github.com/LuizFritsch/Acolhimento-CerestOeste/blob/master/src/icones/logoPref.png" align="left" />
+
 
 # Acolhimento
 
