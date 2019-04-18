@@ -37,7 +37,7 @@ public class AcolhimentoController {
         } catch (SQLException | ClassNotFoundException erro) {
             log = new Log();
             log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
 
@@ -57,12 +57,10 @@ public class AcolhimentoController {
         try {
             Paciente paciente = criaPaciente(infoPaciente);
             op.insertPaciente(paciente);
-            JOptionPane.showMessageDialog(null, "PACIENTE INSERIDO COM SUCESSO!");
             return true;
-        } catch (CartaoSUSExceptions | SQLException erro) {
+        } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
-            System.out.println("erro no salvar da controller");
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
             return false;
         }
 

@@ -35,11 +35,11 @@ public class PopulaProfissoes {
             String linha = "";
             String csvDivisor = ";";
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(arquivoCSV), "ISO-8859-1"));
-            
+
             while ((linha = br.readLine()) != null) {
                 String[] profissao = linha.split(csvDivisor);
                 String cbo = profissao[0];
-                String nome = profissao[1];                
+                String nome = profissao[1];
                 opdao.insertProfissoes(cbo, nome);
             }
         } catch (SQLException | ClassNotFoundException | IOException e) {

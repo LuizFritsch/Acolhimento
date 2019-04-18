@@ -1096,12 +1096,13 @@ public class Acolhimento extends javax.swing.JDialog {
             HashMap<String, String> mapPaciente = getInfoPorPanel(listaDePanel);
             if (ac.salvar(mapPaciente)) {
                 JOptionPane.showMessageDialog(null, "Paciente inserido com sucesso");
+                this.setVisible(false);
             } else {
                 throw new Exception("Não foi possível salvar o paciente, por favor, tente novamente!");
             }
         } catch (Exception erro) {
             log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 

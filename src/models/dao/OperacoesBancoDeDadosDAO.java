@@ -132,15 +132,18 @@ public class OperacoesBancoDeDadosDAO {
      * @throws SQLException
      */
     public String selectResidencia(Residencia residencia) throws SQLException {
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTRESIDENCIA);
 
-        ResultSet r;
-        try (PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTRESIDENCIA)) {
-            comando.setString(1, residencia.getRua());
-            comando.setString(2, residencia.getNumero());
-            r = comando.executeQuery();
-            r.next();
-        }
+        comando.setString(1, residencia.getRua());
+
+        comando.setString(2, residencia.getNumero());
+
+        ResultSet r = comando.executeQuery();
+
+        r.next();
+
         return r.getString("codigo");
+
     }
 
     /**
@@ -153,11 +156,14 @@ public class OperacoesBancoDeDadosDAO {
     public String selectProfissao(Profissao profissao) throws SQLException {
 
         ResultSet r;
-        try (PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTPROFISSAO)) {
-            comando.setString(1, profissao.getNomeProfissao());
-            r = comando.executeQuery();
-            r.next();
-        }
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTPROFISSAO);
+
+        comando.setString(1, profissao.getNomeProfissao());
+
+        r = comando.executeQuery();
+
+        r.next();
+
         return r.getString("codigo");
     }
 
@@ -166,11 +172,8 @@ public class OperacoesBancoDeDadosDAO {
      * @param paciente
      * @throws SQLException
      */
-    public void insertPaciente(Paciente paciente) throws SQLException {
-        insertCartaoSUS(paciente.getCartaoSUS());
-        insertResidencia(paciente.getResidencia());
+    public void insertPaciente(Paciente paciente) throws SQLException, Exception {
 
-        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPACIENTE);
         /**
          * private final String INSERTPACIENTE = "INSERT INTO paciente(nome,
          * cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo,
@@ -178,23 +181,22 @@ public class OperacoesBancoDeDadosDAO {
          * ?)";
          */
         try {
-            
+            PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTPACIENTE);
+            insertCartaoSUS(paciente.getCartaoSUS());
+            insertResidencia(paciente.getResidencia());
             comando.setString(1, paciente.getNomePaciente());
             comando.setString(2, paciente.getCPF());
             comando.setString(3, paciente.getNaturalidade());
             comando.setString(4, paciente.getNomeMae());
             comando.setString(5, paciente.getDataNascimento().toString());
             comando.setString(6, selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS()));
-            System.out.println("erro ao pegar o cartao sus");
             comando.setString(7, selectResidencia(paciente.getResidencia()));
-            System.out.println("erro no insert residencia do paciente");
             comando.setString(8, selectProfissao(paciente.getProfissao()));
-            System.out.println("erro no insert profissao");
-            comando.execute();
-            System.out.println("Executou a query");
+
+            comando.executeUpdate();
         } catch (Exception e) {
-            System.out.println("errooooooooooooo");
+            throw new Exception("Erro ao inserir um paciente");
         }
-        
+
     }
 }

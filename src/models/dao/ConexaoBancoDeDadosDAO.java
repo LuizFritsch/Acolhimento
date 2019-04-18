@@ -21,7 +21,7 @@ public class ConexaoBancoDeDadosDAO {
     private Connection conexao;
     private static final String USUARIO = "cerest";
     private static final String SENHA = "302050027";
-    private static final String URL = "jdbc:mysql://192.168.7.41:3306/Acolhimento";
+    private static final String URL = "jdbc:mysql://192.168.7.41:3306/acolhimento";
     private Log log;
 
     /**
