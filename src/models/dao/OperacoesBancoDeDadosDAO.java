@@ -8,6 +8,7 @@ package models.dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import models.CartaoSUS;
 import models.Paciente;
 import models.Profissao;
@@ -31,6 +32,7 @@ public class OperacoesBancoDeDadosDAO {
     private final String SELECTCARTAOSUS = "SELECT * FROM cartaosus WHERE numero = ?";
     private final String SELECTRESIDENCIA = "SELECT * FROM residencia WHERE rua = ? AND numero = ?";
     private final String SELECTPROFISSAO = "SELECT * FROM profissao WHERE nome = ?";
+    private final String DELETETUDO = "DELETE FROM paciente, residencia, cartaosus;";
 
     public OperacoesBancoDeDadosDAO() throws SQLException, ClassNotFoundException {
         this.conexaoDao = ConexaoBancoDeDadosDAO.getInstance();
@@ -163,6 +165,28 @@ public class OperacoesBancoDeDadosDAO {
         r.next();
 
         return r.getString("codigo");
+    }
+
+    /**
+     * Metodo para limpar o banco
+     *
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
+    public void deleteTudo() throws SQLException, ClassNotFoundException {
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(DELETETUDO);
+        comando.executeUpdate();
+    }
+
+    public void delete(ArrayList<String> listaDoQueDeletar) throws SQLException, ClassNotFoundException, Exception {
+        if (listaDoQueDeletar.isEmpty()) {
+            throw new Exception("Lista de tabelas vazias");
+        } else {
+            for (String nomeTabela : listaDoQueDeletar) {
+                PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement("DELETE FROM " + nomeTabela+";");
+                comando.executeUpdate();
+            }
+        }
     }
 
     /**
