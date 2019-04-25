@@ -32,6 +32,7 @@ public class OperacoesBancoDeDadosDAO {
     private final String SELECTCARTAOSUS = "SELECT * FROM cartaosus WHERE numero = ?";
     private final String SELECTRESIDENCIA = "SELECT * FROM residencia WHERE rua = ? AND numero = ?";
     private final String SELECTPROFISSAO = "SELECT * FROM profissao WHERE nome = ?";
+    private final String SELECTPROFISSAOBYNAME = "SELECT * FROM profissao WHERE nome LIKE ?";
     private final String DELETETUDO = "DELETE FROM paciente, residencia, cartaosus;";
 
     public OperacoesBancoDeDadosDAO() throws SQLException, ClassNotFoundException {
@@ -53,6 +54,19 @@ public class OperacoesBancoDeDadosDAO {
         comando.setString(3, nome);
 
         comando.execute();
+    }
+    
+    /**
+     * 
+     * @param nomeProfissao
+     * @return 
+     * @throws java.sql.SQLException 
+     */
+    public ResultSet selectProfissoesContemString(String nomeProfissao) throws SQLException{
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTPROFISSAOBYNAME);
+        comando.setString(1, '%' +nomeProfissao+'%');
+        ResultSet resultado = comando.executeQuery();
+        return resultado;
     }
 
     /**

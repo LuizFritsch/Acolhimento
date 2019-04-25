@@ -7,6 +7,7 @@ package views;
 
 import controller.Log;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +23,7 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
     private OperacoesBancoDeDadosDAO opdao;
     public String nomeProfissao;
     public String cbo;
+    DefaultTableModel model;
 
     /**
      * Creates new form PesquisaOcupacao
@@ -29,16 +31,15 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
     public PesquisaOcupacao(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-
         try {
-
             opdao = new OperacoesBancoDeDadosDAO();
             ResultSet rs = opdao.selectTodasProfissoes();
-            DefaultTableModel model = (DefaultTableModel) tableProfissoes.getModel();
+            model = (DefaultTableModel) tableProfissoes.getModel();
             while (rs.next()) {
                 Object[] row = {rs.getString("cbo"), rs.getString("nome")};
                 model.addRow(row);
             }
+            tableProfissoes.setAutoCreateRowSorter(true);
         } catch (Exception e) {
             log = new Log();
             log.EscreveNoLog(e.getMessage());
@@ -71,7 +72,18 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
         labelTituloPesquisarOcupacoes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelTituloPesquisarOcupacoes.setText("Pesquisar Ocupação:");
 
+        campoPesquisarProfissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoPesquisarProfissaoActionPerformed(evt);
+            }
+        });
+
         botaoPesquisarProfissao.setText("Pesquisar");
+        botaoPesquisarProfissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoPesquisarProfissaoActionPerformed(evt);
+            }
+        });
 
         botaoSelecionarProfissao.setText("Selecionar");
         botaoSelecionarProfissao.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -244,6 +256,36 @@ public class PesquisaOcupacao extends javax.swing.JDialog {
     private void botaoSelecionarProfissaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoSelecionarProfissaoMouseClicked
 
     }//GEN-LAST:event_botaoSelecionarProfissaoMouseClicked
+
+    public void filtraTableProffisoes(String nomeProfissao) throws SQLException, ClassNotFoundException {
+        model = (DefaultTableModel) tableProfissoes.getModel();
+        model.setRowCount(0);
+        opdao = new OperacoesBancoDeDadosDAO();
+        ResultSet rs = opdao.selectProfissoesContemString(nomeProfissao);
+        try {
+            while (rs.next()) {
+                Object[] row = {rs.getString("cbo"), rs.getString("nome")};
+                model.addRow(row);
+            }
+            tableProfissoes.setAutoCreateRowSorter(true);
+        } catch (Exception erro) {
+            log.EscreveNoLog("Erro ao filtrar profissao na PesquisaOcupacao" + erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+    }
+
+    private void botaoPesquisarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoPesquisarProfissaoActionPerformed
+        try {
+            filtraTableProffisoes(campoPesquisarProfissao.getText());
+        } catch (SQLException | ClassNotFoundException erro) {
+            log.EscreveNoLog("Erro ao pesquisar profissao na PesquisaOcupacao" + erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
+    }//GEN-LAST:event_botaoPesquisarProfissaoActionPerformed
+
+    private void campoPesquisarProfissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPesquisarProfissaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoPesquisarProfissaoActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;
