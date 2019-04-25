@@ -5,7 +5,9 @@
  */
 package models;
 
+import controller.Log;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,17 +24,24 @@ public class Paciente {
     private Date dataNascimento;
     private Profissao profissao;
     private CartaoSUS cartaoSUS;
+    private Log log;
 
     public Paciente(String nomePaciente, String codigoPaciente, String CPF, String naturalidade, String nomeMae, Residencia residencia, Date dataNascimento, Profissao profissao, CartaoSUS cartaoSUS) {
-        this.nomePaciente = nomePaciente;
-        this.codigoPaciente = codigoPaciente;
-        this.CPF = CPF;
-        this.naturalidade = naturalidade;
-        this.nomeMae = nomeMae;
-        this.residencia = residencia;
-        this.dataNascimento = dataNascimento;
-        this.profissao = profissao;
-        this.cartaoSUS = cartaoSUS;
+        try {
+            this.nomePaciente = nomePaciente;
+            this.codigoPaciente = codigoPaciente;
+            this.CPF = CPF;
+            this.naturalidade = naturalidade;
+            this.nomeMae = nomeMae;
+            this.residencia = residencia;
+            this.dataNascimento = dataNascimento;
+            this.profissao = profissao;
+            this.cartaoSUS = cartaoSUS;
+        } catch (Exception erro) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao criar um paciente: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
+        }
     }
 
     public String getNomePaciente() {

@@ -180,7 +180,7 @@ public class OperacoesBancoDeDadosDAO {
 
     public void delete(ArrayList<String> listaDoQueDeletar) throws SQLException, ClassNotFoundException, Exception {
         if (listaDoQueDeletar.isEmpty()) {
-            throw new Exception("Lista de tabelas vazias");
+            throw new Exception("Erro ao deletar: Lista de tabelas vazias");
         } else {
             for (String nomeTabela : listaDoQueDeletar) {
                 PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement("DELETE FROM " + nomeTabela+";");

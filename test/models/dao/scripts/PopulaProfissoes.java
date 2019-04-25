@@ -43,7 +43,7 @@ public class PopulaProfissoes {
             }
         } catch (SQLException | ClassNotFoundException | IOException e) {
             log = new Log();
-            log.EscreveNoLog(e.getMessage());
+            log.EscreveNoLog("Erro ao escrever no log: "+e.getMessage());
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }

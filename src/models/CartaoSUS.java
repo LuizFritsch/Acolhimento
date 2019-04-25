@@ -34,19 +34,19 @@ public class CartaoSUS {
                 } else {
                     cs = new CartaoSUSExceptions("O CGS está incorreto: contém caracteres não númericos");
                     log.EscreveNoLog(cs.getMessage());
-                    JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
+                    JOptionPane.showMessageDialog(null, cs.getMessage());
                     throw cs;
                 }
             } else {
                 cs = new CartaoSUSExceptions("O cartão SUS está incorreto: o comprimento é diferente de 15");
                 log.EscreveNoLog(cs.getMessage());
-                JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
+                JOptionPane.showMessageDialog(null, cs.getMessage());
                 throw cs;
             }
         } else {
             cs = new CartaoSUSExceptions("O cartão SUS está incorreto: contém caracteres não númericos");
             log.EscreveNoLog(cs.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro: " + cs.getMessage());
+            JOptionPane.showMessageDialog(null, cs.getMessage());
             throw cs;
         }
 

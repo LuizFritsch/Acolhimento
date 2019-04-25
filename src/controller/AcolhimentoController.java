@@ -35,8 +35,8 @@ public class AcolhimentoController {
             op = new OperacoesBancoDeDadosDAO();
         } catch (SQLException | ClassNotFoundException erro) {
             log = new Log();
-            log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+            log.EscreveNoLog("Erro no construtor da AcolhimentoController: " +erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro no construtor da AcolhimentoController: " + erro.getMessage());
         }
     }
 
@@ -58,8 +58,8 @@ public class AcolhimentoController {
             op.insertPaciente(paciente);
             return true;
         } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+            log.EscreveNoLog("Erro ao salvar na AcolhimentoController: "+erro.getMessage());
+            JOptionPane.showMessageDialog(null, erro.getMessage());
             return false;
         }
 
@@ -70,7 +70,6 @@ public class AcolhimentoController {
             fp = new FramePrincipal();
         }
         return fp;
-
     }
 
 }

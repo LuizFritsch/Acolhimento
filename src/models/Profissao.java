@@ -22,7 +22,7 @@ public class Profissao {
             this.nomeProfissao = nomeProfissao;
         } catch (Exception erro) {
             log = new Log();
-            log.EscreveNoLog(erro.getMessage());
+            log.EscreveNoLog("Erro ao criar uma profissão: "+erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }

@@ -30,3 +30,4 @@ Log\.txt
 
 build/
 /nbproject/private/
+/dist/

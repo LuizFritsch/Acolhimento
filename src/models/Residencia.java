@@ -28,7 +28,7 @@ public class Residencia {
             this.cidade = cidade;
         } catch (Exception erro) {
             log = new Log();
-            log.EscreveNoLog(erro.getMessage());
+            log.EscreveNoLog("Erro ao criar uma residencia: "+erro.getMessage());
             JOptionPane.showMessageDialog(null, erro.getMessage());
         }
     }

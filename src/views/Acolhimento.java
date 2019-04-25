@@ -1077,8 +1077,7 @@ public class Acolhimento extends javax.swing.JDialog {
             if (erro instanceof CampoEmBrancoException) {
                 JOptionPane.showMessageDialog(null, erro.getMessage());
             } else {
-                log.EscreveNoLog(erro.getMessage());
-                System.out.println("2");
+                log.EscreveNoLog("Erro de campo em branco: "+erro.getMessage());
             }
         }
         return hmlistaInformacoesPanel;
@@ -1100,7 +1099,7 @@ public class Acolhimento extends javax.swing.JDialog {
                 throw new Exception("Não foi possível salvar o paciente, por favor, tente novamente!");
             }
         } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
+            log.EscreveNoLog("Erro no salvar da view: "+erro.getMessage());
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed

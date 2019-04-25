@@ -24,8 +24,8 @@ public class ControllerDELETE {
             op = new OperacoesBancoDeDadosDAO();
         } catch (SQLException | ClassNotFoundException erro) {
             log = new Log();
-            log.EscreveNoLog(erro.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
+            log.EscreveNoLog("Erro no construtor da ControllerDELETE: " + erro.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro: "+erro.getMessage());
         }
     }
 
@@ -33,7 +33,7 @@ public class ControllerDELETE {
         try {
             op.deleteTudo();
         } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
+            log.EscreveNoLog("Erro no deleteTudo da ControllerDELETE: " + erro.getMessage());
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
@@ -42,7 +42,7 @@ public class ControllerDELETE {
         try {
             op.delete(listaTabela);
         } catch (Exception erro) {
-            log.EscreveNoLog(erro.getMessage());
+            log.EscreveNoLog("Erro no deletePorTabela da ControllerDELETE: " + erro.getMessage());
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }
