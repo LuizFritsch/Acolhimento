@@ -25,10 +25,7 @@ public class OperacoesBancoDeDadosDAO {
     private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(numero, cgs) VALUES (?,?)";
     private final String INSERTRESIDENCIA = "INSERT INTO residencia(codigo, rua, numero, bairro, cidade) VALUES (?,?,?,?,?)";
     private final String INSERTPACIENTE = "INSERT INTO paciente(nome, cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo, residencia_codigo, profissao_codigo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-    //private final String UPDATE = "UPDATE CONTATO SET NOME=?, TELEFONE=?, EMAIL=? WHERE ID=?";
     private final String DELETE = "DELETE FROM profissoes WHERE ID =?";
-    //private final String LIST = "SELECT * FROM CONTATO";
-    //private final String LISTBYID = "SELECT * FROM CONTATO WHERE ID=?";
     private final String SELECTCARTAOSUS = "SELECT * FROM cartaosus WHERE numero = ?";
     private final String SELECTRESIDENCIA = "SELECT * FROM residencia WHERE rua = ? AND numero = ?";
     private final String SELECTPROFISSAO = "SELECT * FROM profissao WHERE nome = ?";
