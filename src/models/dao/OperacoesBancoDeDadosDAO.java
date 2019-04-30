@@ -222,12 +222,16 @@ public class OperacoesBancoDeDadosDAO {
             comando.setString(3, paciente.getNaturalidade());
             comando.setString(4, paciente.getNomeMae());
             comando.setString(5, paciente.getDataNascimento().toString());
+            System.out.println(selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS()));
             comando.setString(6, selectCodigoCartaoSUSPeloNumero(paciente.getCartaoSUS()));
+            System.out.println(selectResidencia(paciente.getResidencia()));
             comando.setString(7, selectResidencia(paciente.getResidencia()));
+            System.out.println(selectProfissao(paciente.getProfissao()));
             comando.setString(8, selectProfissao(paciente.getProfissao()));
 
             comando.executeUpdate();
         } catch (Exception e) {
+            System.out.println(e.getMessage());
             throw new Exception("Erro ao inserir um paciente");
         }
 
