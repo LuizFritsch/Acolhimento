@@ -9,6 +9,7 @@ Este programa foi feito para informatizar o processo de acolhimento de pacientes
 
 > Pré-Versão 1: https://github.com/LuizFritsch/Acolhimento/releases/tag/v1.0
 
+> Pré-Versão 1.1: https://github.com/LuizFritsch/Acolhimento/releases/tag/v1.1
 
 # Requisitos:
 1. MySQL 5.5.27 (ou maior) - MySQL Community Server (GPL).
