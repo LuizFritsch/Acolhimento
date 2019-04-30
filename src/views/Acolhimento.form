@@ -43,7 +43,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace min="83" pref="336" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
