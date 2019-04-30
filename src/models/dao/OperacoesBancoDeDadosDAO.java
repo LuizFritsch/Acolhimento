@@ -232,7 +232,7 @@ public class OperacoesBancoDeDadosDAO {
             comando.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            throw new Exception("Erro ao inserir um paciente");
+            throw new Exception("Erro ao inserir um paciente: "+e.getMessage());
         }
 
     }
