@@ -168,6 +168,8 @@ public class PopulaBanco {
                 popula_situacao_trabalho();
                 System.out.println("populando a tabela carteira_trabalho...");
                 popula_carteira_trabalho();
+                System.out.println("populando a tabela carteira_trabalho...");
+                popula_carteira_trabalho();
                 System.out.println("Feito...");
                 break;
             case "2":
