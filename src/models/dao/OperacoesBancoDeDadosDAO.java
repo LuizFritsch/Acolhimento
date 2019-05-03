@@ -22,6 +22,8 @@ public class OperacoesBancoDeDadosDAO {
 
     private ConexaoBancoDeDadosDAO conexaoDao;
     private final String INSERTPROFISSOES = "INSERT INTO profissao(codigo, cbo, nome) VALUES (?, ?,?)";
+    private final String INSERTRELACAOTRABALHO = "INSERT INTO relacao_trabalho(descricao) VALUES (?)";
+    private final String INSERTSITUACAOTRABALHO = "INSERT INTO situacao_trabalho(descricao) VALUES (?)";
     private final String INSERTCARTAOSUS = "INSERT INTO cartaosus(numero, cgs) VALUES (?,?)";
     private final String INSERTRESIDENCIA = "INSERT INTO residencia(codigo, rua, numero, bairro, cidade) VALUES (?,?,?,?,?)";
     private final String INSERTPACIENTE = "INSERT INTO paciente(nome, cpf, naturalidade, nomemae, datanascimento, cartaosus_codigo, residencia_codigo, profissao_codigo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -52,16 +54,16 @@ public class OperacoesBancoDeDadosDAO {
 
         comando.execute();
     }
-    
+
     /**
-     * 
+     *
      * @param nomeProfissao
-     * @return 
-     * @throws java.sql.SQLException 
+     * @return
+     * @throws java.sql.SQLException
      */
-    public ResultSet selectProfissoesContemString(String nomeProfissao) throws SQLException{
+    public ResultSet selectProfissoesContemString(String nomeProfissao) throws SQLException {
         PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SELECTPROFISSAOBYNAME);
-        comando.setString(1, '%' +nomeProfissao+'%');
+        comando.setString(1, '%' + nomeProfissao + '%');
         ResultSet resultado = comando.executeQuery();
         return resultado;
     }
@@ -194,7 +196,7 @@ public class OperacoesBancoDeDadosDAO {
             throw new Exception("Erro ao deletar: Lista de tabelas vazias");
         } else {
             for (String nomeTabela : listaDoQueDeletar) {
-                PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement("DELETE FROM " + nomeTabela+";");
+                PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement("DELETE FROM " + nomeTabela + ";");
                 comando.executeUpdate();
             }
         }
@@ -232,8 +234,25 @@ public class OperacoesBancoDeDadosDAO {
             comando.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
-            throw new Exception("Erro ao inserir um paciente: "+e.getMessage());
+            throw new Exception("Erro ao inserir um paciente: " + e.getMessage());
         }
 
     }
+
+    public void insert_relacao_trabalho(String relacao_trabalho) throws SQLException {
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTRELACAOTRABALHO);
+
+        comando.setString(1, relacao_trabalho);
+
+        comando.execute();
+    }
+
+    public void insert_situacao_trabalho(String situacao_trabalho) throws SQLException {
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(INSERTSITUACAOTRABALHO);
+
+        comando.setString(1, situacao_trabalho);
+
+        comando.execute();
+    }
+
 }

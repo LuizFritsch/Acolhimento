@@ -553,7 +553,6 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSituacaoTrabalho.setText("Situação de Trabalho:");
 
         campoSituacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo na mesma ocupação", "Empregado", "Afastado", "Autonomo", "Aposentado", "Mercado Informal" }));
-        campoSituacaoTrabalho.setSelectedIndex(2);
         campoSituacaoTrabalho.setName("Situação de Trabalho"); // NOI18N
 
         labelCarteiraTrabalho.setLabelFor(campoCarteiraTrabalho);

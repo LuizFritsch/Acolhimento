@@ -868,7 +868,6 @@
                 <StringItem index="5" value="Mercado Informal"/>
               </StringArray>
             </Property>
-            <Property name="selectedIndex" type="int" value="2"/>
             <Property name="name" type="java.lang.String" value="Situa&#xe7;&#xe3;o de Trabalho" noResource="true"/>
           </Properties>
           <AuxValues>
