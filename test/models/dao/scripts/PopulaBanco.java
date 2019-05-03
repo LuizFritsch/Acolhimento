@@ -75,7 +75,7 @@ public class PopulaBanco {
             listaSituacaoTrabalho.add("Autonomo");
             listaSituacaoTrabalho.add("Aposentado");
             listaSituacaoTrabalho.add("Mercado Informal");
-            
+
             insert_generico("situacao_trabalho", listaSituacaoTrabalho);
         } catch (Exception e) {
             log = new Log();
@@ -122,13 +122,38 @@ public class PopulaBanco {
             JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela profissao: " + e.getMessage());
         }
     }
-    
+
+    /**
+     * Método para popular a tabela carteira_trabalho, que é um *:1 com
+     * informacoes_profissionais
+     */
+    public void popula_carteira_trabalho() {
+        try {
+            //Fica mais facil de visualizar assim.
+            //Quando precisar add alguma relacao de trabalho ou modificar,
+            //só será necessário alterar aqui.
+            ArrayList<String> listacarteiraTrabalho = new ArrayList<>();
+            listacarteiraTrabalho.add("Assalariado com carteira");
+            listacarteiraTrabalho.add("Assalariado com dispensa de assinatura da carteira pelo RJU");
+            listacarteiraTrabalho.add("Não assalariado");
+            listacarteiraTrabalho.add("Assalariado sem carteira assinada");
+            listacarteiraTrabalho.add("Não se aplica");
+
+            insert_generico("carteira_trabalho", listacarteiraTrabalho);
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela relacao_trabalho: " + e.getMessage());
+        }
+    }
+
     public PopulaBanco() {
         System.out.println("Qual voce deseja executar?");
         System.out.println("1. Popular todas tabelas");
         System.out.println("2. Popular tabela profissoes");
         System.out.println("3. Popular tabela relacao_trabalho");
         System.out.println("4. Popular tabela situacao_trabalho");
+        System.out.println("5. Popular tabela carteira_trabalho");
         Scanner input = new Scanner(System.in);
         String escolha = input.next();
         input.close();
@@ -141,6 +166,8 @@ public class PopulaBanco {
                 popula_relacao_trabalho();
                 System.out.println("populando a tabela situacao_trabalho...");
                 popula_situacao_trabalho();
+                System.out.println("populando a tabela carteira_trabalho...");
+                popula_carteira_trabalho();
                 System.out.println("Feito...");
                 break;
             case "2":
@@ -158,7 +185,11 @@ public class PopulaBanco {
                 popula_situacao_trabalho();
                 System.out.println("Feito...");
                 break;
-
+            case "5":
+                System.out.println("populando a tabela carteira_trabalho...");
+                popula_carteira_trabalho();
+                System.out.println("Feito...");
+                break;
             default:
                 System.out.println("Opção inválida");
                 break;
