@@ -38,7 +38,6 @@ public class PopulaBanco {
      */
     public void popula_relacao_trabalho() {
         try {
-            OperacoesBancoDeDadosDAO opdao = new OperacoesBancoDeDadosDAO();
             //Fica mais facil de visualizar assim.
             //Quando precisar add alguma relacao de trabalho ou modificar,
             //só será necessário alterar aqui.
@@ -49,10 +48,8 @@ public class PopulaBanco {
             listaRelacaoTrabalho.add("Empregado");
             listaRelacaoTrabalho.add("Autônomo");
             listaRelacaoTrabalho.add("Mercado Informal");
-            for (String relacao_trabalho : listaRelacaoTrabalho) {
-                opdao.insert_relacao_trabalho(relacao_trabalho);
-            }
-        } catch (SQLException | ClassNotFoundException e) {
+            insert_generico("relacao_trabalho", listaRelacaoTrabalho);
+        } catch (Exception e) {
             log = new Log();
             log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela relacao_trabalho: " + e.getMessage());
@@ -68,7 +65,6 @@ public class PopulaBanco {
      */
     public void popula_situacao_trabalho() {
         try {
-            OperacoesBancoDeDadosDAO opdao = new OperacoesBancoDeDadosDAO();
             //Fica mais facil de visualizar assim.
             //Quando precisar add alguma relacao de trabalho ou modificar,
             //só será necessário alterar aqui.
@@ -79,10 +75,9 @@ public class PopulaBanco {
             listaSituacaoTrabalho.add("Autonomo");
             listaSituacaoTrabalho.add("Aposentado");
             listaSituacaoTrabalho.add("Mercado Informal");
-            for (String situacao_trabalho : listaSituacaoTrabalho) {
-                opdao.insert_situacao_trabalho(situacao_trabalho);
-            }
-        } catch (SQLException | ClassNotFoundException e) {
+            
+            insert_generico("situacao_trabalho", listaSituacaoTrabalho);
+        } catch (Exception e) {
             log = new Log();
             log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela relacao_trabalho: " + e.getMessage());
@@ -115,6 +110,19 @@ public class PopulaBanco {
         }
     }
 
+    public void insert_generico(String nome_tabela, ArrayList<String> listaDados) {
+        try {
+            OperacoesBancoDeDadosDAO opdao = new OperacoesBancoDeDadosDAO();
+            for (String dado : listaDados) {
+                opdao.insert_generico(nome_tabela, dado);
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela profissao: " + e.getMessage());
+        }
+    }
+    
     public PopulaBanco() {
         System.out.println("Qual voce deseja executar?");
         System.out.println("1. Popular todas tabelas");
@@ -131,7 +139,7 @@ public class PopulaBanco {
                 popula_profissoes();
                 System.out.println("populando a tabela relacao_trabalho...");
                 popula_relacao_trabalho();
-                 System.out.println("populando a tabela situacao_trabalho...");
+                System.out.println("populando a tabela situacao_trabalho...");
                 popula_situacao_trabalho();
                 System.out.println("Feito...");
                 break;

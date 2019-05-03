@@ -255,4 +255,13 @@ public class OperacoesBancoDeDadosDAO {
         comando.execute();
     }
 
+    public void insert_generico(String nome_tabela, String dado) throws SQLException {
+        String SQL = "INSERT INTO "+nome_tabela+"(descricao) VALUES (?)";
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(SQL);
+
+        comando.setString(1, dado);
+
+        comando.execute();
+    }
+
 }
