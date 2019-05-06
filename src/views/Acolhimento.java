@@ -239,7 +239,6 @@ public class Acolhimento extends javax.swing.JDialog {
         labelEscolaridade.setText("Escolaridade:");
 
         campoEscolaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não sabe ler/Escrever", "1o Grau incompleto", "Ensino médio incompleto", "Superior Incompleto", "Especialização/Residencia", "1o Grau Completo", "Ensino médio completo", "Superior completo", "Mestrado", "Doutorado" }));
-        campoEscolaridade.setSelectedIndex(6);
         campoEscolaridade.setName("Escolaridade"); // NOI18N
 
         botaoLimparInformacoesPaciente.setText("Limpar");
@@ -710,7 +709,7 @@ public class Acolhimento extends javax.swing.JDialog {
 
         labelBeneficiosPrevidenciarios.setText("Beneficios Previdenciários:");
 
-        campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não recebe aposentadoria", "1º Grau", "Auxílio", "Auxílio acidente", "Acidentária", "Aposentadoria Previdenciária", "Aposentadoria tempo de serviço, idade ou especial", "Não se aplica", "Não sabe informar" }));
+        campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não recebe aposentadoria", "Auxílio acidente", "Aposentadoria Previdenciária", "Aposentadoria tempo de serviço", "idade ou especial", "Não se aplica", "Não sabe informar" }));
         campoBeneficiosPrevidenciarios.setName("Beneficios Previdenciarios"); // NOI18N
 
         labelLaudoAposentadoriaDesdeQuando.setText("Laudo/Aposentadoria, desde quando?");

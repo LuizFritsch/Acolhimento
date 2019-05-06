@@ -156,6 +156,7 @@ public class PopulaBanco {
         System.out.println("5. Popular tabela carteira_trabalho");
         System.out.println("6. Popular tabela escolaridade");
         System.out.println("7. Popular tabela beneficios_previdenciarios");
+        System.out.println("8. Popular tabela objetivo_consulta");
         Scanner input = new Scanner(System.in);
         String escolha = input.next();
         input.close();
@@ -176,6 +177,8 @@ public class PopulaBanco {
                 popula_escolaridade();
                 System.out.println("populando a tabela beneficios_previdenciarios...");
                 popula_beneficios_previdenciarios();
+                System.out.println("populando a tabela objetivo_consulta...");
+                popula_objetivo_consulta();
                 System.out.println("Feito...");
                 break;
             case "2":
@@ -206,6 +209,11 @@ public class PopulaBanco {
             case "7":
                 System.out.println("populando a tabela beneficios_previdenciarios...");
                 popula_beneficios_previdenciarios();
+                System.out.println("Feito...");
+                break;
+            case "8":
+                System.out.println("populando a tabela objetivo_consulta...");
+                popula_objetivo_consulta();
                 System.out.println("Feito...");
                 break;
             default:
@@ -260,6 +268,23 @@ public class PopulaBanco {
             log.EscreveNoLog("Erro ao popular a tabela beneficios_previdenciarios: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao popular a tabela beneficios_previdenciarios: " + e.getMessage());
         }
-}
+    }
+
+    private void popula_objetivo_consulta() {
+        try {
+            //Fica mais facil de visualizar assim.
+            //Quando precisar add alguma relacao de trabalho ou modificar,
+            //só será necessário alterar aqui.
+            ArrayList<String> listaObjetivoConsulta = new ArrayList<>();
+            listaObjetivoConsulta.add("Esclarecimento diagnóstico");
+            listaObjetivoConsulta.add("Tratamento");
+            listaObjetivoConsulta.add("Outro");
+            insert_generico("objetivo_consulta", listaObjetivoConsulta);
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao popular a tabela objetivo_consulta: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela objetivo_consulta: " + e.getMessage());
+        }
+    }
 
 }

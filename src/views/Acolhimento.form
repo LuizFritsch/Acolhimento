@@ -403,7 +403,6 @@
                 <StringItem index="9" value="Doutorado"/>
               </StringArray>
             </Property>
-            <Property name="selectedIndex" type="int" value="6"/>
             <Property name="name" type="java.lang.String" value="Escolaridade" noResource="true"/>
           </Properties>
           <AuxValues>
@@ -1062,16 +1061,14 @@
         <Component class="javax.swing.JComboBox" name="campoBeneficiosPrevidenciarios">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="9">
+              <StringArray count="7">
                 <StringItem index="0" value="N&#xe3;o recebe aposentadoria"/>
-                <StringItem index="1" value="1&#xba; Grau"/>
-                <StringItem index="2" value="Aux&#xed;lio"/>
-                <StringItem index="3" value="Aux&#xed;lio acidente"/>
-                <StringItem index="4" value="Acident&#xe1;ria"/>
-                <StringItem index="5" value="Aposentadoria Previdenci&#xe1;ria"/>
-                <StringItem index="6" value="Aposentadoria tempo de servi&#xe7;o, idade ou especial"/>
-                <StringItem index="7" value="N&#xe3;o se aplica"/>
-                <StringItem index="8" value="N&#xe3;o sabe informar"/>
+                <StringItem index="1" value="Aux&#xed;lio acidente"/>
+                <StringItem index="2" value="Aposentadoria Previdenci&#xe1;ria"/>
+                <StringItem index="3" value="Aposentadoria tempo de servi&#xe7;o"/>
+                <StringItem index="4" value="idade ou especial"/>
+                <StringItem index="5" value="N&#xe3;o se aplica"/>
+                <StringItem index="6" value="N&#xe3;o sabe informar"/>
               </StringArray>
             </Property>
             <Property name="name" type="java.lang.String" value="Beneficios Previdenciarios" noResource="true"/>
