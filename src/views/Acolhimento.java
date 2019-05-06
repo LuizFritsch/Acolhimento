@@ -238,7 +238,6 @@ public class Acolhimento extends javax.swing.JDialog {
         labelEscolaridade.setLabelFor(campoEscolaridade);
         labelEscolaridade.setText("Escolaridade:");
 
-        campoEscolaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não sabe ler/Escrever", "1o Grau incompleto", "Ensino médio incompleto", "Superior Incompleto", "Especialização/Residencia", "1o Grau Completo", "Ensino médio completo", "Superior completo", "Mestrado", "Doutorado" }));
         campoEscolaridade.setName("Escolaridade"); // NOI18N
 
         botaoLimparInformacoesPaciente.setText("Limpar");
@@ -535,7 +534,6 @@ public class Acolhimento extends javax.swing.JDialog {
         labelRelacaoTrabalho.setLabelFor(campoRelacaoTrabalho);
         labelRelacaoTrabalho.setText("Relação de Trabalho:");
 
-        campoRelacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado", "Desempregado", "Aposentado", "Empregado", "Autônomo", "Mercado Informal" }));
         campoRelacaoTrabalho.setName("Relação de Trabalho"); // NOI18N
         campoRelacaoTrabalho.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -551,18 +549,15 @@ public class Acolhimento extends javax.swing.JDialog {
         labelSituacaoTrabalho.setLabelFor(campoSituacaoTrabalho);
         labelSituacaoTrabalho.setText("Situação de Trabalho:");
 
-        campoSituacaoTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo na mesma ocupação", "Empregado", "Afastado", "Autonomo", "Aposentado", "Mercado Informal" }));
         campoSituacaoTrabalho.setName("Situação de Trabalho"); // NOI18N
 
         labelCarteiraTrabalho.setLabelFor(campoCarteiraTrabalho);
         labelCarteiraTrabalho.setText("Carteira de Trabalho:");
 
-        campoCarteiraTrabalho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Assalariado com carteira", "Assalariado com dispensa de assinatura da carteira pelo RJU", "Não assalariado", "Assalariado sem carteira assinada", "Não se aplica" }));
         campoCarteiraTrabalho.setName("Carteira de Trabalho"); // NOI18N
 
         labelObjetivoConsulta.setText("Objetivo Da Consulta:");
 
-        campoObjetivoConsulta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Esclarecimento diagnóstico", "Tratamento", "Outro" }));
         campoObjetivoConsulta.setName("Objetivo da Consulta"); // NOI18N
         campoObjetivoConsulta.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -704,12 +699,10 @@ public class Acolhimento extends javax.swing.JDialog {
 
         labelEmissaoCAT.setText("Emissão de CAT:");
 
-        campoEmissaoCAT.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Emitida", "Não emitida", "Não sabe", "Não se aplica" }));
         campoEmissaoCAT.setName("Emissão de CAT"); // NOI18N
 
         labelBeneficiosPrevidenciarios.setText("Beneficios Previdenciários:");
 
-        campoBeneficiosPrevidenciarios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Não recebe aposentadoria", "Auxílio acidente", "Aposentadoria Previdenciária", "Aposentadoria tempo de serviço", "idade ou especial", "Não se aplica", "Não sabe informar" }));
         campoBeneficiosPrevidenciarios.setName("Beneficios Previdenciarios"); // NOI18N
 
         labelLaudoAposentadoriaDesdeQuando.setText("Laudo/Aposentadoria, desde quando?");

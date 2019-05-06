@@ -157,6 +157,7 @@ public class PopulaBanco {
         System.out.println("6. Popular tabela escolaridade");
         System.out.println("7. Popular tabela beneficios_previdenciarios");
         System.out.println("8. Popular tabela objetivo_consulta");
+        System.out.println("9. Popular tabela status_cat");
         Scanner input = new Scanner(System.in);
         String escolha = input.next();
         input.close();
@@ -179,6 +180,8 @@ public class PopulaBanco {
                 popula_beneficios_previdenciarios();
                 System.out.println("populando a tabela objetivo_consulta...");
                 popula_objetivo_consulta();
+                System.out.println("populando a tabela status_cat...");
+                popula_status_cat();
                 System.out.println("Feito...");
                 break;
             case "2":
@@ -214,6 +217,11 @@ public class PopulaBanco {
             case "8":
                 System.out.println("populando a tabela objetivo_consulta...");
                 popula_objetivo_consulta();
+                System.out.println("Feito...");
+                break;
+            case "9":
+                System.out.println("populando a tabela status_cat...");
+                popula_status_cat();
                 System.out.println("Feito...");
                 break;
             default:
@@ -284,6 +292,24 @@ public class PopulaBanco {
             log = new Log();
             log.EscreveNoLog("Erro ao popular a tabela objetivo_consulta: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao popular a tabela objetivo_consulta: " + e.getMessage());
+        }
+    }
+
+    private void popula_status_cat() {
+        try {
+            //Fica mais facil de visualizar assim.
+            //Quando precisar add alguma relacao de trabalho ou modificar,
+            //só será necessário alterar aqui.
+            ArrayList<String> listaStatusCat = new ArrayList<>();
+            listaStatusCat.add("Emitida");
+            listaStatusCat.add("Não emitida");
+            listaStatusCat.add("Não sabe");
+            listaStatusCat.add("Não se aplica");
+            insert_generico("status_cat", listaStatusCat);
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao popular a tabela status_cat: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela status_cat: " + e.getMessage());
         }
     }
 

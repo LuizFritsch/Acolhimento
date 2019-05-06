@@ -390,18 +390,7 @@
         <Component class="javax.swing.JComboBox" name="campoEscolaridade">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="N&#xe3;o sabe ler/Escrever"/>
-                <StringItem index="1" value="1o Grau incompleto"/>
-                <StringItem index="2" value="Ensino m&#xe9;dio incompleto"/>
-                <StringItem index="3" value="Superior Incompleto"/>
-                <StringItem index="4" value="Especializa&#xe7;&#xe3;o/Residencia"/>
-                <StringItem index="5" value="1o Grau Completo"/>
-                <StringItem index="6" value="Ensino m&#xe9;dio completo"/>
-                <StringItem index="7" value="Superior completo"/>
-                <StringItem index="8" value="Mestrado"/>
-                <StringItem index="9" value="Doutorado"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Escolaridade" noResource="true"/>
           </Properties>
@@ -819,14 +808,7 @@
         <Component class="javax.swing.JComboBox" name="campoRelacaoTrabalho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Assalariado"/>
-                <StringItem index="1" value="Desempregado"/>
-                <StringItem index="2" value="Aposentado"/>
-                <StringItem index="3" value="Empregado"/>
-                <StringItem index="4" value="Aut&#xf4;nomo"/>
-                <StringItem index="5" value="Mercado Informal"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Rela&#xe7;&#xe3;o de Trabalho" noResource="true"/>
           </Properties>
@@ -858,14 +840,7 @@
         <Component class="javax.swing.JComboBox" name="campoSituacaoTrabalho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Ativo na mesma ocupa&#xe7;&#xe3;o"/>
-                <StringItem index="1" value="Empregado"/>
-                <StringItem index="2" value="Afastado"/>
-                <StringItem index="3" value="Autonomo"/>
-                <StringItem index="4" value="Aposentado"/>
-                <StringItem index="5" value="Mercado Informal"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Situa&#xe7;&#xe3;o de Trabalho" noResource="true"/>
           </Properties>
@@ -884,13 +859,7 @@
         <Component class="javax.swing.JComboBox" name="campoCarteiraTrabalho">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
-                <StringItem index="0" value="Assalariado com carteira"/>
-                <StringItem index="1" value="Assalariado com dispensa de assinatura da carteira pelo RJU"/>
-                <StringItem index="2" value="N&#xe3;o assalariado"/>
-                <StringItem index="3" value="Assalariado sem carteira assinada"/>
-                <StringItem index="4" value="N&#xe3;o se aplica"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Carteira de Trabalho" noResource="true"/>
           </Properties>
@@ -906,11 +875,7 @@
         <Component class="javax.swing.JComboBox" name="campoObjetivoConsulta">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Esclarecimento diagn&#xf3;stico"/>
-                <StringItem index="1" value="Tratamento"/>
-                <StringItem index="2" value="Outro"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Objetivo da Consulta" noResource="true"/>
           </Properties>
@@ -1040,12 +1005,7 @@
         <Component class="javax.swing.JComboBox" name="campoEmissaoCAT">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Emitida"/>
-                <StringItem index="1" value="N&#xe3;o emitida"/>
-                <StringItem index="2" value="N&#xe3;o sabe"/>
-                <StringItem index="3" value="N&#xe3;o se aplica"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Emiss&#xe3;o de CAT" noResource="true"/>
           </Properties>
@@ -1061,15 +1021,7 @@
         <Component class="javax.swing.JComboBox" name="campoBeneficiosPrevidenciarios">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="7">
-                <StringItem index="0" value="N&#xe3;o recebe aposentadoria"/>
-                <StringItem index="1" value="Aux&#xed;lio acidente"/>
-                <StringItem index="2" value="Aposentadoria Previdenci&#xe1;ria"/>
-                <StringItem index="3" value="Aposentadoria tempo de servi&#xe7;o"/>
-                <StringItem index="4" value="idade ou especial"/>
-                <StringItem index="5" value="N&#xe3;o se aplica"/>
-                <StringItem index="6" value="N&#xe3;o sabe informar"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
             <Property name="name" type="java.lang.String" value="Beneficios Previdenciarios" noResource="true"/>
           </Properties>
