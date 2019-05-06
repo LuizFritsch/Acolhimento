@@ -51,7 +51,7 @@ public class PopulaBanco {
             insert_generico("relacao_trabalho", listaRelacaoTrabalho);
         } catch (Exception e) {
             log = new Log();
-            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
+            log.EscreveNoLog("Erro ao popular a tabela relacao_trabalho: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela relacao_trabalho: " + e.getMessage());
         }
     }
@@ -79,8 +79,8 @@ public class PopulaBanco {
             insert_generico("situacao_trabalho", listaSituacaoTrabalho);
         } catch (Exception e) {
             log = new Log();
-            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela relacao_trabalho: " + e.getMessage());
+            log.EscreveNoLog("Erro ao popular a tabela situacao_trabalho: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela situacao_trabalho: " + e.getMessage());
         }
     }
 
@@ -105,8 +105,8 @@ public class PopulaBanco {
             }
         } catch (SQLException | ClassNotFoundException | IOException e) {
             log = new Log();
-            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela profissao: " + e.getMessage());
+            log.EscreveNoLog("Erro ao popular a tabela profissao: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela profissao: " + e.getMessage());
         }
     }
 
@@ -118,8 +118,8 @@ public class PopulaBanco {
             }
         } catch (SQLException | ClassNotFoundException e) {
             log = new Log();
-            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela profissao: " + e.getMessage());
+            log.EscreveNoLog("Erro ao inserir genericamente: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela  " +nome_tabela+", no insert generico: "+ e.getMessage());
         }
     }
 
@@ -142,8 +142,8 @@ public class PopulaBanco {
             insert_generico("carteira_trabalho", listacarteiraTrabalho);
         } catch (Exception e) {
             log = new Log();
-            log.EscreveNoLog("Erro ao escrever no log: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao popular a tagbela relacao_trabalho: " + e.getMessage());
+            log.EscreveNoLog("Erro ao popular a tabela carteira_trabalho: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela carteira_trabalho: " + e.getMessage());
         }
     }
 
@@ -170,6 +170,8 @@ public class PopulaBanco {
                 popula_carteira_trabalho();
                 System.out.println("populando a tabela carteira_trabalho...");
                 popula_carteira_trabalho();
+                System.out.println("populando a tabela escolaridade...");
+                popula_escolaridade();
                 System.out.println("Feito...");
                 break;
             case "2":
@@ -192,10 +194,41 @@ public class PopulaBanco {
                 popula_carteira_trabalho();
                 System.out.println("Feito...");
                 break;
+            case "6":
+                System.out.println("populando a tabela escolaridade...");
+                popula_escolaridade();
+                System.out.println("Feito...");
+                break;
             default:
                 System.out.println("Opção inválida");
                 break;
         }
+    }
+
+    private void popula_escolaridade() {
+        try {
+            //Fica mais facil de visualizar assim.
+            //Quando precisar add alguma relacao de trabalho ou modificar,
+            //só será necessário alterar aqui.
+            ArrayList<String> listaEscolaridade = new ArrayList<>();
+            listaEscolaridade.add("Não sabe ler/Escrever");
+            listaEscolaridade.add("1o Grau incompleto");
+            listaEscolaridade.add("2º Grau incompleto");
+            listaEscolaridade.add("Superior Incompleto");
+            listaEscolaridade.add("Especialização/Residencia");
+            listaEscolaridade.add("1o Grau Completo");
+            listaEscolaridade.add("2º Grau completo");
+            listaEscolaridade.add("Superior completo");
+            listaEscolaridade.add("Mestrado");
+            listaEscolaridade.add("Doutorado");
+
+            insert_generico("escolaridade", listaEscolaridade);
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao popular a tabela escolaridade: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela escolaridade: " + e.getMessage());
+        }
+
     }
 
 }
