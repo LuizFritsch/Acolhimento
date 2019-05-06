@@ -119,7 +119,7 @@ public class PopulaBanco {
         } catch (SQLException | ClassNotFoundException e) {
             log = new Log();
             log.EscreveNoLog("Erro ao inserir genericamente: " + e.getMessage());
-            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela  " +nome_tabela+", no insert generico: "+ e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela  " + nome_tabela + ", no insert generico: " + e.getMessage());
         }
     }
 
@@ -154,6 +154,8 @@ public class PopulaBanco {
         System.out.println("3. Popular tabela relacao_trabalho");
         System.out.println("4. Popular tabela situacao_trabalho");
         System.out.println("5. Popular tabela carteira_trabalho");
+        System.out.println("6. Popular tabela escolaridade");
+        System.out.println("7. Popular tabela beneficios_previdenciarios");
         Scanner input = new Scanner(System.in);
         String escolha = input.next();
         input.close();
@@ -172,6 +174,8 @@ public class PopulaBanco {
                 popula_carteira_trabalho();
                 System.out.println("populando a tabela escolaridade...");
                 popula_escolaridade();
+                System.out.println("populando a tabela beneficios_previdenciarios...");
+                popula_beneficios_previdenciarios();
                 System.out.println("Feito...");
                 break;
             case "2":
@@ -197,6 +201,11 @@ public class PopulaBanco {
             case "6":
                 System.out.println("populando a tabela escolaridade...");
                 popula_escolaridade();
+                System.out.println("Feito...");
+                break;
+            case "7":
+                System.out.println("populando a tabela beneficios_previdenciarios...");
+                popula_beneficios_previdenciarios();
                 System.out.println("Feito...");
                 break;
             default:
@@ -230,5 +239,27 @@ public class PopulaBanco {
         }
 
     }
+
+    private void popula_beneficios_previdenciarios() {
+        try {
+            //Fica mais facil de visualizar assim.
+            //Quando precisar add alguma relacao de trabalho ou modificar,
+            //só será necessário alterar aqui.
+            ArrayList<String> listaBeneficiosPrevidenciarios = new ArrayList<>();
+            listaBeneficiosPrevidenciarios.add("Não recebe aposentadoria");
+            listaBeneficiosPrevidenciarios.add("Auxílio acidente");
+            listaBeneficiosPrevidenciarios.add("Aposentadoria Previdenciária");
+            listaBeneficiosPrevidenciarios.add("Aposentadoria tempo de serviço");
+            listaBeneficiosPrevidenciarios.add("idade ou especial");
+            listaBeneficiosPrevidenciarios.add("Não se aplica");
+            listaBeneficiosPrevidenciarios.add("Não sabe informar");
+
+            insert_generico("beneficios_previdenciarios", listaBeneficiosPrevidenciarios);
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao popular a tabela beneficios_previdenciarios: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela beneficios_previdenciarios: " + e.getMessage());
+        }
+}
 
 }
