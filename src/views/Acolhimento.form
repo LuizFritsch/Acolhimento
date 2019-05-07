@@ -25,54 +25,59 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="panelOrigemEncaminhamento" alignment="0" max="32767" attributes="0"/>
-                  <Component id="panelInformacoesPaciente" alignment="0" max="32767" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="panelInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="panelInformacoesAgravo" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="botaoLimparTudo" max="32767" attributes="0"/>
-                          <Component id="botaoVoltar" max="32767" attributes="0"/>
-                          <Component id="botaoSalvar" alignment="0" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="panelInformacoesPaciente" alignment="0" max="-2" attributes="0"/>
+                              <Component id="panelOrigemEncaminhamento" alignment="0" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="botaoVoltar" min="-2" pref="150" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="botaoLimparTudo" min="-2" pref="164" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botaoSalvar" min="-2" pref="319" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace pref="22" max="32767" attributes="0"/>
+              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="panelInformacoesAgravo" min="-2" max="-2" attributes="0"/>
+                  <Component id="panelInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="panelInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelInformacoesAgravo" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="botaoLimparTudo" min="-2" pref="39" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="botaoSalvar" min="-2" pref="39" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="botaoVoltar" min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="panelInformacoesAgravo" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Component id="panelInformacoesPaciente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Component id="panelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="botaoLimparTudo" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="botaoVoltar" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="botaoSalvar" min="-2" pref="39" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -93,13 +98,10 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="botaoLimparInformacoesPaciente" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="campoNaturalidade" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="labelNomePaciente" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="campoNomePaciente" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
@@ -119,9 +121,6 @@
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="labelNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="labelNomeMae" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="campoNomeMae" alignment="0" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="campoSUS" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
@@ -133,20 +132,34 @@
                                           <Component id="campoCPF" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="labelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="campoCelular" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
-                                  <Component id="labelEscolaridade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="campoEscolaridade" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="campoEndereco" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                                          <Component id="labelEndereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="labelEndereco" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="campoEndereco" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="campoNumeroCasa" max="32767" attributes="0"/>
+                                          <Component id="campoNumeroCasa" min="-2" pref="106" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="campoNomePaciente" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                          <Component id="campoNaturalidade" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                          <Component id="campoNomeMae" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                          <Component id="labelNomePaciente" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelNaturalidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelNomeMae" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="labelCelular" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoCelular" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                          <Component id="labelEscolaridade" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campoEscolaridade" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -156,7 +169,7 @@
                           <Component id="labelTituloInformacoesPaciente" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -445,47 +458,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="botaoLimparOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="campoMunicipioUnidadeOUOutro" alignment="0" max="32767" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="checkINSS" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="checkSindicato" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="checkServMedicoPart" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="checkMunicipio" min="-2" max="-2" attributes="0"/>
-                                              <Component id="checkUnidade" min="-2" max="-2" attributes="0"/>
-                                              <Component id="checkSUS" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="checkOutro" min="-2" max="-2" attributes="0"/>
-                                              <Component id="checkSem" min="-2" max="-2" attributes="0"/>
-                                              <Component id="checkEmpresa" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="campoOrigemEncaminhamento" alignment="1" min="-2" pref="287" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="labelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -495,36 +476,8 @@
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Component id="labelOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="checkINSS" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="checkSindicato" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Component id="checkServMedicoPart" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="checkSUS" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkEmpresa" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="checkMunicipio" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkSem" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="checkUnidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="checkOutro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="campoMunicipioUnidadeOUOutro" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="botaoLimparOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Component id="campoOrigemEncaminhamento" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -541,86 +494,15 @@
             <Property name="text" type="java.lang.String" value="Origem do Encaminhamento:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JCheckBox" name="checkINSS">
+        <Component class="javax.swing.JComboBox" name="campoOrigemEncaminhamento">
           <Properties>
-            <Property name="text" type="java.lang.String" value="INSS"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkINSSActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkSUS">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="SUS"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkEmpresa">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Empresa"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkSindicato">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sindicato"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkMunicipio">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Munic&#xed;pio"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkSem">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Sem"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkServMedicoPart">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Serv. M&#xe9;dico Part."/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkServMedicoPartActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkUnidade">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Unidade"/>
-            <Property name="name" type="java.lang.String" value="Origem Encaminhamento" noResource="true"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="checkOutro">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Outro"/>
-            <Property name="name" type="java.lang.String" value="outro" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkOutroActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JTextField" name="campoMunicipioUnidadeOUOutro">
-          <Properties>
-            <Property name="toolTipText" type="java.lang.String" value="Munic&#xed;pio, Unidade ou outro..."/>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="name" type="java.lang.String" value="campoMunicipioUnidadeOUOutro" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoMunicipioUnidadeOUOutroActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="botaoLimparOrigemEncaminhamento">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Limpar"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoLimparOrigemEncaminhamentoActionPerformed"/>
-          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
@@ -639,55 +521,38 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelCarteiraTrabalho" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelSituacaoTrabalho" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelProfisssao" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
-                                  <Component id="labelCBO" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <EmptySpace pref="194" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="botaoLimparInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="labelObjetivoConsulta" min="-2" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="campoObjetivoConsulta" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="campoCarteiraTrabalho" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
+                                  <Component id="campoCarteiraTrabalho" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                  <Component id="campoProfissao" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                  <Component id="labelCarteiraTrabalho" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelSituacaoTrabalho" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelProfisssao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelRelacaoTrabalho" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelEmpresa" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="labelTituloInformacoesProfissionaisPaciente" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="labelCBO" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="campoOutroObjetivoConsulta" pref="203" max="32767" attributes="0"/>
+                                      <Component id="campoCBO" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="botaoPesquisarProfissao" min="-2" pref="107" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="labelRelacaoTrabalho" min="-2" max="-2" attributes="0"/>
-                                      <Component id="labelEmpresa" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="campoRelacaoTrabalho" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="campoEmpresa" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="botaoPesquisarProfissao" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="labelTituloInformacoesProfissionaisPaciente" alignment="0" pref="274" max="32767" attributes="0"/>
-                                              <Component id="campoProfissao" alignment="0" max="32767" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="campoCBO" pref="203" max="32767" attributes="0"/>
-                                              <Component id="campoMercadoInformal" max="32767" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="campoSituacaoTrabalho" alignment="0" min="-2" pref="274" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="campoRelacaoTrabalho" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                  <Component id="campoSituacaoTrabalho" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                                  <Component id="campoEmpresa" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
                               </Group>
+                              <Component id="botaoLimparInformacoesProfissionaisPaciente" alignment="1" min="-2" pref="99" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="campoObjetivoConsulta" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                              <Component id="labelObjetivoConsulta" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -699,17 +564,15 @@
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="labelTituloInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="labelProfisssao" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="labelCBO" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="labelProfisssao" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="campoProfissao" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoProfissao" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       <Component id="campoCBO" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                      <Component id="labelCBO" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="botaoPesquisarProfissao" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="botaoPesquisarProfissao" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelEmpresa" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -717,10 +580,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelRelacaoTrabalho" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoRelacaoTrabalho" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="campoMercadoInformal" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="campoRelacaoTrabalho" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelSituacaoTrabalho" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -732,10 +592,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelObjetivoConsulta" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="campoObjetivoConsulta" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      <Component id="campoOutroObjetivoConsulta" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="campoObjetivoConsulta" min="-2" pref="28" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="botaoLimparInformacoesProfissionaisPaciente" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -820,16 +677,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoMercadoInformal">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="66" green="66" red="66" type="rgb"/>
-            </Property>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="name" type="java.lang.String" value="campoMercadoInformal" noResource="true"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="labelSituacaoTrabalho">
           <Properties>
             <Property name="labelFor" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
@@ -888,16 +735,6 @@
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="campoOutroObjetivoConsulta">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-            <Property name="enabled" type="boolean" value="false"/>
-            <Property name="name" type="java.lang.String" value="outroObjetivoConsulta" noResource="true"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campoOutroObjetivoConsultaActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JButton" name="botaoLimparInformacoesProfissionaisPaciente">
           <Properties>
             <Property name="text" type="java.lang.String" value="Limpar"/>
@@ -908,7 +745,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="botaoPesquisarProfissao">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pesquisar Profiss&#xe3;o"/>
+            <Property name="text" type="java.lang.String" value="Pesquisar"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoPesquisarProfissaoActionPerformed"/>
@@ -950,14 +787,14 @@
                           <Component id="labelBeneficiosPrevidenciarios" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelTituloInformacoesAgravo" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="labelEmissaoCAT" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="campoEmissaoCAT" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
-                          <Component id="campoBeneficiosPrevidenciarios" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
+                          <Component id="campoBeneficiosPrevidenciarios" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
                           <Component id="labelLaudoAposentadoriaDesdeQuando" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="campoLaudoAposentadoriaDesdeQuando" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
-                          <Component id="campoFisioterapiaAnteriormente" alignment="0" min="-2" pref="267" max="-2" attributes="0"/>
+                          <Component id="campoLaudoAposentadoriaDesdeQuando" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                          <Component id="campoFisioterapiaAnteriormente" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
+                          <Component id="campoEmissaoCAT" alignment="0" min="-2" pref="287" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                  <EmptySpace pref="9" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
