@@ -263,5 +263,14 @@ public class OperacoesBancoDeDadosDAO {
 
         comando.execute();
     }
+    
+     public ResultSet select_tudo_from_tabela(String nome_da_tabela) throws SQLException, Exception {
+        StringBuilder sql = new StringBuilder();
+        sql.append("SELECT *");
+        sql.append("FROM "+nome_da_tabela);
+        PreparedStatement comando = this.conexaoDao.pegarConexao().prepareStatement(sql.toString());
+        ResultSet resultado = comando.executeQuery();
+        return resultado;
+    }
 
 }

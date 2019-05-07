@@ -9,6 +9,7 @@ import controller.AcolhimentoController;
 import controller.Log;
 import exceptions.CampoEmBrancoException;
 import java.awt.Component;
+import java.sql.ResultSet;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -20,7 +21,9 @@ import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.text.MaskFormatter;
+import models.dao.OperacoesBancoDeDadosDAO;
 
 /**
  *
@@ -54,7 +57,34 @@ public class Acolhimento extends javax.swing.JDialog {
             maskData = new MaskFormatter("##/##/####");
             maskData.install((JFormattedTextField) campoDataNascimento);
         } catch (ParseException erro) {
-            log.EscreveNoLog("Erro: " + erro.getMessage());
+            log.EscreveNoLog("Erro ao colocar uma mascara na data: " + erro.getMessage());
+        }
+        try {
+            populaComboBox(campoCarteiraTrabalho, "carteira_trabalho");
+            populaComboBox(campoBeneficiosPrevidenciarios, "beneficios_previdenciarios");
+            populaComboBox(campoEmissaoCAT, "status_cat");
+            populaComboBox(campoObjetivoConsulta, "objetivo_consulta");
+            populaComboBox(campoRelacaoTrabalho, "relacao_trabalho");
+            populaComboBox(campoSituacaoTrabalho, "situacao_trabalho");
+            populaComboBox(campoEscolaridade, "escolaridade");
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Erro ao preencher os combobox com informações do banco: "+erro.getMessage());
+            log.EscreveNoLog("Erro ao preencher os combobox: " + erro.getMessage());
+        }
+
+    }
+
+    public void populaComboBox(JComboBox combobox_a_ser_preenchido, String nome_da_tabela) {
+        try {
+            OperacoesBancoDeDadosDAO opdao = new OperacoesBancoDeDadosDAO();
+            ResultSet rs = opdao.select_tudo_from_tabela(nome_da_tabela);
+            while (rs.next()) {
+                combobox_a_ser_preenchido.addItem(rs.getString("descricao"));
+            }
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog(e.getMessage());
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
 
@@ -538,6 +568,11 @@ public class Acolhimento extends javax.swing.JDialog {
         campoRelacaoTrabalho.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 campoRelacaoTrabalhoItemStateChanged(evt);
+            }
+        });
+        campoRelacaoTrabalho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campoRelacaoTrabalhoActionPerformed(evt);
             }
         });
 
@@ -1068,7 +1103,7 @@ public class Acolhimento extends javax.swing.JDialog {
             if (erro instanceof CampoEmBrancoException) {
                 JOptionPane.showMessageDialog(null, erro.getMessage());
             } else {
-                log.EscreveNoLog("Erro de campo em branco: "+erro.getMessage());
+                log.EscreveNoLog("Erro de campo em branco: " + erro.getMessage());
             }
         }
         return hmlistaInformacoesPanel;
@@ -1090,7 +1125,7 @@ public class Acolhimento extends javax.swing.JDialog {
                 throw new Exception("Não foi possível salvar o paciente, por favor, tente novamente!");
             }
         } catch (Exception erro) {
-            log.EscreveNoLog("Erro no salvar da view: "+erro.getMessage());
+            log.EscreveNoLog("Erro no salvar da view: " + erro.getMessage());
             JOptionPane.showMessageDialog(null, "Erro: " + erro.getMessage());
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed
@@ -1489,6 +1524,10 @@ public class Acolhimento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, "Erro inesperado: " + erro.getMessage());
         }
     }//GEN-LAST:event_campoCPFKeyTyped
+
+    private void campoRelacaoTrabalhoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoRelacaoTrabalhoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campoRelacaoTrabalhoActionPerformed
 
     /**
      * @param args the command line arguments
