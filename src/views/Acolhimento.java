@@ -67,6 +67,7 @@ public class Acolhimento extends javax.swing.JDialog {
             populaComboBox(campoRelacaoTrabalho, "relacao_trabalho");
             populaComboBox(campoSituacaoTrabalho, "situacao_trabalho");
             populaComboBox(campoEscolaridade, "escolaridade");
+            populaComboBox(campoOrigemEncaminhamento, "origem_encaminhamento");
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Erro ao preencher os combobox com informações do banco: " + erro.getMessage());
             log.EscreveNoLog("Erro ao preencher os combobox: " + erro.getMessage());

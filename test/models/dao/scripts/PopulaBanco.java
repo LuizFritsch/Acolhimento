@@ -158,6 +158,7 @@ public class PopulaBanco {
         System.out.println("7. Popular tabela beneficios_previdenciarios");
         System.out.println("8. Popular tabela objetivo_consulta");
         System.out.println("9. Popular tabela status_cat");
+        System.out.println("10. Popular tabela origem_encaminhamento");
         Scanner input = new Scanner(System.in);
         String escolha = input.next();
         input.close();
@@ -179,6 +180,8 @@ public class PopulaBanco {
                 System.out.println("populando a tabela objetivo_consulta...");
                 popula_objetivo_consulta();
                 System.out.println("populando a tabela status_cat...");
+                System.out.println("populando a tabela origem_encaminhamento...");
+                popula_origem_encaminhamento();
                 popula_status_cat();
                 System.out.println("Feito...");
                 break;
@@ -220,6 +223,11 @@ public class PopulaBanco {
             case "9":
                 System.out.println("populando a tabela status_cat...");
                 popula_status_cat();
+                System.out.println("Feito...");
+                break;
+            case "10":
+                System.out.println("populando a tabela origem_encaminhamento...");
+                popula_origem_encaminhamento();
                 System.out.println("Feito...");
                 break;
             default:
@@ -308,6 +316,25 @@ public class PopulaBanco {
             log = new Log();
             log.EscreveNoLog("Erro ao popular a tabela status_cat: " + e.getMessage());
             JOptionPane.showMessageDialog(null, "Erro ao popular a tabela status_cat: " + e.getMessage());
+        }
+    }
+
+    private void popula_origem_encaminhamento() {
+        try {
+            //Fica mais facil de visualizar assim.
+            //Quando precisar add alguma relacao de trabalho ou modificar,
+            //só será necessário alterar aqui.
+            ArrayList<String> listaOrigemEncaminhamento = new ArrayList<>();
+            listaOrigemEncaminhamento.add("INSS");
+            listaOrigemEncaminhamento.add("Sindicato");
+            listaOrigemEncaminhamento.add("Municipio");
+            listaOrigemEncaminhamento.add("Unidade de Saúde");
+            listaOrigemEncaminhamento.add("Empresa");
+            insert_generico("origem_encaminhamento", listaOrigemEncaminhamento);
+        } catch (Exception e) {
+            log = new Log();
+            log.EscreveNoLog("Erro ao popular a tabela origem_encaminhamento: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Erro ao popular a tabela origem_encaminhamento: " + e.getMessage());
         }
     }
 
